@@ -102,7 +102,7 @@ namespace MampoteSystem.Datos.AdoNet
         {
             try
             {
-                return ObjContext.ExecuteNonQuery($"delete venta where id = '{idVenta}'", System.Data.CommandType.Text);
+                return ObjContext.ExecuteNonQuery($"delete from detalleVenta where idVenta = '{idVenta}' delete venta where id = '{idVenta}'", System.Data.CommandType.Text);
             }
             catch(Exception ex)
             {
