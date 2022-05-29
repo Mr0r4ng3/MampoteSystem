@@ -32,8 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAgregarPagos = new System.Windows.Forms.Panel();
+            this.txPropina = new Autonomo.CustomControls.FlatTextBox();
+            this.txVueltoDivisa = new Autonomo.CustomControls.FlatTextBox();
             this.txNota = new Autonomo.CustomControls.FlatTextBox();
-            this.txVuelto = new Autonomo.CustomControls.FlatTextBox();
+            this.txVueltoBolivares = new Autonomo.CustomControls.FlatTextBox();
             this.txMontoPago = new Autonomo.CustomControls.FlatTextBox();
             this.cbTiposPago = new Autonomo.CustomControls.FlatComboBox();
             this.pnlPagosAgregados = new System.Windows.Forms.Panel();
@@ -43,9 +45,10 @@
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vuelto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vuelto_Bolivares = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vuelto_Divisas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Propina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbDiferenciaBs = new System.Windows.Forms.Label();
@@ -74,19 +77,19 @@
             // 
             // Contenedor
             // 
-            this.Contenedor.Size = new System.Drawing.Size(1077, 646);
+            this.Contenedor.Size = new System.Drawing.Size(1077, 735);
             // 
             // Body
             // 
             this.Body.Controls.Add(this.pnlAgregarPagos);
             this.Body.Controls.Add(this.pnlPagosAgregados);
             this.Body.Controls.Add(this.panel1);
-            this.Body.Size = new System.Drawing.Size(1077, 553);
+            this.Body.Size = new System.Drawing.Size(1077, 642);
             // 
             // Footer
             // 
             this.Footer.Controls.Add(this.btnCerrarVenta);
-            this.Footer.Location = new System.Drawing.Point(0, 594);
+            this.Footer.Location = new System.Drawing.Point(0, 683);
             this.Footer.Size = new System.Drawing.Size(1077, 52);
             this.Footer.Controls.SetChildIndex(this.btnSave, 0);
             this.Footer.Controls.SetChildIndex(this.btnCerrarVenta, 0);
@@ -107,15 +110,91 @@
             // 
             // pnlAgregarPagos
             // 
+            this.pnlAgregarPagos.Controls.Add(this.txPropina);
+            this.pnlAgregarPagos.Controls.Add(this.txVueltoDivisa);
             this.pnlAgregarPagos.Controls.Add(this.txNota);
-            this.pnlAgregarPagos.Controls.Add(this.txVuelto);
+            this.pnlAgregarPagos.Controls.Add(this.txVueltoBolivares);
             this.pnlAgregarPagos.Controls.Add(this.txMontoPago);
             this.pnlAgregarPagos.Controls.Add(this.cbTiposPago);
             this.pnlAgregarPagos.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlAgregarPagos.Location = new System.Drawing.Point(0, 62);
             this.pnlAgregarPagos.Name = "pnlAgregarPagos";
-            this.pnlAgregarPagos.Size = new System.Drawing.Size(400, 491);
+            this.pnlAgregarPagos.Size = new System.Drawing.Size(405, 580);
             this.pnlAgregarPagos.TabIndex = 0;
+            // 
+            // txPropina
+            // 
+            this.txPropina.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txPropina.BackColor = System.Drawing.Color.White;
+            this.txPropina.Category = '\0';
+            this.txPropina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txPropina.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txPropina.ColorLine = System.Drawing.Color.Gray;
+            this.txPropina.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txPropina.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txPropina.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txPropina.Error = "";
+            this.txPropina.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txPropina.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txPropina.FormatLogin = false;
+            this.txPropina.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txPropina.ImageIcon")));
+            this.txPropina.Info = "";
+            this.txPropina.Location = new System.Drawing.Point(22, 500);
+            this.txPropina.MaterialStyle = false;
+            this.txPropina.MaxLength = 32767;
+            this.txPropina.MultiLineText = false;
+            this.txPropina.Name = "txPropina";
+            this.txPropina.PasswordChar = '\0';
+            this.txPropina.Placeholder = "";
+            this.txPropina.ReadOnly = false;
+            this.txPropina.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txPropina.Size = new System.Drawing.Size(278, 58);
+            this.txPropina.SizeLine = 2;
+            this.txPropina.TabIndex = 5;
+            this.txPropina.Text = "00.00";
+            this.txPropina.Title = "Propina";
+            this.txPropina.Visible = false;
+            this.txPropina.VisibleIcon = true;
+            this.txPropina.VisibleTitle = true;
+            this.txPropina.TextBoxChanged += new System.EventHandler(this.txVuelto_TextBoxChanged);
+            this.txPropina.KeyPress += new System.EventHandler<System.Windows.Forms.KeyPressEventArgs>(this.txPropina_KeyPress);
+            // 
+            // txVueltoDivisa
+            // 
+            this.txVueltoDivisa.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txVueltoDivisa.BackColor = System.Drawing.Color.White;
+            this.txVueltoDivisa.Category = '\0';
+            this.txVueltoDivisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txVueltoDivisa.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txVueltoDivisa.ColorLine = System.Drawing.Color.Gray;
+            this.txVueltoDivisa.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txVueltoDivisa.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txVueltoDivisa.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txVueltoDivisa.Error = "";
+            this.txVueltoDivisa.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txVueltoDivisa.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txVueltoDivisa.FormatLogin = false;
+            this.txVueltoDivisa.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txVueltoDivisa.ImageIcon")));
+            this.txVueltoDivisa.Info = "";
+            this.txVueltoDivisa.Location = new System.Drawing.Point(22, 445);
+            this.txVueltoDivisa.MaterialStyle = false;
+            this.txVueltoDivisa.MaxLength = 32767;
+            this.txVueltoDivisa.MultiLineText = false;
+            this.txVueltoDivisa.Name = "txVueltoDivisa";
+            this.txVueltoDivisa.PasswordChar = '\0';
+            this.txVueltoDivisa.Placeholder = "";
+            this.txVueltoDivisa.ReadOnly = false;
+            this.txVueltoDivisa.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txVueltoDivisa.Size = new System.Drawing.Size(278, 58);
+            this.txVueltoDivisa.SizeLine = 2;
+            this.txVueltoDivisa.TabIndex = 4;
+            this.txVueltoDivisa.Text = "00.00";
+            this.txVueltoDivisa.Title = "Vuelto en Divisas";
+            this.txVueltoDivisa.Visible = false;
+            this.txVueltoDivisa.VisibleIcon = true;
+            this.txVueltoDivisa.VisibleTitle = true;
+            this.txVueltoDivisa.TextBoxChanged += new System.EventHandler(this.txVuelto_TextBoxChanged);
+            this.txVueltoDivisa.KeyPress += new System.EventHandler<System.Windows.Forms.KeyPressEventArgs>(this.txVueltoDivisa_KeyPress);
             // 
             // txNota
             // 
@@ -143,49 +222,49 @@
             this.txNota.Placeholder = "";
             this.txNota.ReadOnly = false;
             this.txNota.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txNota.Size = new System.Drawing.Size(278, 220);
+            this.txNota.Size = new System.Drawing.Size(278, 163);
             this.txNota.SizeLine = 2;
             this.txNota.TabIndex = 3;
             this.txNota.Title = "Nota";
             this.txNota.VisibleIcon = true;
             this.txNota.VisibleTitle = true;
             // 
-            // txVuelto
+            // txVueltoBolivares
             // 
-            this.txVuelto.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txVuelto.BackColor = System.Drawing.Color.White;
-            this.txVuelto.Category = '\0';
-            this.txVuelto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txVuelto.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.txVuelto.ColorLine = System.Drawing.Color.Gray;
-            this.txVuelto.ColorText = System.Drawing.SystemColors.WindowText;
-            this.txVuelto.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txVuelto.DockIcon = System.Windows.Forms.DockStyle.Left;
-            this.txVuelto.Error = "";
-            this.txVuelto.FontText = new System.Drawing.Font("Verdana", 10F);
-            this.txVuelto.FontTitle = new System.Drawing.Font("Verdana", 9F);
-            this.txVuelto.FormatLogin = false;
-            this.txVuelto.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txVuelto.ImageIcon")));
-            this.txVuelto.Info = "";
-            this.txVuelto.Location = new System.Drawing.Point(22, 411);
-            this.txVuelto.MaterialStyle = false;
-            this.txVuelto.MaxLength = 32767;
-            this.txVuelto.MultiLineText = false;
-            this.txVuelto.Name = "txVuelto";
-            this.txVuelto.PasswordChar = '\0';
-            this.txVuelto.Placeholder = "";
-            this.txVuelto.ReadOnly = false;
-            this.txVuelto.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txVuelto.Size = new System.Drawing.Size(278, 58);
-            this.txVuelto.SizeLine = 2;
-            this.txVuelto.TabIndex = 2;
-            this.txVuelto.Text = "00.00";
-            this.txVuelto.Title = "Vuelto";
-            this.txVuelto.Visible = false;
-            this.txVuelto.VisibleIcon = true;
-            this.txVuelto.VisibleTitle = true;
-            this.txVuelto.TextBoxChanged += new System.EventHandler(this.txVuelto_TextBoxChanged);
-            this.txVuelto.KeyPress += new System.EventHandler<System.Windows.Forms.KeyPressEventArgs>(this.txVuelto_KeyPress);
+            this.txVueltoBolivares.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txVueltoBolivares.BackColor = System.Drawing.Color.White;
+            this.txVueltoBolivares.Category = '\0';
+            this.txVueltoBolivares.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txVueltoBolivares.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txVueltoBolivares.ColorLine = System.Drawing.Color.Gray;
+            this.txVueltoBolivares.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txVueltoBolivares.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txVueltoBolivares.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txVueltoBolivares.Error = "";
+            this.txVueltoBolivares.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txVueltoBolivares.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txVueltoBolivares.FormatLogin = false;
+            this.txVueltoBolivares.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txVueltoBolivares.ImageIcon")));
+            this.txVueltoBolivares.Info = "";
+            this.txVueltoBolivares.Location = new System.Drawing.Point(22, 381);
+            this.txVueltoBolivares.MaterialStyle = false;
+            this.txVueltoBolivares.MaxLength = 32767;
+            this.txVueltoBolivares.MultiLineText = false;
+            this.txVueltoBolivares.Name = "txVueltoBolivares";
+            this.txVueltoBolivares.PasswordChar = '\0';
+            this.txVueltoBolivares.Placeholder = "";
+            this.txVueltoBolivares.ReadOnly = false;
+            this.txVueltoBolivares.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txVueltoBolivares.Size = new System.Drawing.Size(278, 58);
+            this.txVueltoBolivares.SizeLine = 2;
+            this.txVueltoBolivares.TabIndex = 2;
+            this.txVueltoBolivares.Text = "00.00";
+            this.txVueltoBolivares.Title = "Vuelto en Bolivares";
+            this.txVueltoBolivares.Visible = false;
+            this.txVueltoBolivares.VisibleIcon = true;
+            this.txVueltoBolivares.VisibleTitle = true;
+            this.txVueltoBolivares.TextBoxChanged += new System.EventHandler(this.txVuelto_TextBoxChanged);
+            this.txVueltoBolivares.KeyPress += new System.EventHandler<System.Windows.Forms.KeyPressEventArgs>(this.txVuelto_KeyPress);
             // 
             // txMontoPago
             // 
@@ -260,7 +339,7 @@
             this.pnlPagosAgregados.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPagosAgregados.Location = new System.Drawing.Point(406, 62);
             this.pnlPagosAgregados.Name = "pnlPagosAgregados";
-            this.pnlPagosAgregados.Size = new System.Drawing.Size(671, 491);
+            this.pnlPagosAgregados.Size = new System.Drawing.Size(671, 580);
             this.pnlPagosAgregados.TabIndex = 1;
             // 
             // grdData
@@ -293,9 +372,10 @@
             this.Descripcion,
             this.Monto,
             this.Tasa,
-            this.Vuelto,
-            this.Nota,
-            this.Usuario});
+            this.Vuelto_Bolivares,
+            this.Vuelto_Divisas,
+            this.Propina,
+            this.Nota});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,7 +399,7 @@
             this.grdData.ReadOnly = true;
             this.grdData.RowHeadersVisible = false;
             this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdData.Size = new System.Drawing.Size(671, 391);
+            this.grdData.Size = new System.Drawing.Size(671, 480);
             this.grdData.TabIndex = 0;
             this.grdData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellContentDoubleClick);
             // 
@@ -361,12 +441,26 @@
             this.Tasa.ReadOnly = true;
             this.Tasa.Visible = false;
             // 
-            // Vuelto
+            // Vuelto_Bolivares
             // 
-            this.Vuelto.DataPropertyName = "Vuelto";
-            this.Vuelto.HeaderText = "Vuelto";
-            this.Vuelto.Name = "Vuelto";
-            this.Vuelto.ReadOnly = true;
+            this.Vuelto_Bolivares.DataPropertyName = "Vuelto_Bolivares";
+            this.Vuelto_Bolivares.HeaderText = "Vuelto en Bolivares";
+            this.Vuelto_Bolivares.Name = "Vuelto_Bolivares";
+            this.Vuelto_Bolivares.ReadOnly = true;
+            // 
+            // Vuelto_Divisas
+            // 
+            this.Vuelto_Divisas.DataPropertyName = "Vuelto_Divisas";
+            this.Vuelto_Divisas.HeaderText = "Vuelto en Divisas";
+            this.Vuelto_Divisas.Name = "Vuelto_Divisas";
+            this.Vuelto_Divisas.ReadOnly = true;
+            // 
+            // Propina
+            // 
+            this.Propina.DataPropertyName = "Propina";
+            this.Propina.HeaderText = "Propina";
+            this.Propina.Name = "Propina";
+            this.Propina.ReadOnly = true;
             // 
             // Nota
             // 
@@ -375,14 +469,6 @@
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
             this.Nota.Visible = false;
-            // 
-            // Usuario
-            // 
-            this.Usuario.DataPropertyName = "Usuario";
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            this.Usuario.Visible = false;
             // 
             // panel2
             // 
@@ -393,7 +479,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lbTotalPagos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 391);
+            this.panel2.Location = new System.Drawing.Point(0, 480);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(671, 100);
             this.panel2.TabIndex = 1;
@@ -588,7 +674,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 646);
+            this.ClientSize = new System.Drawing.Size(1077, 735);
             this.Name = "frmCerrarVentaModal";
             this.Text = "frmCerrarVentaModal";
             this.Load += new System.EventHandler(this.frmCerrarVentaModal_Load);
@@ -627,17 +713,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbDiferencia;
         private Autonomo.CustomControls.FlatTextBox txNota;
-        private Autonomo.CustomControls.FlatTextBox txVuelto;
+        private Autonomo.CustomControls.FlatTextBox txVueltoBolivares;
         private Autonomo.CustomControls.CustomButton btnCerrarVenta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDiferenciaBs;
+        private Autonomo.CustomControls.FlatTextBox txPropina;
+        private Autonomo.CustomControls.FlatTextBox txVueltoDivisa;
         private System.Windows.Forms.DataGridViewTextBoxColumn idVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tasa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Vuelto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vuelto_Bolivares;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vuelto_Divisas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Propina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbDiferenciaBs;
     }
 }

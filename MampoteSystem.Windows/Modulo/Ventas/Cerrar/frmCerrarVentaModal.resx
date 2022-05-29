@@ -118,6 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txPropina.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAANRJREFUSEvt
+        lUEOwVAQhivscQTWFpaEpVg4AEt7axs3cAULSxGOUffgKv5/XpvUpKKPMat+yZfO9HX6J+1Lm9RY04H9
+        L+VsZXbwCPeRcoazleHFK6hvtIY5rPX6EkYH3eAEFh/LGeaw5rlhdpzCFEYFjeAmlC+csiNh3YJj6QKc
+        4ezPlAUtpDOmLGgunTE6qAF70hmjg5pwIJ0xOsj1HbkEuT06t83gtr1dN0PxE2SGDiJR/59PzOAVbqUL
+        sL5Arplxh7zpQcnwBzSjDbtv5FrNv0iSJ9SmM/XnAR6XAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="txVueltoDivisa.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAANRJREFUSEvt
+        lUEOwVAQhivscQTWFpaEpVg4AEt7axs3cAULSxGOUffgKv5/XpvUpKKPMat+yZfO9HX6J+1Lm9RY04H9
+        L+VsZXbwCPeRcoazleHFK6hvtIY5rPX6EkYH3eAEFh/LGeaw5rlhdpzCFEYFjeAmlC+csiNh3YJj6QKc
+        4ezPlAUtpDOmLGgunTE6qAF70hmjg5pwIJ0xOsj1HbkEuT06t83gtr1dN0PxE2SGDiJR/59PzOAVbqUL
+        sL5Arplxh7zpQcnwBzSjDbtv5FrNv0iSJ9SmM/XnAR6XAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="txNota.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAANRJREFUSEvt
@@ -127,7 +145,7 @@
         sL5Arplxh7zpQcnwBzSjDbtv5FrNv0iSJ9SmM/XnAR6XAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="txVuelto.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="txVueltoBolivares.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAANRJREFUSEvt
         lUEOwVAQhivscQTWFpaEpVg4AEt7axs3cAULSxGOUffgKv5/XpvUpKKPMat+yZfO9HX6J+1Lm9RY04H9
@@ -169,13 +187,16 @@
   <metadata name="Tasa.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Vuelto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Vuelto_Bolivares.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Vuelto_Divisas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Propina.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Nota.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Usuario.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="txNumeroFactura.ImageIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

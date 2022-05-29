@@ -15,7 +15,9 @@ namespace MampoteSystem.Entidad.Pagos
         public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
         public decimal Tasa { get; set; }
-        public decimal Vuelto { get; set; }
+        public decimal Vuelto_Divisas { get; set; }
+        public decimal Vuelto_Bolivares { get; set; }
+        public decimal Propina { get; set; }
         public string Nota { get; set; }
     }
 }

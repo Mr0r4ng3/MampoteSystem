@@ -25,7 +25,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         {
             InitializeComponent();
         }
-
         public void CargarMontos(decimal newMontoPagar, string newIdVenta)
         {
             decimal MontoPagarDolares;
@@ -40,7 +39,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             lbMontoPagarDolares.Text = "$ " + MontoPagarDolares.ToString("F2",new CultureInfo("en-US"));
 
         }
-
         private void frmCerrarVentaModal_Load(object sender, EventArgs e)
         {
             Tools.ComboBoxHelper.ComboBoxTipoPagos(cbTiposPago);
@@ -52,27 +50,18 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
 
             CalcularTotal();
         }
-
         private bool MayorAlMonto()
         {
-            if(txMontoPago.Text != "")
+            if(Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo ("en-US")) < 0)
             {
-                decimal montoPago = Convert.ToDecimal(Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-Us"))
-                    * _Tasa, new CultureInfo("en-Us"));
-                if (montoPago > 
-                    Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-Us")))
-                {
-                    return true;
-                }
-                return false;
+                return true;
             }
             return false;
         }
-
         private bool ValidateInputPagos(out string controlsEmpty)
         {
             controlsEmpty = string.Empty;
-            if(cbTiposPago.Text == "Efectivo Dolares" && MayorAlMonto())
+            if(MayorAlMonto())
             {
                 txMontoPago.Error = "";
                 if (txMontoPago.Text == "" || Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US")) == 0)
@@ -82,12 +71,21 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                     return false;
                 }
 
-                txVuelto.Error = "";
-                if (txVuelto.Text == "" || Convert.ToDecimal(txVuelto.Text, new CultureInfo("en-US")) == 0)
+                txVueltoBolivares.Error = "";
+                if (txVueltoBolivares.Text == "")
                 {
-                    controlsEmpty = "No se ha colocado el monto del vuelto.";
-                    txVuelto.Error = "Este campo es requerido";
-                    return false;
+                    if (txVueltoDivisa.Text == "")
+                    {
+                        if (txPropina.Text == "")
+                        {
+                            controlsEmpty = "No se ha colocado el monto del vuelto o propina.";
+                            txVueltoBolivares.Error = "Este campo es requerido";
+                            return false;
+                        }
+                        return true;
+
+                    }
+                    return true;
                 }
 
                 return true;
@@ -103,7 +101,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
 
             return true;
         }
-
         private bool ValidateSaveData(out string controlsEmpty)
         {
             controlsEmpty = string.Empty;
@@ -119,10 +116,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 controlsEmpty = "¡No ha añadido pagos!";
                 return false;
             }
+
             return true;
         }
-
-
         private void CalcularTotal()
         {
             decimal total = 0m;
@@ -144,27 +140,54 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 }
             }
 
-            if(total > MontoPagar)
+            decimal montoPago = txMontoPago.Text == "" ? Convert.ToDecimal(0.00, new CultureInfo("en_US")) 
+                : Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en_US"));
+
+            decimal montoVueltoOrPropina = ObtenerMontoVueltoPropina();
+
+            if (cbTiposPago.Text == "Efectivo Dolares")
             {
-                diferencia = Convert.ToDecimal(0.00, new CultureInfo("en-US"));   
+                total += Convert.ToDecimal(montoPago, new CultureInfo("en-US")) * _Tasa;
             }
             else
             {
-               diferencia = Convert.ToDecimal(MontoPagar - total, new CultureInfo("en-US"));
+                total += Convert.ToDecimal(montoPago, new CultureInfo("en-US"));
             }
+
+            diferencia = Convert.ToDecimal(MontoPagar - total + montoVueltoOrPropina, new CultureInfo("en-US"));
+
 
             lbTotalPagos.Text = total.ToString("F2", new CultureInfo("en-US"));
             lbDiferencia.Text = (diferencia / _Tasa).ToString("F2", new CultureInfo("en-US"));
             lbDiferenciaBs.Text = diferencia.ToString("F2", new CultureInfo("en-US"));
         }
+        private decimal ObtenerMontoVueltoPropina()
+        {
+            decimal montoBolivares = txVueltoBolivares.Text == "" ? Convert.ToDecimal(0.00 , new CultureInfo("en-US")) 
+                : Convert.ToDecimal(txVueltoBolivares.Text, new CultureInfo("en-US"));
 
+            decimal montoDivisas = txVueltoDivisa.Text == "" ? Convert.ToDecimal(0.00, new CultureInfo("en-US"))
+                : Convert.ToDecimal(txVueltoDivisa.Text, new CultureInfo("en-US")) * _Tasa;
+
+            decimal montoPropina = txPropina.Text == "" ? Convert.ToDecimal(0.00, new CultureInfo("en-US"))
+                : Convert.ToDecimal(txPropina.Text, new CultureInfo("en-US"));
+
+            foreach (DataGridViewRow row in grdData.Rows)
+            {
+                montoBolivares += Convert.ToDecimal(row.Cells["Vuelto_Bolivares"].Value, new CultureInfo("en-US"));
+                montoDivisas += Convert.ToDecimal(row.Cells["Vuelto_Divisas"].Value, new CultureInfo("en-US")) * _Tasa;
+                montoPropina += Convert.ToDecimal(row.Cells["Propina"].Value, new CultureInfo("en-US"));
+
+            }
+
+            return montoBolivares + montoDivisas + montoPropina;
+        }
         private void CleanPagoInputs()
         {
-            txVuelto.Text = "0.00";
+            txVueltoBolivares.Text = "0.00";
             txMontoPago.Text = "0.00";
             txNota.Clear();
         }
-
         private void AgregarPago()
         {
             if (!ValidateInputPagos(out string controlsEmpty))
@@ -182,7 +205,15 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             NewPago.Descripcion = cbTiposPago.Text;
             NewPago.Monto = Convert.ToDecimal( txMontoPago.Text, new CultureInfo("en-US"));
             NewPago.Tasa = Convert.ToDecimal( lbTasa.Text, new CultureInfo("en-US"));
-            NewPago.Vuelto = Convert.ToDecimal( txVuelto.Text, new CultureInfo("en-US"));
+            NewPago.Vuelto_Bolivares = txVueltoBolivares.Text != "" ? Convert.ToDecimal( txVueltoBolivares.Text, new CultureInfo("en-US"))
+                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+
+            NewPago.Vuelto_Divisas = txVueltoDivisa.Text != "" ? Convert.ToDecimal( txVueltoDivisa.Text, new CultureInfo("en-US"))
+                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+
+            NewPago.Propina = txPropina.Text != "" ? Convert.ToDecimal( txPropina.Text, new CultureInfo("en-US"))
+                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+
             NewPago.Nota = txNota.Text;
 
             grdData.Rows.Add(NewPago.idVenta,
@@ -190,7 +221,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                              NewPago.Descripcion,
                              NewPago.Monto,
                              NewPago.Tasa,
-                             NewPago.Vuelto,
+                             NewPago.Vuelto_Bolivares,
+                             NewPago.Vuelto_Divisas,
+                             NewPago.Propina,
                              NewPago.Nota);
 
             CalcularTotal();
@@ -205,7 +238,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 CalcularTotal();
             }
         }
-
         private void Guardar()
         {
             if (!ValidateSaveData(out string controlsEmpty))
@@ -214,6 +246,17 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                     $"Campos inválidos: {controlsEmpty}");
                 // mensaje de  campos invalidos:: MessageBox:Personalizado
                 return;
+            }
+
+            if(Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-US")) < 0)
+            {
+                DialogResult response = MessageBox.Show("La venta tiene un saldo negativo (devolucion al cliente), ¿Desea guardar de igual forma?",
+                    "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if(response == DialogResult.No)
+                {
+                    return;
+                }
             }
 
             try
@@ -235,13 +278,16 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                         decimal _TasaPago = Convert.ToDecimal(row.Cells["Tasa"].Value,
                             new CultureInfo("en-US"));
 
-                        decimal _Vuelto = Convert.ToDecimal(row.Cells["Vuelto"].Value,
+                        decimal _Vuelto_Bolivares = Convert.ToDecimal(row.Cells["Vuelto_Bolivares"].Value,
+                            new CultureInfo("en-US"));
+
+                        decimal _Vuelto_Divisas = Convert.ToDecimal(row.Cells["Vuelto_Divisas"].Value,
+                            new CultureInfo("en-US"));
+
+                        decimal _Propina = Convert.ToDecimal(row.Cells["Propina"].Value,
                             new CultureInfo("en-US"));
 
                         string _Nota = row.Cells["Nota"].Value.ToString();
-
-                        string _Usuario = row.Cells["Usuario"].Value.ToString();
-
 
                         response += uow.pago.Crud(
                           new Entidad.Pagos.pago()
@@ -250,7 +296,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                               idTipo = _tipo,
                               Monto = _Monto,
                               Tasa = _TasaPago,
-                              Vuelto = _Vuelto,
+                              Vuelto_Bolivares = _Vuelto_Bolivares,
+                              Vuelto_Divisas = _Vuelto_Divisas,
+                              Propina = _Propina,
                               Nota = _Nota
                           }, newDeuda, txNumeroFactura.Text, Vendido);
                     }
@@ -269,24 +317,28 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 Mensaje.MessageBox(Enumerables.Mensajeria.Error, "El numero de factura colocado ya existe en la base de datos.");
             }
         }
-
         private void txMontoPagar_TextBoxChanged(object sender, EventArgs e)
         {
-            if(cbTiposPago.Text == "Efectivo Dolares" && MayorAlMonto())
+            CalcularTotal();
+
+            if(MayorAlMonto())
             {
-                decimal pagoMonto = Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US"));
-                decimal diferencia = Convert.ToDecimal(lbDiferencia.Text, new CultureInfo("en-US"));
-                decimal vuelto = Convert.ToDecimal((diferencia - pagoMonto) * -1, new CultureInfo("en-US"));
-                txVuelto.Text = vuelto.ToString("F2", new CultureInfo("en-US"));
-                txVuelto.Visible = true;
+                txVueltoBolivares.Visible = true;
+                txVueltoDivisa.Visible = true;
+                txPropina.Visible = true;
             }
             else
             {
-                txVuelto.Visible = false;
-                txVuelto.Text = "0.00";
+                txVueltoBolivares.Visible = false;
+                txVueltoBolivares.Text = "0.00";
+
+                txVueltoDivisa.Visible = false;
+                txVueltoDivisa.Text = "0.00";
+
+                txPropina.Visible = false;
+                txPropina.Text = "0.00";
             }
         }
-
         private void txMontoPago_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbTiposPago.Text == "Efectivo Dolares")
@@ -296,38 +348,42 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             }
             e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txMontoPago);
         }
-
         private void txVuelto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txVuelto);
+            e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txVueltoBolivares);
         }
-
         private void txVuelto_TextBoxChanged(object sender, EventArgs e)
         {
-
+            CalcularTotal();
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             AgregarPago();
         }
-
         private void grdData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             RemoverItem(e);
         }
-
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
             Guardar();
         }
-
         private void cbTiposPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbTiposPago.Text == "Efectivo Dolares")
             {
                 txMontoPago.Clear();
             }
+        }
+
+        private void txVueltoDivisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txVueltoDivisa);
+        }
+
+        private void txPropina_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txPropina);
         }
     }
 }
