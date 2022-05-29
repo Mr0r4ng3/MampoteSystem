@@ -15,7 +15,5 @@ namespace MampoteSystem.Entidad
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
         public decimal SubTotal { get; set; }
-        public string EditorUser { get; set; }
-        public bool Estado { get; set; }
     }
 }

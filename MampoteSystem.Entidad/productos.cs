@@ -17,6 +17,5 @@ namespace MampoteSystem.Entidad
         public decimal Precio_Compra { get; set; }
         public decimal Precio_Venta { get; set; }
         public decimal IVA { get; set; }
-        public string EditorUser { get; set; }
     }
 }

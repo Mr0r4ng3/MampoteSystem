@@ -49,8 +49,7 @@ namespace MampoteSystem.Windows.Modulo.Proveedor
                                     Razon_Social = txRazonSocial.Text,
                                     RIF = txRIF.Text,
                                     Telefono = txTelefono.Text,
-                                    Email = txEmail.Text,
-                                    EditorUser = Configs.GetEditorUser()
+                                    Email = txEmail.Text
 
                                 }, option);
                         if (result > 0) {

@@ -13,7 +13,5 @@ namespace MampoteSystem.Entidad
 		public string RIF { get; set; }
 		public string Telefono { get; set; }
 		public string Email { get; set; }
-		public bool Estado { get; set; }
-		public string EditorUser { get; set; }
 	}
 }

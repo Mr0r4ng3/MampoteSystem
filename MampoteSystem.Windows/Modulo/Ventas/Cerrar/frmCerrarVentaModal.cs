@@ -184,7 +184,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             NewPago.Tasa = Convert.ToDecimal( lbTasa.Text, new CultureInfo("en-US"));
             NewPago.Vuelto = Convert.ToDecimal( txVuelto.Text, new CultureInfo("en-US"));
             NewPago.Nota = txNota.Text;
-            NewPago.Usuario = Configs.GetEditorUser();
 
             grdData.Rows.Add(NewPago.idVenta,
                              NewPago.idTipo,
@@ -192,8 +191,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                              NewPago.Monto,
                              NewPago.Tasa,
                              NewPago.Vuelto,
-                             NewPago.Nota,
-                             NewPago.Usuario);
+                             NewPago.Nota);
 
             CalcularTotal();
             CleanPagoInputs();
@@ -253,8 +251,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                               Monto = _Monto,
                               Tasa = _TasaPago,
                               Vuelto = _Vuelto,
-                              Nota = _Nota,
-                              Usuario = _Usuario
+                              Nota = _Nota
                           }, newDeuda, txNumeroFactura.Text, Vendido);
                     }
 

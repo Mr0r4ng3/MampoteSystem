@@ -67,8 +67,7 @@ namespace MampoteSystem.Windows.Modulo.Menu
                                     Descripcion = txDescripcion.Text,
                                     Precio_Compra = Convert.ToDecimal(txCostoProduccion.Text, new CultureInfo("en-US")),
                                     Precio_Venta = Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")),
-                                    IVA = (Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")) * Convert.ToDecimal(0.16, new CultureInfo("en-US"))),
-                                    EditorUser = Configs.GetEditorUser()
+                                    IVA = (Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")) * Convert.ToDecimal(0.16, new CultureInfo("en-US")))
                                 }, option);
                         if (result > 0) { base.Set(); }
                     }

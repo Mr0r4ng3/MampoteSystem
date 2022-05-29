@@ -17,7 +17,5 @@ namespace MampoteSystem.Entidad.Report
         public decimal Costo { get; set; }
         public decimal Precio_Venta { get; set; }
         public decimal IVA { get; set; }
-        public string EditorUser { get; set; }
-        public bool Estado { get; set; }
     }
 }

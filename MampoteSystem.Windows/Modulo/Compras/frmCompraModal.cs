@@ -235,8 +235,7 @@ namespace MampoteSystem.Windows.Modulo.Compras
                               idProveedor = proveedor.id,
                               NumeroFactura = txNumeroFactura.Text,
                               MontoTotal = Convert.ToDecimal(lbTotal.Text, new CultureInfo("en-US")),
-                              Tasa = Convert.ToDecimal(txTasa.Text, new CultureInfo("en-US")),
-                              EditorUser = Configs.GetEditorUser()
+                              Tasa = Convert.ToDecimal(txTasa.Text, new CultureInfo("en-US"))
 
                           }, new Entidad.detalleCompra()
                           {

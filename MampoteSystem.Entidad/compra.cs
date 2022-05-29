@@ -15,7 +15,5 @@ namespace MampoteSystem.Entidad
         public decimal MontoTotal { get; set; }
         public decimal Tasa { get; set; }
         public DateTime Fecha { get; set; }
-        public string EditorUser { get; set; }
-        public bool Estado { get; set; }
 }
 }

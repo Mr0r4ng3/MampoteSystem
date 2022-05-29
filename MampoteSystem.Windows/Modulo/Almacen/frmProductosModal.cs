@@ -70,8 +70,7 @@ namespace MampoteSystem.Windows.Modulo.Almacen
                                     Stock = Convert.ToInt32(txStock.Text),
                                     Precio_Compra = Convert.ToDecimal(txPrecioCompra.Text, new CultureInfo("en-US")),
                                     Precio_Venta = Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")),
-                                    IVA = (Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")) * Convert.ToDecimal(0.16, new CultureInfo("en-US"))),
-                                    EditorUser = Configs.GetEditorUser()
+                                    IVA = (Convert.ToDecimal(txPrecioVenta.Text, new CultureInfo("en-US")) * Convert.ToDecimal(0.16, new CultureInfo("en-US")))
                                 }, option);
                         if(result > 0) { base.Set(); }
                     }

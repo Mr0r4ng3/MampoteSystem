@@ -27,7 +27,6 @@ namespace MampoteSystem.Datos.AdoNet
                                                     new SqlParameter("@RIF",entity.RIF),
                                                     new SqlParameter("@Telefono",entity.Telefono),
                                                     new SqlParameter("@Email",entity.Email),
-                                                    new SqlParameter("@EditorUser",entity.EditorUser),
                                                     new SqlParameter("@Option",option)
                                     });
             }

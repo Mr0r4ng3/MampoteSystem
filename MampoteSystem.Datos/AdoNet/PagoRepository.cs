@@ -28,7 +28,6 @@ namespace MampoteSystem.Datos.AdoNet
                                                     new SqlParameter("@Tasa",entity.Tasa),
                                                     new SqlParameter("@Vuelto",entity.Vuelto),
                                                     new SqlParameter("@Nota",entity.Nota),
-                                                    new SqlParameter("@Usuario",entity.Usuario),
                                                     new SqlParameter("@NewDeuda",newDeuda),
                                                     new SqlParameter("@NumeroFactura",NumeroFactura),
                                                     new SqlParameter("@Vendido",Vendido)

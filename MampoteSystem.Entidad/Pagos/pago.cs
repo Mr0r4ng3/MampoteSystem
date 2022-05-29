@@ -17,6 +17,5 @@ namespace MampoteSystem.Entidad.Pagos
         public decimal Tasa { get; set; }
         public decimal Vuelto { get; set; }
         public string Nota { get; set; }
-        public string Usuario { get; set; }
     }
 }

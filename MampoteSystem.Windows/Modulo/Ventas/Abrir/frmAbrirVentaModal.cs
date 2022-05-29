@@ -344,9 +344,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                               Comision = comision,
                               EstadoComision = comision > 0 ? "Sin Pagar" : "No Aplica",
                               MontoTotal = Convert.ToDecimal(total, new CultureInfo("en-US")),
-                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US")),
-                              Usuario = frmMenu.GetInstance().EditorUser,
-                              EditorUser = frmMenu.GetInstance().EditorUser,
+                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US"))
 
                           }, new Entidad.detalleVenta()
                           {

@@ -43,7 +43,6 @@ namespace MampoteSystem.Windows.Modulo.Menu
                         new SqlParameter("@id",id),
                         new SqlParameter("@idTipo",2),
                         new SqlParameter("Nombre", txNombre.Text),
-                        new SqlParameter("@EditorUser",Configs.GetEditorUser()),
                         new SqlParameter("@Option",option)
                         });
                     if (result > 0) { base.Set(); }

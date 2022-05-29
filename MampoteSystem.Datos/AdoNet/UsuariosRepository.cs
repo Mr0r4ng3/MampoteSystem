@@ -29,7 +29,6 @@ namespace MampoteSystem.Datos.AdoNet
                                                     new SqlParameter("@username",entity.username),
                                                     new SqlParameter("@NivelAcceso",entity.NivelAcceso),
                                                     new SqlParameter("@passwd",entity.passwd),
-                                                    new SqlParameter("@EditorUser",entity.EditorUser),
                                                     new SqlParameter("@Option",option)
                                     });
             }

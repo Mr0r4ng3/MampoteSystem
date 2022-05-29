@@ -69,8 +69,7 @@ namespace MampoteSystem.Windows.Modulo.Clientes
                                         Nombres = txNombres.Text,
                                         Apellidos = txApellidos.Text,
                                         Telefono = txTelefono.Text,
-                                        Direccion = txDireccion.Text,
-                                        EditorUser = Configs.GetEditorUser()
+                                        Direccion = txDireccion.Text
 
                                     }, option);
                             if (result > 0) 
@@ -89,8 +88,7 @@ namespace MampoteSystem.Windows.Modulo.Clientes
                                         Nombres = txNombres.Text,
                                         Apellidos = txApellidos.Text,
                                         Telefono = txTelefono.Text,
-                                        Direccion = txDireccion.Text,
-                                        EditorUser = Configs.GetEditorUser()
+                                        Direccion = txDireccion.Text
 
                                     }, option);
                             if (result > 0) 

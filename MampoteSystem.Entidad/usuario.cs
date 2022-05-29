@@ -15,7 +15,5 @@ namespace MampoteSystem.Entidad
         public string username { get; set; }
         public string NivelAcceso { get; set; }
         public string passwd { get; set; }
-        public bool Estado { get; set; }
-        public string EditorUser { get; set; }
     }
 }

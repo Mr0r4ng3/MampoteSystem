@@ -32,7 +32,6 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@Precio_Compra",entity.Precio_Compra),
                         new SqlParameter("@Precio_Venta",entity.Precio_Venta),
                         new SqlParameter("@IVA",entity.IVA),
-                        new SqlParameter("@EditorUser",entity.EditorUser),
                         new SqlParameter("@Option",option)
                     });
             }

@@ -34,8 +34,6 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@EstadoComision",venta.EstadoComision),
                         new SqlParameter("@MontoTotal",venta.MontoTotal),
                         new SqlParameter("@Deuda",venta.Deuda),
-                        new SqlParameter("@Usuario",venta.Usuario),
-                        new SqlParameter("@EditorUser",venta.EditorUser),
                         new SqlParameter("@IsComision",isComision),
 
                       //Sección para Detale
@@ -104,7 +102,7 @@ namespace MampoteSystem.Datos.AdoNet
         {
             try
             {
-                return ObjContext.ExecuteNonQuery($"update venta set Estado = 0 where id = '{idVenta}'", System.Data.CommandType.Text);
+                return ObjContext.ExecuteNonQuery($"delete venta where id = '{idVenta}'", System.Data.CommandType.Text);
             }
             catch(Exception ex)
             {
@@ -116,7 +114,7 @@ namespace MampoteSystem.Datos.AdoNet
         {
             try
             {
-                return ObjContext.ExecuteNonQuery($"update detalleVenta set Estado = 0 where id = '{idDetalle}'", System.Data.CommandType.Text);
+                return ObjContext.ExecuteNonQuery($"delete detalleVenta where id = '{idDetalle}'", System.Data.CommandType.Text);
             }
             catch (Exception ex)
             {

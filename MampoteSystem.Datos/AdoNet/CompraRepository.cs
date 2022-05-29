@@ -33,7 +33,6 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@NumeroFactura ",compra.NumeroFactura),
                         new SqlParameter("@MontoTotal ",compra.MontoTotal),
                         new SqlParameter("@Tasa",compra.Tasa),
-                        new SqlParameter("@EditorUser",compra.EditorUser),
                       //Sección para Detale
                         new SqlParameter("@idDetalle",""),
                         new SqlParameter("@codigoProducto",detalle.codigoProducto),

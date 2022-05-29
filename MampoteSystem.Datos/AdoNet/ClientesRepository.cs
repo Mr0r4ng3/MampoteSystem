@@ -28,7 +28,6 @@ namespace MampoteSystem.Datos.AdoNet
                                                     new SqlParameter("@Apellidos",entity.Apellidos),
                                                     new SqlParameter("@Telefono",entity.Telefono),
                                                     new SqlParameter("@Direccion",entity.Direccion),
-                                                    new SqlParameter("@EditorUser",entity.EditorUser),
                                                     new SqlParameter("@Option",option)
                                     });
             }
