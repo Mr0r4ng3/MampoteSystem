@@ -1,5 +1,6 @@
 ﻿using MampoteSystem.Datos.Interfaces;
 using MampoteSystem.Entidad.Pagos;
+using MampoteSystem.Entidad.Pagos.Report;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -41,9 +42,9 @@ namespace MampoteSystem.Datos.AdoNet
             }
         }
 
-        public IEnumerable<pago> GetAll(DateTime desde, DateTime hasta)
+        public IEnumerable<pagoReport> GetAll(DateTime desde, DateTime hasta)
         {
-            return ObjContext.ToList<pago>(ObjContext.GetData("dbo.SpListAllPagos", new SqlParameter[]{
+            return ObjContext.ToList<pagoReport>(ObjContext.GetData("dbo.SpListAllPagos", new SqlParameter[]{
                                             new SqlParameter("@Desde",desde),
                                             new SqlParameter("@Hasta",hasta)
                         }).Tables[0]);

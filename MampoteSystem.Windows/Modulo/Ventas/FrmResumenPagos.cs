@@ -1,5 +1,6 @@
 ﻿using MampoteSystem.Datos;
 using MampoteSystem.Entidad.Pagos;
+using MampoteSystem.Entidad.Pagos.Report;
 using MampoteSystem.Windows.Tools;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
 {
     public partial class FrmResumenPagos : Autonomo.CustomTemplate.RegistryDouble
     {
-        List<pago> _pagosList;
-
+        List<pagoReport> _pagosList;
         public FrmResumenPagos()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
-                _pagosList = new List<pago>();
+                _pagosList = new List<pagoReport>();
                 _pagosList = uow.pago.GetAll(dtDesde.Value, dtHasta.Value)
                     .OrderByDescending(o => o.Fecha).ToList();
 
@@ -44,8 +44,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas
         {
             if (_pagosList != null && _pagosList.Count > 0)
             {
+
                 var data = _pagosList
-                    .Where(o => o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
+                    .Where(o => o.Nota.ToLower().Contains(txFilter.Text.ToLower()) || o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
 
                 if (radEfecDolares.Checked == true)
                 {
@@ -72,15 +73,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                     data = data.Where(o => o.Descripcion.ToLower().Equals("cruce inventario"));
                 }
 
-
                 grdData.DataSource = data.ToList();
-                grdData.Columns[0].Visible = false;
-                grdData.Columns[1].Visible = false;
-                grdData.Columns[2].Visible = false;
-                grdData.Columns[6].Visible = false;
                 grdData.Columns[7].Visible = false;
-                grdData.Columns[8].Visible = false;
-                grdData.Columns[9].Visible = false;
                 grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 if (grdData.Rows.Count > 0)
                 {
@@ -98,46 +92,23 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             string moneySimbol = "";
 
             if(radEfecDolares.Checked == true){
-                lblTasa.Visible = false;
-
                 moneySimbol = "$.";
             }
             else
             {
-                lblTasa.Visible = true;
                 moneySimbol = "Bs.";
-
-            }
-
-            if(radEfecDolares.Checked == true || radEfectivoBs.Checked == true)
-            {
-                lblVuelto.Visible = true;
-            }
-            else
-            {
-                lblVuelto.Visible = false;
             }
 
             if (grdData.SelectedRows.Count > 0)
             {
-                string nota = grdData.SelectedRows[0].Cells[8].Value.ToString();
-                decimal vuelto = Convert.ToDecimal(grdData.SelectedRows[0].Cells[7].Value, new CultureInfo("en-Us"));
-                decimal tasa = Convert.ToDecimal(grdData.SelectedRows[0].Cells[6].Value, new CultureInfo("en-Us"));
+                string nota = grdData.SelectedRows[0].Cells[7].Value.ToString();
 
                 txtNota.Text = nota;
-                lblTasa.Text = $"Tasa  :  Bs. {tasa.ToString("F2")}";
-                lblVuelto.Text = $"Vuelto  :  {moneySimbol} {vuelto.ToString("F2")}";
-
             }
             else
             {
                 txtNota.Clear();
-                lblTasa.Visible = false;
-                lblVuelto.Visible = false;
             }
-
-
-
         }
 
         private void getEstadisticas()
@@ -154,26 +125,32 @@ namespace MampoteSystem.Windows.Modulo.Ventas
 
                 int cantidadPagos = 0;
                 decimal total = 0m;
+                decimal vueltoBs = 0m;
+                decimal vueltoDiv = 0m;
+                decimal propina = 0m;
 
                 foreach (DataGridViewRow row in grdData.Rows)
                 {
-                    total += Convert.ToDecimal(row.Cells[5].Value, new CultureInfo("en-US"));
+                    total += Convert.ToDecimal(row.Cells[2].Value, new CultureInfo("en-US"));
+                    vueltoBs += Convert.ToDecimal(row.Cells[5].Value, new CultureInfo("en-US"));
+                    vueltoDiv += Convert.ToDecimal(row.Cells[4].Value, new CultureInfo("en-US"));
+                    propina += Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
                 }
 
                 cantidadPagos = grdData.RowCount;
 
-                DescriptionData.Text = $"Cantidad de ventas encontradas: {cantidadPagos}  | Total : {moneySymbol} {total.ToString("F2")}";
+                DescriptionData.Text = $"Cantidad de ventas encontradas: {cantidadPagos}  | Total : {moneySymbol} {total.ToString("F2")}  | Vuelto Bolivares : Bs. {vueltoBs.ToString("F2")}  | Vuelto Divisas : $. {vueltoDiv.ToString("F2")}  | Propina : Bs. {propina.ToString("F2")}";
             }
             else
             {
-                DescriptionData.Text = $"Cantidad de ventas encontradas: 0  | Total : {moneySymbol} 0.00";
+                DescriptionData.Text = $"Cantidad de ventas encontradas: 0  | Total : {moneySymbol} 0.00  | Vuelto Bolivares : Bs. 0.00  | Vuelto Divisas : $. 0.00  | Propina : Bs. 0.00";
 
             }
         }
 
         public void onLoad()
         {
-            dtDesde.Value = Autonomo.Class.Obtaining.GetFirstDayMonth();
+            dtDesde.Value = DateTime.Today;
             dtHasta.Value = DateTime.Now;
             ThemeStyle(Theme.White);
             LoadData();
@@ -209,13 +186,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             if (grdData.Rows.Count > 0)
             {
                 DataTable data = Tools.Models.DataGridHelper.GetDataTable(grdData);
-                data.Columns.RemoveAt(9);
-                data.Columns.RemoveAt(8);
-                data.Columns.RemoveAt(7);
-                data.Columns.RemoveAt(6);
-                data.Columns.RemoveAt(2);
-                data.Columns.RemoveAt(1);
-                data.Columns.RemoveAt(0);
 
 
                 string fecha = DateTime.Now.ToString("dd-MM-yyyy");

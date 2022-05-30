@@ -44,8 +44,7 @@ namespace MampoteSystem.Datos.AdoNet
         {
             return ObjContext.ToList<detalleCompraReport>(
                     ObjContext.GetData("dbo.SpDetalleCompraList", new SqlParameter[]{
-                        new SqlParameter("@idCompra",idCompra),
-                        new SqlParameter("@Tasa",Tasa),
+                        new SqlParameter("@idCompra",idCompra)
                     }).Tables[0]
                     );
         }

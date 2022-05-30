@@ -52,7 +52,7 @@ namespace MampoteSystem.Windows.Modulo.Menu
 
                 //Lambda
                 grdData.DataSource = newList
-                    .Where(o => o.Codigo.Contains(txFilter.Text))
+                    .Where(o => o.Codigo.ToLower().Contains(txFilter.Text.ToLower()) || o.Nombre.ToLower().Contains(txFilter.Text.ToLower()))
                     .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
                     .ToList();
             }

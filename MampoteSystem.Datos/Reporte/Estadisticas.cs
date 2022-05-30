@@ -23,6 +23,8 @@ namespace MampoteSystem.Datos.Reporte
 
         public decimal PagoDivisas { get; private set; }
         public decimal VueltoDivisas { get; private set; }
+        public decimal VueltoBolivares { get; private set; }
+        public decimal Propina { get; private set; }
         public decimal PagoPunto { get; private set; }
         public decimal PagoEfectivo { get; private set; }
         public decimal PagoPM { get; private set; }
@@ -52,24 +54,24 @@ namespace MampoteSystem.Datos.Reporte
                 {
                     command.Connection = connection;
                     //Get Total Number of Customers
-                    command.CommandText = "select COUNT(id) from clientes where Estado = 1";
+                    command.CommandText = "select COUNT(id) from clientes";
                     NumCustomers = (int)command.ExecuteScalar();
 
                     //Get Total Number of Suppliers
-                    command.CommandText = "select COUNT(id) from proveedores where Estado = 1";
+                    command.CommandText = "select COUNT(id) from proveedores";
                     NumSuppliers = (int)command.ExecuteScalar();
 
                     //Get Total Number of Products
-                    command.CommandText = "select COUNT(Codigo) from productos where idTipo = 1 and Estado = 1";
+                    command.CommandText = "select COUNT(Codigo) from productos where idTipo = 1";
                     NumProducts = (int)command.ExecuteScalar();
 
                     //Get Total Number of Comida
-                    command.CommandText = "select COUNT(Codigo) from productos where idTipo = 2 and Estado = 1";
+                    command.CommandText = "select COUNT(Codigo) from productos where idTipo = 2";
                     NumComida = (int)command.ExecuteScalar();
 
                     //Get Total Number of Orders
                     command.CommandText = @"select count(id) from venta " +
-                                            "where venta.Vendido = @Uno and Fecha between @fromDate and @toDate and Estado = 1";
+                                            "where venta.Vendido = @Uno and Fecha between @fromDate and @toDate";
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     command.Parameters.Add("@Uno", System.Data.SqlDbType.Int).Value = 1;
@@ -85,11 +87,25 @@ namespace MampoteSystem.Datos.Reporte
 
 
                     //Get Total Vuelto Divisa
-                    command.CommandText = @"select SUM(Vuelto) from pagos " +
-                                            "where idTipo = @Uno and Fecha between @fromDate and @toDate";
+                    command.CommandText = @"select SUM(Vuelto_Divisas) from pagos " +
+                                            "where Fecha between @fromDate and @toDate";
 
                     temp = command.ExecuteScalar();
                     VueltoDivisas = temp != DBNull.Value ? Convert.ToDecimal(temp, new CultureInfo("en-US")) : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+
+                    //Get Total Vuelto Bolivares
+                    command.CommandText = @"select SUM(Vuelto_Bolivares) from pagos " +
+                                            "where Fecha between @fromDate and @toDate";
+
+                    temp = command.ExecuteScalar();
+                    VueltoBolivares = temp != DBNull.Value ? Convert.ToDecimal(temp, new CultureInfo("en-US")) : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+
+                    //Get Total Propina
+                    command.CommandText = @"select SUM(Propina) from pagos " +
+                                            "where Fecha between @fromDate and @toDate";
+
+                    temp = command.ExecuteScalar();
+                    Propina = temp != DBNull.Value ? Convert.ToDecimal(temp, new CultureInfo("en-US")) : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
 
                     //Get Total Pago Punto
                     command.CommandText = @"select SUM(Monto) from pagos " +
@@ -148,7 +164,7 @@ namespace MampoteSystem.Datos.Reporte
                     //Get Understock
                     command.CommandText = @"select Nombre, Stock
                                             from productos
-                                            where Stock <= 6 and idTipo = 1 and Estado = 1";
+                                            where Stock <= 6 and idTipo = 1";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -172,7 +188,7 @@ namespace MampoteSystem.Datos.Reporte
                     command.Connection = connection;
                     command.CommandText = @"select Fecha, SUM(MontoTotal)
                                             from venta 
-                                            where Vendido = @Uno and Fecha between @fromDate and @toDate and Estado = 1
+                                            where Vendido = @Uno and Fecha between @fromDate and @toDate
                                             group by Fecha";
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
@@ -258,12 +274,10 @@ namespace MampoteSystem.Datos.Reporte
                 GetNumberItems();
                 GetProductAnalisys();
                 GetOrderAnalisys();
-                Console.WriteLine("Refreshed data: {0} - {1}", startDate.ToString(), endDate.ToString());
                 return true;
             }
             else
             {
-                Console.WriteLine("Data not refreshed, same query: {0} - {1}", startDate.ToString(), endDate.ToString());
                 return false;
             }
         }

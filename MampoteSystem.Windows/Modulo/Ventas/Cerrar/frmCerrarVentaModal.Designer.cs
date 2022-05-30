@@ -152,7 +152,7 @@
             this.txPropina.SizeLine = 2;
             this.txPropina.TabIndex = 5;
             this.txPropina.Text = "00.00";
-            this.txPropina.Title = "Propina";
+            this.txPropina.Title = "Propina  Bs.";
             this.txPropina.Visible = false;
             this.txPropina.VisibleIcon = true;
             this.txPropina.VisibleTitle = true;

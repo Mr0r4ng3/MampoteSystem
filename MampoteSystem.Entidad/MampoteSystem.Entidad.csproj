@@ -46,9 +46,9 @@
     <Compile Include="clientes.cs" />
     <Compile Include="compra.cs" />
     <Compile Include="detalleCompra.cs" />
-    <Compile Include="detallesPromocion.cs" />
     <Compile Include="detalleVenta.cs" />
     <Compile Include="Pagos\pago.cs" />
+    <Compile Include="Pagos\Report\pagoReport.cs" />
     <Compile Include="Pagos\Report\tipoPago.cs" />
     <Compile Include="productos.cs" />
     <Compile Include="promocion.cs" />

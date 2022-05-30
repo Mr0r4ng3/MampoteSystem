@@ -378,7 +378,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 Tools.Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
             }
         }
-
         private void frmAbrirVentaModal_Load(object sender, EventArgs e)
         {
             Autonomo.Class.RoundObject.RoundButton(btnGuardar, 7, 7);
@@ -394,11 +393,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 GetCliente(CedulaModifiyVenta);
                 MostrarTotales();
                 grdDetalle.DataSource = DetalleVenta;
+                grdDetalle.Columns[0].Visible = false;
             }
 
             cbCedula.DataSource = TIPOS_CEDULA;
         }
-
         private void grdCanastilla_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             RemoverItem(e);
@@ -446,11 +445,51 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
         }
-
         private void txFiltro_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 LoadData();
+        }
+        private void chkDeudaInicial_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkDeudaInicial.Checked == true)
+            {
+                txMontoDeuda.Visible = true;
+                btnAddDeuda.Visible = true;
+            }
+            else
+            {
+                txMontoDeuda.Visible = false;
+                btnAddDeuda.Visible = false;
+            }
+        }
+        private void btnAddDeuda_Click(object sender, EventArgs e)
+        {
+            if(txMontoDeuda.Text == "")
+            {
+                lblMessageGrid.Text = "Debe añadir el monto de la Deuda";
+                lblMessageGrid.BackColor = Color.Coral;
+                txMontoDeuda.Error = "Obligatorio";
+                return;
+            }
+
+            CarroVenta Deuda = new CarroVenta();
+
+            Deuda.Tipo = "DEUDA";
+            Deuda.Cantidad = 1;
+            Deuda.Stock = 1;
+            Deuda.Nombre = "Deuda inicial";
+            Deuda.Categoria = "Deuda";
+            Deuda.IVA = 0;
+            Deuda.Codigo = "DEUD000";
+            Deuda.PrecioVenta = Convert.ToDecimal(txMontoDeuda.Text, new CultureInfo("en-US"));
+            Deuda.Subtotal = Convert.ToDecimal(txMontoDeuda.Text, new CultureInfo("en-US"));
+
+            PopulateGrid(Deuda);
+
+            txMontoDeuda.Error = "";
+            lblMessageGrid.Text = "";
+            lblMessageGrid.BackColor = Color.SeaGreen;
         }
     }
 }

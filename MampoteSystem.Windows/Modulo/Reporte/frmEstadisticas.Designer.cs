@@ -41,14 +41,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lbPagosPM = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbPagosEfectivo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbVuelto = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.lbPagoDivisa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -88,6 +84,14 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvUnderstock = new Autonomo.CustomControls.CustomGrid();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbVueltoBs = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbPagosPM = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbVueltoDivisa = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbPropina = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.CustomContainer.SuspendLayout();
             this.PanelControls.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -168,37 +172,19 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panel4.Controls.Add(this.lbPagosPM);
-            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.lbPropina);
+            this.panel4.Controls.Add(this.label17);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(711, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(231, 94);
             this.panel4.TabIndex = 3;
             // 
-            // lbPagosPM
-            // 
-            this.lbPagosPM.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosPM.Location = new System.Drawing.Point(23, 42);
-            this.lbPagosPM.Name = "lbPagosPM";
-            this.lbPagosPM.Size = new System.Drawing.Size(192, 17);
-            this.lbPagosPM.TabIndex = 2;
-            this.lbPagosPM.Text = "0.00";
-            this.lbPagosPM.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 14);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Pagos Pago Movil";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel3.Controls.Add(this.lbVueltoBs);
+            this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.lbPagosEfectivo);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -210,7 +196,7 @@
             // lbPagosEfectivo
             // 
             this.lbPagosEfectivo.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosEfectivo.Location = new System.Drawing.Point(18, 42);
+            this.lbPagosEfectivo.Location = new System.Drawing.Point(35, 27);
             this.lbPagosEfectivo.Name = "lbPagosEfectivo";
             this.lbPagosEfectivo.Size = new System.Drawing.Size(192, 17);
             this.lbPagosEfectivo.TabIndex = 2;
@@ -230,7 +216,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panel2.Controls.Add(this.lbVuelto);
+            this.panel2.Controls.Add(this.lbVueltoDivisa);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.lbPagoDivisa);
             this.panel2.Controls.Add(this.label3);
@@ -240,32 +226,10 @@
             this.panel2.Size = new System.Drawing.Size(230, 94);
             this.panel2.TabIndex = 1;
             // 
-            // lbVuelto
-            // 
-            this.lbVuelto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVuelto.Location = new System.Drawing.Point(22, 68);
-            this.lbVuelto.Name = "lbVuelto";
-            this.lbVuelto.Size = new System.Drawing.Size(191, 17);
-            this.lbVuelto.TabIndex = 4;
-            this.lbVuelto.Text = "0.00";
-            this.lbVuelto.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbVuelto.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 54);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 14);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Total Vuelto de Pagos en Divisa";
-            this.label14.Visible = false;
-            // 
             // lbPagoDivisa
             // 
             this.lbPagoDivisa.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagoDivisa.Location = new System.Drawing.Point(22, 42);
+            this.lbPagoDivisa.Location = new System.Drawing.Point(36, 27);
             this.lbPagoDivisa.Name = "lbPagoDivisa";
             this.lbPagoDivisa.Size = new System.Drawing.Size(191, 17);
             this.lbPagoDivisa.TabIndex = 2;
@@ -276,7 +240,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 12);
+            this.label3.Location = new System.Drawing.Point(6, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 14);
             this.label3.TabIndex = 1;
@@ -285,6 +249,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.lbPagosPM);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lbPagosPunto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -296,7 +262,7 @@
             // lbPagosPunto
             // 
             this.lbPagosPunto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosPunto.Location = new System.Drawing.Point(18, 42);
+            this.lbPagosPunto.Location = new System.Drawing.Point(35, 27);
             this.lbPagosPunto.Name = "lbPagosPunto";
             this.lbPagosPunto.Size = new System.Drawing.Size(192, 17);
             this.lbPagosPunto.TabIndex = 1;
@@ -307,7 +273,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 12);
+            this.label2.Location = new System.Drawing.Point(7, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 14);
             this.label2.TabIndex = 0;
@@ -817,6 +783,92 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Productos bajos en Stock";
             // 
+            // lbVueltoBs
+            // 
+            this.lbVueltoBs.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVueltoBs.Location = new System.Drawing.Point(35, 68);
+            this.lbVueltoBs.Name = "lbVueltoBs";
+            this.lbVueltoBs.Size = new System.Drawing.Size(191, 17);
+            this.lbVueltoBs.TabIndex = 6;
+            this.lbVueltoBs.Text = "0.00";
+            this.lbVueltoBs.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbVueltoBs.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(15, 50);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(142, 14);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Total Vuelto Bolivares";
+            this.label15.Visible = false;
+            // 
+            // lbPagosPM
+            // 
+            this.lbPagosPM.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPagosPM.Location = new System.Drawing.Point(35, 68);
+            this.lbPagosPM.Name = "lbPagosPM";
+            this.lbPagosPM.Size = new System.Drawing.Size(192, 17);
+            this.lbPagosPM.TabIndex = 4;
+            this.lbPagosPM.Text = "0.00";
+            this.lbPagosPM.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(5, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 14);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Pagos Pago Movil";
+            // 
+            // lbVueltoDivisa
+            // 
+            this.lbVueltoDivisa.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVueltoDivisa.Location = new System.Drawing.Point(36, 68);
+            this.lbVueltoDivisa.Name = "lbVueltoDivisa";
+            this.lbVueltoDivisa.Size = new System.Drawing.Size(191, 17);
+            this.lbVueltoDivisa.TabIndex = 8;
+            this.lbVueltoDivisa.Text = "0.00";
+            this.lbVueltoDivisa.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbVueltoDivisa.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(6, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 14);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Total Vuelto Divisa";
+            this.label14.Visible = false;
+            // 
+            // lbPropina
+            // 
+            this.lbPropina.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPropina.Location = new System.Drawing.Point(35, 27);
+            this.lbPropina.Name = "lbPropina";
+            this.lbPropina.Size = new System.Drawing.Size(191, 17);
+            this.lbPropina.TabIndex = 8;
+            this.lbPropina.Text = "0.00";
+            this.lbPropina.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbPropina.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(12, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(89, 14);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Total Propina";
+            this.label17.Visible = false;
+            // 
             // frmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -865,8 +917,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbPagosPM;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbPagosEfectivo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbPagoDivisa;
@@ -907,7 +957,13 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label6;
         private Autonomo.CustomControls.CustomGrid dgvUnderstock;
-        private System.Windows.Forms.Label lbVuelto;
+        private System.Windows.Forms.Label lbPropina;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbVueltoBs;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbVueltoDivisa;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbPagosPM;
+        private System.Windows.Forms.Label label5;
     }
 }

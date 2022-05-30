@@ -113,7 +113,7 @@ namespace MampoteSystem.Windows.Tools.Models
 
                     case LlenarGrilla.Venta:
                         {
-                            if(VentaItems.Tipo == "COMIDA" && VentaItems.Stock == 0)
+                            if(VentaItems.Tipo == "COMIDA" || VentaItems.Tipo == "PROMOCIONES" && VentaItems.Stock == 0)
                             {
                                 grid.Rows.Add(
                                     VentaItems.Tipo,
@@ -215,8 +215,15 @@ namespace MampoteSystem.Windows.Tools.Models
 
             foreach (DataGridViewRow row in grid.Rows)
             {
-                cantidad += int.Parse(row.Cells[3].Value.ToString());
-                Total += Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
+                if (row.Cells[0].Value.ToString() == "PROMOCIONES")
+                {
+                    Total -= Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
+                }
+                else
+                {
+                    Total += Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
+                    cantidad += int.Parse(row.Cells[3].Value.ToString());
+                }
             }
 
             canastaVenta.Cantidad = cantidad;

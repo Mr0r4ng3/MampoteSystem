@@ -56,6 +56,9 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.lblTotals = new System.Windows.Forms.Label();
             this.panelControles = new System.Windows.Forms.Panel();
+            this.chkDeudaInicial = new Autonomo.CustomControls.CustomCheck();
+            this.txMontoDeuda = new Autonomo.CustomControls.FlatTextBox();
+            this.btnAddDeuda = new Autonomo.CustomControls.CustomButton();
             this.chkComision = new Autonomo.CustomControls.CustomCheck();
             this.btnGuardar = new Autonomo.CustomControls.CustomButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -360,6 +363,9 @@
             // 
             // panelControles
             // 
+            this.panelControles.Controls.Add(this.chkDeudaInicial);
+            this.panelControles.Controls.Add(this.txMontoDeuda);
+            this.panelControles.Controls.Add(this.btnAddDeuda);
             this.panelControles.Controls.Add(this.chkComision);
             this.panelControles.Controls.Add(this.btnGuardar);
             this.panelControles.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -367,6 +373,81 @@
             this.panelControles.Name = "panelControles";
             this.panelControles.Size = new System.Drawing.Size(965, 97);
             this.panelControles.TabIndex = 6;
+            // 
+            // chkDeudaInicial
+            // 
+            this.chkDeudaInicial.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkDeudaInicial.AutoSize = true;
+            this.chkDeudaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkDeudaInicial.FlatAppearance.BorderSize = 0;
+            this.chkDeudaInicial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.chkDeudaInicial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.chkDeudaInicial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDeudaInicial.Font = new System.Drawing.Font("Verdana", 10F);
+            this.chkDeudaInicial.Image = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.Image")));
+            this.chkDeudaInicial.ImageChecking = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.ImageChecking")));
+            this.chkDeudaInicial.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.ImageUnChecking")));
+            this.chkDeudaInicial.Location = new System.Drawing.Point(4, 6);
+            this.chkDeudaInicial.Name = "chkDeudaInicial";
+            this.chkDeudaInicial.Size = new System.Drawing.Size(124, 27);
+            this.chkDeudaInicial.TabIndex = 11;
+            this.chkDeudaInicial.Text = "Deuda Inicial";
+            this.chkDeudaInicial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.chkDeudaInicial.UseVisualStyleBackColor = true;
+            this.chkDeudaInicial.CheckedChanged += new System.EventHandler(this.chkDeudaInicial_CheckedChanged);
+            // 
+            // txMontoDeuda
+            // 
+            this.txMontoDeuda.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txMontoDeuda.BackColor = System.Drawing.Color.White;
+            this.txMontoDeuda.Category = '\0';
+            this.txMontoDeuda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txMontoDeuda.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txMontoDeuda.ColorLine = System.Drawing.Color.Gray;
+            this.txMontoDeuda.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txMontoDeuda.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txMontoDeuda.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txMontoDeuda.Error = "";
+            this.txMontoDeuda.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txMontoDeuda.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txMontoDeuda.FormatLogin = false;
+            this.txMontoDeuda.ImageIcon = null;
+            this.txMontoDeuda.Info = "";
+            this.txMontoDeuda.Location = new System.Drawing.Point(106, 28);
+            this.txMontoDeuda.MaterialStyle = false;
+            this.txMontoDeuda.MaxLength = 32767;
+            this.txMontoDeuda.MultiLineText = false;
+            this.txMontoDeuda.Name = "txMontoDeuda";
+            this.txMontoDeuda.PasswordChar = '\0';
+            this.txMontoDeuda.Placeholder = "";
+            this.txMontoDeuda.ReadOnly = false;
+            this.txMontoDeuda.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txMontoDeuda.Size = new System.Drawing.Size(130, 53);
+            this.txMontoDeuda.SizeLine = 2;
+            this.txMontoDeuda.TabIndex = 10;
+            this.txMontoDeuda.Text = "00.00";
+            this.txMontoDeuda.Title = "Bs.";
+            this.txMontoDeuda.Visible = false;
+            this.txMontoDeuda.VisibleIcon = true;
+            this.txMontoDeuda.VisibleTitle = true;
+            // 
+            // btnAddDeuda
+            // 
+            this.btnAddDeuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnAddDeuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddDeuda.FlatAppearance.BorderSize = 0;
+            this.btnAddDeuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDeuda.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnAddDeuda.ForeColor = System.Drawing.Color.White;
+            this.btnAddDeuda.Location = new System.Drawing.Point(242, 32);
+            this.btnAddDeuda.Name = "btnAddDeuda";
+            this.btnAddDeuda.Size = new System.Drawing.Size(113, 34);
+            this.btnAddDeuda.TabIndex = 9;
+            this.btnAddDeuda.Text = "Añadir Deuda";
+            this.btnAddDeuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddDeuda.UseVisualStyleBackColor = false;
+            this.btnAddDeuda.Visible = false;
+            this.btnAddDeuda.Click += new System.EventHandler(this.btnAddDeuda_Click);
             // 
             // chkComision
             // 
@@ -698,5 +779,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Autonomo.CustomControls.CustomGrid grdDetalle;
+        private Autonomo.CustomControls.CustomButton btnAddDeuda;
+        private Autonomo.CustomControls.CustomCheck chkDeudaInicial;
+        private Autonomo.CustomControls.FlatTextBox txMontoDeuda;
     }
 }

@@ -33,7 +33,9 @@ namespace MampoteSystem.Windows.Modulo.Reporte
             if (refreshData == true)
             {
                 lbPagoDivisa.Text = $"$. {model.PagoDivisas}";
-                lbVuelto.Text = $"$. {model.VueltoDivisas}";
+                lbVueltoDivisa.Text = $"$. {model.VueltoDivisas}";
+                lbVueltoBs.Text = $"Bs. {model.VueltoBolivares}";
+                lbPropina.Text = $"Bs. {model.Propina}";
                 lbPagosPunto.Text = $"Bs. {model.PagoPunto}";
                 lbPagosEfectivo.Text = $"Bs. {model.PagoEfectivo}";
                 lbPagosPM.Text = $"Bs. {model.PagoPM}";

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuComida));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txFilter = new Autonomo.CustomControls.FlatFindText();
             this.grdData = new Autonomo.CustomControls.CustomGrid();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,7 +132,7 @@
             // 
             this.txFilter.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
             this.txFilter.BackColor = System.Drawing.Color.White;
-            this.txFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txFilter.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.txFilter.ColorLine = System.Drawing.Color.Gray;
             this.txFilter.ColorText = System.Drawing.SystemColors.WindowText;
@@ -148,7 +148,7 @@
             this.txFilter.Name = "txFilter";
             this.txFilter.ObjectArray = null;
             this.txFilter.PasswordChar = '\0';
-            this.txFilter.Placeholder = "Buscar por código";
+            this.txFilter.Placeholder = "Buscar por código o nombre";
             this.txFilter.PlaceHolderHeight = 18;
             this.txFilter.ReadOnly = false;
             this.txFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -157,7 +157,7 @@
             this.txFilter.StringArray = null;
             this.txFilter.TabIndex = 4;
             this.txFilter.TextId = "";
-            this.txFilter.Title = "Buscar por código";
+            this.txFilter.Title = "Buscar por código o nombre";
             this.txFilter.VisibleIcon = true;
             this.txFilter.VisibleTitle = false;
             this.txFilter.TextBoxChanged += new System.EventHandler(this.txFilter_TextBoxChanged);
@@ -176,14 +176,14 @@
             this.grdData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdData.CellStyleBackColor = System.Drawing.SystemColors.Window;
             this.grdData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -195,14 +195,14 @@
             this.Precio_Venta,
             this.IVA,
             this.totaMasIVA});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdData.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdData.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdData.EnableBottomDown = false;
             this.grdData.EnableBottomLeft = false;
@@ -277,6 +277,7 @@
             this.IVA.HeaderText = "IVA";
             this.IVA.Name = "IVA";
             this.IVA.ReadOnly = true;
+            this.IVA.Visible = false;
             // 
             // totaMasIVA
             // 
@@ -284,6 +285,7 @@
             this.totaMasIVA.HeaderText = "Total con IVA";
             this.totaMasIVA.Name = "totaMasIVA";
             this.totaMasIVA.ReadOnly = true;
+            this.totaMasIVA.Visible = false;
             // 
             // frmMenuComida
             // 

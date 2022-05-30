@@ -106,8 +106,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 var element = uow.detalleVenta.GetDetalles(idVenta).ToList();
                 grdDetalle.DataSource = element;
                 grdDetalle.Columns[0].Visible = false;
-                grdDetalle.Columns[1].Visible = false;
-                grdDetalle.Columns[6].Visible = false;
+                grdDetalle.Columns[2].Visible = false;
+                grdDetalle.Columns[7].Visible = false;
                 grdDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
 
@@ -115,7 +115,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
             foreach (DataGridViewRow row in grdDetalle.Rows)
             {
-                cantidad += int.Parse(row.Cells[4].Value.ToString());
+                if (row.Cells[2].Value.ToString() == "PROMOCIONES")
+                {
+                    continue;
+                }
+               cantidad += int.Parse(row.Cells[5].Value.ToString());
             }
 
             lbTotalCantidad.Text = $":  {cantidad} Unidades";
@@ -192,7 +196,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
         public void onLoad()
         {
-            dtDesde.Value = Autonomo.Class.Obtaining.GetFirstDayMonth();
+            dtDesde.Value = new DateTime(DateTime.Today.Year, 1, 1);
             dtHasta.Value = DateTime.Now;
             ThemeStyle(Theme.White);
             LoadData();
