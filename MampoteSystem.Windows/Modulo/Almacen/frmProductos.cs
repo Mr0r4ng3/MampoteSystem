@@ -54,7 +54,7 @@ namespace MampoteSystem.Windows.Modulo.Almacen
                 if (chkPromociones.Checked == false)
                 {
                     grdData.DataSource = newList
-                        .Where(o => o.Codigo.ToLower().Contains(txFilter.Text.ToLower()) || o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) && o.idCategoria != "CG001")
+                        .Where(o => o.idCategoria != "CG001" && (o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) || o.Codigo.ToLower().Contains(txFilter.Text.ToLower())))
                         .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
                         .ToList();
                     grdData.Columns[2].Visible = true;
@@ -64,7 +64,7 @@ namespace MampoteSystem.Windows.Modulo.Almacen
                 else
                 {
                     grdData.DataSource = newList
-                        .Where(o => o.Codigo.ToLower().Contains(txFilter.Text.ToLower()) || o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) && o.idCategoria == "CG001")
+                        .Where(o => o.idCategoria == "CG001" && (o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) || o.Codigo.ToLower().Contains(txFilter.Text.ToLower())))
                         .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
                         .ToList();
 

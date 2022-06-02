@@ -34,7 +34,7 @@ namespace MampoteSystem.Windows.Admin
                         frmMenu MenuPrincipal = frmMenu.GetInstance();
 
                         MenuPrincipal.EditorUser = user.username;
-                        MenuPrincipal.TCambio = Tools.Configs.ReadSetting("Tasa");
+                        MenuPrincipal.TCambio = Tools.Configs.ReadTasa();
                         MenuPrincipal.Usuario = user.Nombres.Split()[0] + " " + user.Apellidos.Split()[0];
                         MenuPrincipal._NivelAcceso = user.NivelAcceso;
 

@@ -54,6 +54,7 @@
     <Compile Include="AdoNet\ProductosRepository.cs" />
     <Compile Include="AdoNet\ProveedoresRepository.cs" />
     <Compile Include="AdoNet\SqlManager.cs" />
+    <Compile Include="AdoNet\TasaRepository.cs" />
     <Compile Include="AdoNet\TipoPagosRepository.cs" />
     <Compile Include="AdoNet\UsuariosRepository.cs" />
     <Compile Include="AdoNet\VentaRepository.cs" />

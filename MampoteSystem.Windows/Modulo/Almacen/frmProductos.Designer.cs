@@ -147,7 +147,7 @@
             this.txFilter.Name = "txFilter";
             this.txFilter.ObjectArray = null;
             this.txFilter.PasswordChar = '\0';
-            this.txFilter.Placeholder = "Buscar por código o nombre";
+            this.txFilter.Placeholder = "Buscar por nombre o codigo";
             this.txFilter.PlaceHolderHeight = 18;
             this.txFilter.ReadOnly = false;
             this.txFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -156,7 +156,7 @@
             this.txFilter.StringArray = null;
             this.txFilter.TabIndex = 3;
             this.txFilter.TextId = "";
-            this.txFilter.Title = "Buscar por código o nombre";
+            this.txFilter.Title = "Buscar por nombre o codigo";
             this.txFilter.VisibleIcon = true;
             this.txFilter.VisibleTitle = false;
             this.txFilter.TextBoxChanged += new System.EventHandler(this.txFilter_TextBoxChanged);

@@ -32,6 +32,8 @@ namespace MampoteSystem.Datos
 
         public IPagoRepository pago { get; private set; }
 
+        public TasaRepository tasa { get; private set; }
+
         public UnitOfWork() 
         {
             this.ObjContext = new MampoteSystemContext(stringConnection);
@@ -47,6 +49,7 @@ namespace MampoteSystem.Datos
             detalleVenta = new DetalleVentaRepository(ObjContext);
             tipoPagos = new TipoPagosRepository(ObjContext);
             pago = new PagoRepository(ObjContext);
+            tasa = new TasaRepository(ObjContext);
 
         }
         public void Dispose()

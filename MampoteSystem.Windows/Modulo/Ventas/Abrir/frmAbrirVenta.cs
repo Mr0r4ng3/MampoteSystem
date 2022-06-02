@@ -162,8 +162,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     grdData.Rows[0].Selected = true;
                 }
 
-                getEstadisticas();
             }
+                getEstadisticas();
         }
 
         private void getEstadisticas()
@@ -186,12 +186,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 cantidadVentas = grdData.RowCount;
 
                 DescriptionData.Text = $"Cantidad de ventas encontradas: {cantidadVentas}  | Total : Bs. {totalBs.ToString("F2")}  | Total Deuda : Bs. {totalDeuda.ToString("F2")}  | Total Comision : Bs. {totalComision.ToString("F2")}";
+                return;
             }
-            else
-            {
-                DescriptionData.Text = "Cantidad de ventas encontradas: 0  | Total : Bs. 0.00  | Total Deuda : Bs. 0.00  | Total Comision : Bs. 0.00";
-
-            }
+            DescriptionData.Text = "Cantidad de ventas encontradas: 0  | Total : Bs. 0.00  | Total Deuda : Bs. 0.00  | Total Comision : Bs. 0.00";
         }
 
         public void onLoad()

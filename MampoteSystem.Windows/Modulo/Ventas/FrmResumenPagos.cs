@@ -139,11 +139,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas
 
                 cantidadPagos = grdData.RowCount;
 
-                DescriptionData.Text = $"Cantidad de ventas encontradas: {cantidadPagos}  | Total : {moneySymbol} {total.ToString("F2")}  | Vuelto Bolivares : Bs. {vueltoBs.ToString("F2")}  | Vuelto Divisas : $. {vueltoDiv.ToString("F2")}  | Propina : Bs. {propina.ToString("F2")}";
+                DescriptionData.Text = $"Cantidad de pagos encontrados: {cantidadPagos}  | Total : {moneySymbol} {total.ToString("F2")}  | Vuelto Bolivares : Bs. {vueltoBs.ToString("F2")}  | Vuelto Divisas : $. {vueltoDiv.ToString("F2")}  | Propina : Bs. {propina.ToString("F2")}";
             }
             else
             {
-                DescriptionData.Text = $"Cantidad de ventas encontradas: 0  | Total : {moneySymbol} 0.00  | Vuelto Bolivares : Bs. 0.00  | Vuelto Divisas : $. 0.00  | Propina : Bs. 0.00";
+                DescriptionData.Text = $"Cantidad de pagos encontrados: 0  | Total : {moneySymbol} 0.00  | Vuelto Bolivares : Bs. 0.00  | Vuelto Divisas : $. 0.00  | Propina : Bs. 0.00";
 
             }
         }
