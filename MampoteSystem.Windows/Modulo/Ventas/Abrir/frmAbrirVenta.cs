@@ -46,7 +46,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                         if (grdData.SelectedRows.Count > 0)
                         {
                                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
-                                string Cedula = grdData.SelectedRows[0].Cells["Cedula"].Value.ToString();
+                                string ClienteName = grdData.SelectedRows[0].Cells["Cliente"].Value.ToString();
                                 decimal MontoTotal = Convert.ToDecimal(grdData.SelectedRows[0].Cells["MontoTotal"].Value, new CultureInfo("en-US"));
                                 bool Comisioned = false;
 
@@ -56,7 +56,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                                 }
 
                             f.GetID = _idVenta;
-                            f.CedulaModifiyVenta = Cedula;
+                            f.ClienteNameInEdit = ClienteName;
                             f.TotalOld = Convert.ToDecimal(MontoTotal, new CultureInfo("en-US"));
                             f.Comisionada = Comisioned;
                             f.DetalleVenta = grdDetalle.DataSource;

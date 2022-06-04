@@ -23,7 +23,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
     {
         public bool NuevaVenta;
         public string GetID;
-        public string CedulaModifiyVenta;
+        public string ClienteNameInEdit;
         public decimal TotalOld;
         public bool Comisionada;
         public Object DetalleVenta;
@@ -243,13 +243,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 txCliente.Text = cliente.Nombres + " " + cliente.Apellidos;
 
-                if (!NuevaVenta)
-                {
-                    txCliente.Enabled = false;
-                    cbCedula.Enabled = false;
-                    return;
-                }
-
                 lblMessageGrid.Text = $"{cliente.Nombres} {cliente.Apellidos} seleccionado como cliente para la venta.";
                 lblMessageGrid.BackColor = Color.SeaGreen;
                 txCliente.ReadOnly = true;
@@ -390,7 +383,13 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 chkComision.Checked = Comisionada;
                 chkComision.Enabled = false;
-                GetCliente(CedulaModifiyVenta);
+
+                cliente = new clientes();
+                cliente.id = 0;
+                txCliente.Text = ClienteNameInEdit;
+                txCliente.Enabled = false;
+                cbCedula.Enabled = false;
+
                 MostrarTotales();
                 grdDetalle.DataSource = DetalleVenta;
                 grdDetalle.Columns[0].Visible = false;
