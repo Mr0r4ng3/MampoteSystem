@@ -27,6 +27,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         public decimal TotalOld;
         public bool Comisionada;
         public Object DetalleVenta;
+        public string Nota;
 
 
         private decimal total;
@@ -261,10 +262,10 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         {
             controlsEmpty = string.Empty;
            
-            if (!DataGridHelper.ValidateEmptyGrid(grdCanastilla))
+            if (!DataGridHelper.ValidateEmptyGrid(grdCanastilla) && txNota.Text == Nota)
             {
                 controlsEmpty = "¡No ha añadido nada a la venta!";
-                lblMessageGrid.Text = "Debe añadir algo a la venta para continuar.";
+                lblMessageGrid.Text = "Debe añadir algo a la venta o editar la nota para guardar.";
                 lblMessageGrid.BackColor = Color.Coral;
                 return false;
             }
@@ -332,12 +333,13 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                           new Entidad.venta()
                           {
                               id = GetID,
-                              NumeroFactura = "SIN FACTURAR",
+                              NumeroFactura = "",
                               idCliente = cliente.id,
                               Comision = comision,
                               EstadoComision = comision > 0 ? "Sin Pagar" : "No Aplica",
                               MontoTotal = Convert.ToDecimal(total, new CultureInfo("en-US")),
-                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US"))
+                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US")),
+                              Nota = txNota.Text
 
                           }, new Entidad.detalleVenta()
                           {
@@ -350,6 +352,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                           }, Comisionada);
                     }
 
+                    if(grdCanastilla.Rows.Count == 0)
+                    {
+                        response = uow.venta.actualizarNota(GetID, txNota.Text);
+                    }
+
                     if (response > 0)
                     {
                         Tools.Mensaje.MessageBox(
@@ -360,8 +367,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     else
                     {
                         Tools.Mensaje.MessageBox(
-                            Enumerables.Mensajeria.Succesful,
-                            "No se guardo");
+                            Enumerables.Mensajeria.Error,
+                            "Ocurrió un error al guardar.");
                         base.Set();
                     }
                 }
@@ -389,6 +396,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 txCliente.Text = ClienteNameInEdit;
                 txCliente.Enabled = false;
                 cbCedula.Enabled = false;
+                txNota.Text = Nota;
 
                 MostrarTotales();
                 grdDetalle.DataSource = DetalleVenta;

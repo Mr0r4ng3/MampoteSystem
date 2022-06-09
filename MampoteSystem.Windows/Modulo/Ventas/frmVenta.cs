@@ -44,7 +44,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             }
         }
 
-        private void GetDetail(string idVenta, decimal montoTotal, decimal Deuda, decimal Comision)
+        private void GetDetail(string idVenta, decimal montoTotal, decimal Deuda, decimal Comision, string Nota)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
@@ -70,6 +70,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             lbTotalCantidad.Text = $":  {cantidad} Unidades";
             lbTotal.Text = $":  Bs. {montoTotal}";
             lbComision.Text = $":  Bs. {Comision}";
+            txNota.Text = Nota;
         }
 
         private void FilterData()
@@ -77,7 +78,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             if (_ventaList != null && _ventaList.Count > 0)
             {
                 var data = _ventaList
-                    .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
+                    .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()) || o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
                 if (chkOnlyComision.Checked == true)
                 {
@@ -160,9 +161,10 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                 decimal _montoTotal = Convert.ToDecimal(grdData.SelectedRows[0].Cells["MontoTotal"].Value.ToString());
                 decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value.ToString());
                 decimal _Deuda = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Deuda"].Value.ToString());
+                string _Nota = grdData.SelectedRows[0].Cells["Nota"].Value.ToString();
 
 
-                GetDetail(_idVenta, _montoTotal, _Deuda, _Comision);
+                GetDetail(_idVenta, _montoTotal, _Deuda, _Comision, _Nota);
 
                 string _estadoComision = grdData.SelectedRows[0].Cells["EstadoComision"].Value.ToString();
 
@@ -197,6 +199,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                 lbComision.Text = ":  $ 0.00";
                 btnCommand2.Enabled = false;
                 btnCommand2.Text = "-----";
+                txNota.Clear();
             }
         }
 

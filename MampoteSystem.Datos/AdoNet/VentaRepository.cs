@@ -34,6 +34,7 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@EstadoComision",venta.EstadoComision),
                         new SqlParameter("@MontoTotal",venta.MontoTotal),
                         new SqlParameter("@Deuda",venta.Deuda),
+                        new SqlParameter("@Nota",venta.Nota),
                         new SqlParameter("@IsComision",isComision),
 
                       //Sección para Detale
@@ -64,6 +65,21 @@ namespace MampoteSystem.Datos.AdoNet
                     querySql = $"update venta set EstadoComision = 'Sin Pagar' where id = '{idVenta}'";
                 }
 
+
+                return ObjContext.ExecuteNonQuery(querySql, System.Data.CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int actualizarNota(string idVenta, string Nota)
+        {
+            try
+            {
+
+                string querySql = $"update venta set Nota = '{Nota}' where id = '{idVenta}'";
 
                 return ObjContext.ExecuteNonQuery(querySql, System.Data.CommandType.Text);
             }

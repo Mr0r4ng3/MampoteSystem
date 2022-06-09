@@ -341,11 +341,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         }
         private void txMontoPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbTiposPago.Text == "Efectivo Dolares")
-            {
-                Autonomo.Class.Validating.OnlyNumber(e);
-                return;
-            }
             e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txMontoPago);
         }
         private void txVuelto_KeyPress(object sender, KeyPressEventArgs e)

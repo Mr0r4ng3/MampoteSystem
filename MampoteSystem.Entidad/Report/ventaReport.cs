@@ -17,6 +17,8 @@ namespace MampoteSystem.Entidad.Report
         public decimal MontoTotal { get; set; }
         public decimal Deuda { get; set; }
         public DateTime Fecha { get; set; }
+        public string Nota { get; set; }
+
 
     }
 }

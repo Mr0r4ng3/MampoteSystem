@@ -15,7 +15,7 @@ namespace MampoteSystem.Datos.Interfaces
         string GetNewID();
         string GetNewFactura();
         int pagarComision(string idVenta, bool cancel);
-
+        int actualizarNota(string idVenta, string Nota);
         int DeleteVenta(string idVenta);
         int DeleteDetalle(string idDetalle);
     }
