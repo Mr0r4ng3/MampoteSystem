@@ -20,12 +20,16 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
     public partial class frmAbrirVenta : Autonomo.CustomTemplate.RegistryDouble
     {
         List<ventaReport> _ventaList;
+        private String[] BUSCARPOR = { "Cliente", "Nota" };
 
         private string NivelAcceso = Configs.GetNivelAcceso();
 
         public frmAbrirVenta()
         {
             InitializeComponent();
+
+            cbBuscarPor.DataSource = BUSCARPOR;
+            cbBuscarPor.SelectedIndex = 0;
         }
         private void LoadModal(string title, bool isNuevo)
         {
@@ -136,35 +140,71 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         {
             if (_ventaList != null && _ventaList.Count > 0)
             {
-                var data = _ventaList
-                    .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()) || o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
-                if(chkOnlyComision.Checked == true)
+                if(cbBuscarPor.SelectedIndex == 0)
                 {
-                    if(radPagada.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
-                    }
-                    
-                    if (radSinPagar.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
-                    }
-                    if(radOpcionAPago.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
-                        data = data.Where(o => o.Deuda != o.MontoTotal);
-                    }
-                }
+                    var data = _ventaList
+                     .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
 
-                grdData.DataSource = data.ToList();
-                grdData.Columns[0].Visible = false;
-                grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if(grdData.Rows.Count > 0)
+                    if (chkOnlyComision.Checked == true)
+                    {
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
+                        if (radOpcionAPago.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                            data = data.Where(o => o.Deuda != o.MontoTotal);
+                        }
+                    }
+
+                    grdData.DataSource = data.ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
+                    {
+                        grdData.Rows[0].Selected = true;
+                    }
+
+                }
+                else
                 {
-                    grdData.Rows[0].Selected = true;
-                }
+                   var  data = _ventaList
+                        .Where(o => o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
+                    if (chkOnlyComision.Checked == true)
+                    {
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
+                        if (radOpcionAPago.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                            data = data.Where(o => o.Deuda != o.MontoTotal);
+                        }
+                    }
+
+                    grdData.DataSource = data.ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
+                    {
+                        grdData.Rows[0].Selected = true;
+                    }
+
+                }
             }
                 getEstadisticas();
         }
@@ -501,6 +541,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     }
                 }
             }
+        }
+
+        private void cbBuscarPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterData();
         }
     }
 }

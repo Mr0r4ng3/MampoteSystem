@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVenta));
             this.grdData = new Autonomo.CustomControls.CustomGrid();
             this.grdDetalle = new Autonomo.CustomControls.CustomGrid();
@@ -44,7 +44,6 @@
             this.radPagada = new Autonomo.CustomControls.CustomRadius();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelControles = new System.Windows.Forms.Panel();
             this.lbidVenta = new System.Windows.Forms.Label();
             this.btnPagos = new Autonomo.CustomControls.CustomButton();
@@ -55,7 +54,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txNota = new System.Windows.Forms.TextBox();
+            this.cbBuscarPor = new Autonomo.CustomControls.FlatComboBox();
             this.pnlContenedor.SuspendLayout();
             this.pnlBottonControl.SuspendLayout();
             this.pnlTopControl.SuspendLayout();
@@ -68,8 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalle)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.panelControles.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedor
@@ -87,6 +88,7 @@
             // 
             // pnlTopControl
             // 
+            this.pnlTopControl.Controls.Add(this.cbBuscarPor);
             this.pnlTopControl.Controls.Add(this.chkOnlyComision);
             this.pnlTopControl.Controls.Add(this.radSinPagar);
             this.pnlTopControl.Controls.Add(this.radPagada);
@@ -105,6 +107,7 @@
             this.pnlTopControl.Controls.SetChildIndex(this.radPagada, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.radSinPagar, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.chkOnlyComision, 0);
+            this.pnlTopControl.Controls.SetChildIndex(this.cbBuscarPor, 0);
             // 
             // pnlTopButton
             // 
@@ -192,24 +195,24 @@
             this.grdData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdData.CellStyleBackColor = System.Drawing.SystemColors.Window;
             this.grdData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdData.ColumnHeadersHeight = 34;
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdData.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdData.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdData.EnableBottomDown = false;
             this.grdData.EnableBottomLeft = false;
@@ -245,24 +248,24 @@
             this.grdDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdDetalle.CellStyleBackColor = System.Drawing.Color.ForestGreen;
             this.grdDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdDetalle.ColumnHeadersHeight = 34;
             this.grdDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.ForestGreen;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdDetalle.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdDetalle.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdDetalle.EnableBottomDown = false;
             this.grdDetalle.EnableBottomLeft = false;
@@ -296,23 +299,23 @@
             this.txFilter.FontText = new System.Drawing.Font("Verdana", 10F);
             this.txFilter.FontTitle = new System.Drawing.Font("Verdana", 9F);
             this.txFilter.ImageIcon = null;
-            this.txFilter.Location = new System.Drawing.Point(349, 32);
+            this.txFilter.Location = new System.Drawing.Point(512, 22);
             this.txFilter.MaterialStyle = true;
             this.txFilter.MaxLength = 32767;
             this.txFilter.MultiLineText = false;
             this.txFilter.Name = "txFilter";
             this.txFilter.ObjectArray = null;
             this.txFilter.PasswordChar = '\0';
-            this.txFilter.Placeholder = "Buscar por cliente o en la nota";
+            this.txFilter.Placeholder = "";
             this.txFilter.PlaceHolderHeight = 18;
             this.txFilter.ReadOnly = false;
             this.txFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txFilter.Size = new System.Drawing.Size(242, 44);
+            this.txFilter.Size = new System.Drawing.Size(153, 44);
             this.txFilter.SizeLine = 2;
             this.txFilter.StringArray = null;
             this.txFilter.TabIndex = 19;
             this.txFilter.TextId = "";
-            this.txFilter.Title = "Buscar por cliente o en la nota";
+            this.txFilter.Title = "";
             this.txFilter.VisibleIcon = true;
             this.txFilter.VisibleTitle = false;
             this.txFilter.TextBoxChanged += new System.EventHandler(this.txFilter_TextBoxChanged);
@@ -483,17 +486,6 @@
             this.tabPage1.Text = "Resumen de Facturación";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.txNota);
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(443, 200);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Nota";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // panelControles
             // 
             this.panelControles.BackColor = System.Drawing.Color.Gainsboro;
@@ -613,6 +605,17 @@
             this.label2.Size = new System.Drawing.Size(437, 1);
             this.label2.TabIndex = 0;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.txNota);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(443, 200);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Nota";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // txNota
             // 
             this.txNota.BackColor = System.Drawing.Color.Gainsboro;
@@ -626,6 +629,36 @@
             this.txNota.ReadOnly = true;
             this.txNota.Size = new System.Drawing.Size(437, 194);
             this.txNota.TabIndex = 1;
+            // 
+            // cbBuscarPor
+            // 
+            this.cbBuscarPor.BackColor = System.Drawing.Color.White;
+            this.cbBuscarPor.Category = '\0';
+            this.cbBuscarPor.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.cbBuscarPor.ColorLine = System.Drawing.Color.Gray;
+            this.cbBuscarPor.ColorText = System.Drawing.SystemColors.WindowText;
+            this.cbBuscarPor.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbBuscarPor.DisplayMember = "";
+            this.cbBuscarPor.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.cbBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBuscarPor.Error = "";
+            this.cbBuscarPor.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.cbBuscarPor.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.cbBuscarPor.ImageIcon = ((System.Drawing.Image)(resources.GetObject("cbBuscarPor.ImageIcon")));
+            this.cbBuscarPor.Info = "";
+            this.cbBuscarPor.Location = new System.Drawing.Point(349, 12);
+            this.cbBuscarPor.MaterialStyle = true;
+            this.cbBuscarPor.Name = "cbBuscarPor";
+            this.cbBuscarPor.Placeholder = "Buscar por";
+            this.cbBuscarPor.SelectedIndex = -1;
+            this.cbBuscarPor.Size = new System.Drawing.Size(160, 68);
+            this.cbBuscarPor.SizeLine = 2;
+            this.cbBuscarPor.TabIndex = 31;
+            this.cbBuscarPor.Title = "Buscar por";
+            this.cbBuscarPor.ValueMember = "";
+            this.cbBuscarPor.VisibleIcon = false;
+            this.cbBuscarPor.VisibleTitle = false;
+            this.cbBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cbBuscarPor_SelectedIndexChanged);
             // 
             // frmVenta
             // 
@@ -648,10 +681,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalle)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.panelControles.ResumeLayout(false);
             this.panelControles.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -681,5 +714,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txNota;
+        private Autonomo.CustomControls.FlatComboBox cbBuscarPor;
     }
 }

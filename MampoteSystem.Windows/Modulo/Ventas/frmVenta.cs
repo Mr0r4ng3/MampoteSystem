@@ -19,12 +19,15 @@ namespace MampoteSystem.Windows.Modulo.Ventas
     public partial class frmVenta : Autonomo.CustomTemplate.RegistryDouble
     {
         List<ventaReport> _ventaList;
+        private String[] BUSCARPOR = { "Cliente", "Nota" };
 
         private string NivelAcceso = Configs.GetNivelAcceso();
 
         public frmVenta()
         {
             InitializeComponent();
+            cbBuscarPor.DataSource = BUSCARPOR;
+            cbBuscarPor.SelectedIndex = 0;
         }
         private void LoadData()
         {
@@ -72,37 +75,67 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             lbComision.Text = $":  Bs. {Comision}";
             txNota.Text = Nota;
         }
-
         private void FilterData()
         {
             if (_ventaList != null && _ventaList.Count > 0)
             {
-                var data = _ventaList
-                    .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()) || o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
-                if (chkOnlyComision.Checked == true)
+                if (cbBuscarPor.SelectedIndex == 0)
                 {
-                    if (radPagada.Checked == true)
+                    var data = _ventaList
+                     .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
+
+                    if (chkOnlyComision.Checked == true)
                     {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
                     }
 
-                    if (radSinPagar.Checked == true)
+                    grdData.DataSource = data.ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
                     {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        grdData.Rows[0].Selected = true;
                     }
-                }
 
-                grdData.DataSource = data.ToList();
-                grdData.Columns[0].Visible = false;
-                grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (grdData.Rows.Count > 0)
+                }
+                else
                 {
-                    grdData.Rows[0].Selected = true;
-                }
+                    var data = _ventaList
+                         .Where(o => o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
+                    if (chkOnlyComision.Checked == true)
+                    {
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
+                    }
+
+                    grdData.DataSource = data.ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
+                    {
+                        grdData.Rows[0].Selected = true;
+                    }
+
+                }
             }
-                getEstadisticas();
+            getEstadisticas();
         }
         private void getEstadisticas()
         {
@@ -315,6 +348,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             {
                 Mensaje.MessageBox(Enumerables.Mensajeria.Error, "No hay datos para exportar.");
             }
+        }
+
+        private void cbBuscarPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterData();
         }
     }
 }
