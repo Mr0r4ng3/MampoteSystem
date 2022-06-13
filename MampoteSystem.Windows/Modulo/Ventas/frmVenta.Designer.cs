@@ -532,6 +532,7 @@
             this.btnPagos.Text = "Ver Pagos en detalle";
             this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPagos.UseVisualStyleBackColor = false;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
             // 
             // lbComision
             // 
