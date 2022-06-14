@@ -365,10 +365,10 @@
             this.grdDetalle.AllowUserToAddRows = false;
             this.grdDetalle.AllowUserToDeleteRows = false;
             this.grdDetalle.AllowUserToResizeRows = false;
-            this.grdDetalle.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.grdDetalle.BackgroundColor = System.Drawing.Color.White;
             this.grdDetalle.BodyFont = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdDetalle.BodyForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetalle.BodySelectColor = System.Drawing.Color.LimeGreen;
+            this.grdDetalle.BodySelectColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.grdDetalle.BodySelectForeColor = System.Drawing.SystemColors.ControlText;
             this.grdDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -388,7 +388,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.ForestGreen;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdDetalle.DefaultCellStyle = dataGridViewCellStyle4;
