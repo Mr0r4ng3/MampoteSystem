@@ -19,18 +19,25 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
     public partial class frmCerrarVentaModal : Autonomo.Object.Modal
     {
         private decimal MontoPagar;
+        private decimal Comision;
+        private decimal NuevaComision;
         private string _idVenta;
         private decimal _Tasa;
+        private string lastPercent = "1";
+        private decimal NuevoMonto;
+        private decimal TotalDescuento;
         public frmCerrarVentaModal()
         {
             InitializeComponent();
         }
-        public void CargarMontos(decimal newMontoPagar, string newIdVenta)
+        public void CargarMontos(decimal newMontoPagar, string newIdVenta, decimal setComision)
         {
             decimal MontoPagarDolares;
 
             _idVenta = newIdVenta;
             MontoPagar = Convert.ToDecimal(newMontoPagar, new CultureInfo("en-US"));
+            Comision = Convert.ToDecimal(setComision, new CultureInfo("en-US"));
+
             _Tasa = Convert.ToDecimal(frmMenu.GetInstance().TCambio, new CultureInfo("en-US"));
             MontoPagarDolares = Convert.ToDecimal(MontoPagar / _Tasa, new CultureInfo("en-US"));
 
@@ -123,6 +130,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         {
             decimal total = 0m;
             decimal diferencia = 0m;
+            TotalDescuento = 0m;
 
             foreach (DataGridViewRow row in grdData.Rows)
             {
@@ -154,7 +162,22 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 total += Convert.ToDecimal(montoPago, new CultureInfo("en-US"));
             }
 
-            diferencia = Convert.ToDecimal(MontoPagar - total + montoVueltoOrPropina, new CultureInfo("en-US"));
+            decimal newMontoPagar = MontoPagar;
+
+            if(chkDescuento.Checked == true)
+            {
+                int descuentoPorcentaje = Convert.ToInt32(txPorcentajeDescuento.Text);
+                string prefijo = descuentoPorcentaje < 10 ? "0.0" : "0.";
+                 TotalDescuento = Convert.ToDecimal(prefijo + txPorcentajeDescuento.Text, new CultureInfo("en-US"));
+                decimal auxMontoPagar = (MontoPagar - Comision);
+                newMontoPagar = auxMontoPagar - (auxMontoPagar * TotalDescuento);
+                NuevaComision = Comision != 0 ? newMontoPagar * Convert.ToDecimal(0.10, new CultureInfo("en-US"))
+                    : 0;
+                newMontoPagar = newMontoPagar + NuevaComision;
+                NuevoMonto = newMontoPagar;
+            }
+
+            diferencia = Convert.ToDecimal(newMontoPagar - total + montoVueltoOrPropina, new CultureInfo("en-US"));
 
 
             lbTotalPagos.Text = total.ToString("F2", new CultureInfo("en-US"));
@@ -248,7 +271,22 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 return;
             }
 
-            if(Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-US")) < 0)
+            decimal newDeuda = Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-US"));
+            bool Vendido = (newDeuda <= 0) ? true : false;
+            bool ApplyDescuento = chkDescuento.Checked == true ? true : false;
+            string AddDescuentoInNota = $"Aplicado un descuento de {txPorcentajeDescuento.Text}%";
+            string Descuento = $"{txPorcentajeDescuento.Text}%";
+
+            if (ApplyDescuento && newDeuda > 0)
+            {
+                Tools.Mensaje.MessageBox(Enumerables.Mensajeria.Warning,
+                    "No puede guardar una venta con un descuento promocional sin pagar la totalidad de la factura.");
+
+                return;
+            }
+
+
+            if (newDeuda == 0)
             {
                 DialogResult response = MessageBox.Show("La venta tiene un saldo negativo (devolucion al cliente), ¿Desea guardar de igual forma?",
                     "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -264,8 +302,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 using (UnitOfWork uow = new UnitOfWork())
                 {
                     int response = -1;
-                    decimal newDeuda = Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-US"));
-                    bool Vendido = (newDeuda == 0) ? true : false;
+
+                    
 
                     foreach (DataGridViewRow row in grdData.Rows)
                     {
@@ -300,7 +338,9 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                               Vuelto_Divisas = _Vuelto_Divisas,
                               Propina = _Propina,
                               Nota = _Nota
-                          }, newDeuda, txNumeroFactura.Text, Vendido);
+                          }, newDeuda, txNumeroFactura.Text, Vendido, ApplyDescuento, NuevoMonto, NuevaComision, AddDescuentoInNota, Descuento, TotalDescuento);
+                        
+                        AddDescuentoInNota = "";
                     }
 
                     if (response > 0)
@@ -379,6 +419,58 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         private void txPropina_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Autonomo.Class.Validating.OnlyDecimal(e, this.txPropina);
+        }
+
+        private void flatTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Autonomo.Class.Validating.OnlyNumber(e);
+        }
+
+        private void txPorcentajeDescuento_TextBoxChanged(object sender, EventArgs e)
+        {
+
+            if(chkDescuento.Checked == false)
+            {
+                txPorcentajeDescuento.Error = "";
+                return;
+            }
+
+            int newNumber = txPorcentajeDescuento.Text != String.Empty && int.TryParse(txPorcentajeDescuento.Text, out _) 
+                ? Convert.ToInt32(txPorcentajeDescuento.Text) 
+                : 0;
+
+            if (newNumber > 0 && newNumber < 100)
+            {
+                lastPercent = newNumber.ToString();
+                txPorcentajeDescuento.Error = "";
+                CalcularTotal();
+                return;
+
+            }
+            txPorcentajeDescuento.Text = lastPercent.ToString();
+
+            if(newNumber > 99)
+            {
+                txPorcentajeDescuento.Error = "Debe ser menor a %99";
+            }
+            else
+            {
+                txPorcentajeDescuento.Error = "Debe ser mayor a %0";
+            }
+        }
+
+        private void chkDescuento_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkDescuento.Checked == false)
+            {
+                lastPercent = "1";
+                txPorcentajeDescuento.Text = "0";
+                txPorcentajeDescuento.Visible = false;
+
+                CalcularTotal();
+                return;
+            }
+            txPorcentajeDescuento.Visible = true;
         }
     }
 }

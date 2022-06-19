@@ -98,7 +98,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                         }
                     }
 
-                    grdData.DataSource = data.ToList();
+                    grdData.DataSource = data.OrderBy(o => o.NumeroFactura).ToList();
                     grdData.Columns[0].Visible = false;
                     grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     if (grdData.Rows.Count > 0)
@@ -125,7 +125,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                         }
                     }
 
-                    grdData.DataSource = data.ToList();
+                    grdData.DataSource = data.OrderBy(o => o.NumeroFactura).ToList();
                     grdData.Columns[0].Visible = false;
                     grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     if (grdData.Rows.Count > 0)

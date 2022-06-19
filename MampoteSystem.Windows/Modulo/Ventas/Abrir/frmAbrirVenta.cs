@@ -164,7 +164,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                         }
                     }
 
-                    grdData.DataSource = data.ToList();
+                    grdData.DataSource = data.OrderBy(o => o.NumeroFactura).ToList();
                     grdData.Columns[0].Visible = false;
                     grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     if (grdData.Rows.Count > 0)
@@ -380,11 +380,12 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
                 decimal _Total = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Deuda"].Value, new CultureInfo("en-US"));
+                decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value, new CultureInfo("en-US"));
 
                 var f = new Cerrar.frmCerrarVentaModal();
                 f.Title.Text = "Cerrar venta y agregar Pagos";
 
-                f.CargarMontos(_Total, _idVenta);
+                f.CargarMontos(_Total, _idVenta, _Comision);
 
                 Autonomo.Class.Fomulary.ShowModal(f, "", false);
 

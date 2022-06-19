@@ -50,6 +50,8 @@
             this.Propina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txPorcentajeDescuento = new Autonomo.CustomControls.FlatTextBox();
+            this.chkDescuento = new Autonomo.CustomControls.CustomCheck();
             this.label1 = new System.Windows.Forms.Label();
             this.lbDiferenciaBs = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -399,7 +401,7 @@
             this.grdData.ReadOnly = true;
             this.grdData.RowHeadersVisible = false;
             this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdData.Size = new System.Drawing.Size(671, 480);
+            this.grdData.Size = new System.Drawing.Size(671, 381);
             this.grdData.TabIndex = 0;
             this.grdData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellContentDoubleClick);
             // 
@@ -472,6 +474,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txPorcentajeDescuento);
+            this.panel2.Controls.Add(this.chkDescuento);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lbDiferenciaBs);
             this.panel2.Controls.Add(this.label6);
@@ -479,16 +483,75 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lbTotalPagos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 480);
+            this.panel2.Location = new System.Drawing.Point(0, 381);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(671, 100);
+            this.panel2.Size = new System.Drawing.Size(671, 199);
             this.panel2.TabIndex = 1;
+            // 
+            // txPorcentajeDescuento
+            // 
+            this.txPorcentajeDescuento.AlignText = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txPorcentajeDescuento.BackColor = System.Drawing.Color.White;
+            this.txPorcentajeDescuento.Category = '\0';
+            this.txPorcentajeDescuento.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txPorcentajeDescuento.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txPorcentajeDescuento.ColorLine = System.Drawing.Color.Gray;
+            this.txPorcentajeDescuento.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txPorcentajeDescuento.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txPorcentajeDescuento.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txPorcentajeDescuento.Error = "";
+            this.txPorcentajeDescuento.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txPorcentajeDescuento.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txPorcentajeDescuento.FormatLogin = false;
+            this.txPorcentajeDescuento.ImageIcon = global::MampoteSystem.Windows.Properties.Resources.counter_26px;
+            this.txPorcentajeDescuento.Info = "";
+            this.txPorcentajeDescuento.Location = new System.Drawing.Point(23, 89);
+            this.txPorcentajeDescuento.MaterialStyle = false;
+            this.txPorcentajeDescuento.MaxLength = 32767;
+            this.txPorcentajeDescuento.MultiLineText = false;
+            this.txPorcentajeDescuento.Name = "txPorcentajeDescuento";
+            this.txPorcentajeDescuento.PasswordChar = '\0';
+            this.txPorcentajeDescuento.Placeholder = "Porcentaje";
+            this.txPorcentajeDescuento.ReadOnly = false;
+            this.txPorcentajeDescuento.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txPorcentajeDescuento.Size = new System.Drawing.Size(178, 58);
+            this.txPorcentajeDescuento.SizeLine = 2;
+            this.txPorcentajeDescuento.TabIndex = 6;
+            this.txPorcentajeDescuento.Text = "0";
+            this.txPorcentajeDescuento.Title = "Porcentaje";
+            this.txPorcentajeDescuento.Visible = false;
+            this.txPorcentajeDescuento.VisibleIcon = true;
+            this.txPorcentajeDescuento.VisibleTitle = true;
+            this.txPorcentajeDescuento.TextBoxChanged += new System.EventHandler(this.txPorcentajeDescuento_TextBoxChanged);
+            this.txPorcentajeDescuento.KeyPress += new System.EventHandler<System.Windows.Forms.KeyPressEventArgs>(this.flatTextBox1_KeyPress);
+            // 
+            // chkDescuento
+            // 
+            this.chkDescuento.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkDescuento.AutoSize = true;
+            this.chkDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkDescuento.FlatAppearance.BorderSize = 0;
+            this.chkDescuento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.chkDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.chkDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDescuento.Font = new System.Drawing.Font("Verdana", 10F);
+            this.chkDescuento.Image = ((System.Drawing.Image)(resources.GetObject("chkDescuento.Image")));
+            this.chkDescuento.ImageChecking = ((System.Drawing.Image)(resources.GetObject("chkDescuento.ImageChecking")));
+            this.chkDescuento.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("chkDescuento.ImageUnChecking")));
+            this.chkDescuento.Location = new System.Drawing.Point(23, 31);
+            this.chkDescuento.Name = "chkDescuento";
+            this.chkDescuento.Size = new System.Drawing.Size(255, 27);
+            this.chkDescuento.TabIndex = 36;
+            this.chkDescuento.Text = "Aplicar descuento promocional ";
+            this.chkDescuento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.chkDescuento.UseVisualStyleBackColor = true;
+            this.chkDescuento.CheckedChanged += new System.EventHandler(this.chkDescuento_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Location = new System.Drawing.Point(372, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 35;
@@ -499,7 +562,7 @@
             // 
             this.lbDiferenciaBs.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold);
             this.lbDiferenciaBs.ForeColor = System.Drawing.Color.Black;
-            this.lbDiferenciaBs.Location = new System.Drawing.Point(17, 36);
+            this.lbDiferenciaBs.Location = new System.Drawing.Point(382, 147);
             this.lbDiferenciaBs.Name = "lbDiferenciaBs";
             this.lbDiferenciaBs.Size = new System.Drawing.Size(136, 30);
             this.lbDiferenciaBs.TabIndex = 34;
@@ -510,7 +573,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(125, 20);
+            this.label6.Location = new System.Drawing.Point(490, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 16);
             this.label6.TabIndex = 33;
@@ -521,7 +584,7 @@
             // 
             this.lbDiferencia.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold);
             this.lbDiferencia.ForeColor = System.Drawing.Color.Black;
-            this.lbDiferencia.Location = new System.Drawing.Point(135, 36);
+            this.lbDiferencia.Location = new System.Drawing.Point(500, 147);
             this.lbDiferencia.Name = "lbDiferencia";
             this.lbDiferencia.Size = new System.Drawing.Size(136, 30);
             this.lbDiferencia.TabIndex = 32;
@@ -531,21 +594,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 20);
+            this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(526, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 16);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 31;
             this.label3.Text = "Total pagos Bs.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbTotalPagos
             // 
-            this.lbTotalPagos.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold);
+            this.lbTotalPagos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPagos.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalPagos.Location = new System.Drawing.Point(447, 36);
+            this.lbTotalPagos.Location = new System.Drawing.Point(558, 32);
             this.lbTotalPagos.Name = "lbTotalPagos";
-            this.lbTotalPagos.Size = new System.Drawing.Size(136, 30);
+            this.lbTotalPagos.Size = new System.Drawing.Size(101, 30);
             this.lbTotalPagos.TabIndex = 30;
             this.lbTotalPagos.Text = "0.00";
             this.lbTotalPagos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -728,5 +791,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vuelto_Divisas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Propina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
+        private Autonomo.CustomControls.CustomCheck chkDescuento;
+        private Autonomo.CustomControls.FlatTextBox txPorcentajeDescuento;
     }
 }
