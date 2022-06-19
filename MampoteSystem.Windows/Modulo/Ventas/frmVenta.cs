@@ -354,5 +354,28 @@ namespace MampoteSystem.Windows.Modulo.Ventas
         {
             FilterData();
         }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            if (grdData.SelectedRows.Count > 0)
+            {
+                string idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
+
+                using (UnitOfWork uow = new UnitOfWork())
+                {
+                    List<detalleVentaReport> promociones = uow.detalleVenta.GetDetalles(idVenta).Where(
+                        o => o.Tipo == "PROMOCIONES").ToList();
+
+                    List<detalleVentaReport> items = uow.detalleVenta.GetDetalles(idVenta).Where(
+                        o => o.Tipo != "PROMOCIONES").ToList();
+
+                    ventaReport venta = uow.venta.GetVentaById(idVenta);
+
+                    frmInformeVenta frm = new frmInformeVenta();
+                    frm.LoadData(venta, items, promociones);
+                    frm.Show();
+                }
+            }
+        }
     }
 }

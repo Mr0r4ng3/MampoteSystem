@@ -137,5 +137,22 @@ namespace MampoteSystem.Datos.AdoNet
                 throw ex;
             }
         }
+
+        public ventaReport GetVentaById(string idVenta)
+        {
+            ventaReport obj = null;
+
+            var Lista = ObjContext.ToList<ventaReport>(ObjContext.GetData("dbo.SpBuscarVenta",
+                new SqlParameter[]{
+                        new SqlParameter("@idVenta",idVenta)}
+                ).Tables[0]);
+
+            if (Lista.Count != 0)
+            {
+                obj = Lista[0];
+            }
+
+            return obj;
+        }
     }
 }
