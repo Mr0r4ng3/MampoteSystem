@@ -14,6 +14,8 @@ namespace MampoteSystem.Entidad.Report
         public string Cedula { get; set; }
         public decimal Comision { get; set; }
         public string EstadoComision { get; set; }
+        public string Descuento { get; set; }
+        public decimal TotalDescuento { get; set; }
         public decimal MontoTotal { get; set; }
         public decimal Deuda { get; set; }
         public DateTime Fecha { get; set; }

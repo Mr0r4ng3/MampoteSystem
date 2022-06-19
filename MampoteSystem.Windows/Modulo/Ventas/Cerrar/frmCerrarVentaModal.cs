@@ -68,42 +68,22 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         private bool ValidateInputPagos(out string controlsEmpty)
         {
             controlsEmpty = string.Empty;
-            if(MayorAlMonto())
+
+            decimal MontoPagar = txMontoPago.Text == "" ? 0m : Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US"));
+            decimal VueltoBs = txVueltoBolivares.Text == "" ? 0m : Convert.ToDecimal(txVueltoBolivares.Text, new CultureInfo("en-US"));
+            decimal VueltoDivisa = txVueltoDivisa.Text == "" ? 0m : Convert.ToDecimal(txVueltoDivisa.Text, new CultureInfo("en-US"));
+            decimal Propina = txPropina.Text == "" ? 0m : Convert.ToDecimal(txPropina.Text, new CultureInfo("en-US"));
+
+            if (MayorAlMonto())
             {
                 txMontoPago.Error = "";
-                if (txMontoPago.Text == "" || Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US")) == 0)
+                if (MontoPagar == 0 && VueltoBs == 0 && VueltoDivisa == 0 && Propina == 0)
                 {
-                    controlsEmpty = "No se ha colocado el monto del Pago.";
-                    txMontoPago.Error = "Este campo es requerido";
+                    controlsEmpty = "No se ha colocado ningun monto al pago.";
                     return false;
                 }
 
-                txVueltoBolivares.Error = "";
-                if (txVueltoBolivares.Text == "")
-                {
-                    if (txVueltoDivisa.Text == "")
-                    {
-                        if (txPropina.Text == "")
-                        {
-                            controlsEmpty = "No se ha colocado el monto del vuelto o propina.";
-                            txVueltoBolivares.Error = "Este campo es requerido";
-                            return false;
-                        }
-                        return true;
-
-                    }
-                    return true;
-                }
-
                 return true;
-            }
-
-            txMontoPago.Error = "";
-            if (txMontoPago.Text == "" || Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US")) == 0)
-            {
-                controlsEmpty = "No se ha colocado el monto del Pago.";
-                txMontoPago.Error = "Este campo es requerido";
-                return false;
             }
 
             return true;
@@ -168,9 +148,10 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             {
                 int descuentoPorcentaje = Convert.ToInt32(txPorcentajeDescuento.Text);
                 string prefijo = descuentoPorcentaje < 10 ? "0.0" : "0.";
-                 TotalDescuento = Convert.ToDecimal(prefijo + txPorcentajeDescuento.Text, new CultureInfo("en-US"));
+                decimal PorcentajeDescuento = Convert.ToDecimal(prefijo + txPorcentajeDescuento.Text, new CultureInfo("en-US"));
                 decimal auxMontoPagar = (MontoPagar - Comision);
-                newMontoPagar = auxMontoPagar - (auxMontoPagar * TotalDescuento);
+                TotalDescuento = auxMontoPagar * PorcentajeDescuento;
+                newMontoPagar = auxMontoPagar - TotalDescuento;
                 NuevaComision = Comision != 0 ? newMontoPagar * Convert.ToDecimal(0.10, new CultureInfo("en-US"))
                     : 0;
                 newMontoPagar = newMontoPagar + NuevaComision;
@@ -223,19 +204,19 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
 
             pago NewPago = new pago();
 
+            decimal MontoPagar = txMontoPago.Text == "" ? 0m : Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en-US"));
+            decimal VueltoBs = txVueltoBolivares.Text == "" ? 0m : Convert.ToDecimal(txVueltoBolivares.Text, new CultureInfo("en-US"));
+            decimal VueltoDivisa = txVueltoDivisa.Text == "" ? 0m : Convert.ToDecimal(txVueltoDivisa.Text, new CultureInfo("en-US"));
+            decimal Propina = txPropina.Text == "" ? 0m : Convert.ToDecimal(txPropina.Text, new CultureInfo("en-US"));
+
             NewPago.idVenta = _idVenta;
             NewPago.idTipo = Convert.ToInt32(cbTiposPago.SelectedValue);
             NewPago.Descripcion = cbTiposPago.Text;
-            NewPago.Monto = Convert.ToDecimal( txMontoPago.Text, new CultureInfo("en-US"));
+            NewPago.Monto =MontoPagar;
             NewPago.Tasa = Convert.ToDecimal( lbTasa.Text, new CultureInfo("en-US"));
-            NewPago.Vuelto_Bolivares = txVueltoBolivares.Text != "" ? Convert.ToDecimal( txVueltoBolivares.Text, new CultureInfo("en-US"))
-                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
-
-            NewPago.Vuelto_Divisas = txVueltoDivisa.Text != "" ? Convert.ToDecimal( txVueltoDivisa.Text, new CultureInfo("en-US"))
-                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
-
-            NewPago.Propina = txPropina.Text != "" ? Convert.ToDecimal( txPropina.Text, new CultureInfo("en-US"))
-                    : Convert.ToDecimal(0.00, new CultureInfo("en-US"));
+            NewPago.Vuelto_Bolivares = VueltoBs;
+            NewPago.Vuelto_Divisas = VueltoDivisa;
+            NewPago.Propina = Propina;
 
             NewPago.Nota = txNota.Text;
 
@@ -272,7 +253,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             }
 
             decimal newDeuda = Convert.ToDecimal(lbDiferenciaBs.Text, new CultureInfo("en-US"));
-            bool Vendido = (newDeuda <= 0) ? true : false;
+            bool Vendido = (newDeuda == 0) ? true : false;
             bool ApplyDescuento = chkDescuento.Checked == true ? true : false;
             string AddDescuentoInNota = $"Aplicado un descuento de {txPorcentajeDescuento.Text}%";
             string Descuento = $"{txPorcentajeDescuento.Text}%";
@@ -286,7 +267,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             }
 
 
-            if (newDeuda == 0)
+            if (newDeuda < 0)
             {
                 DialogResult response = MessageBox.Show("La venta tiene un saldo negativo (devolucion al cliente), ¿Desea guardar de igual forma?",
                     "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -354,7 +335,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             }
             catch (Exception ex)
             {
-                Mensaje.MessageBox(Enumerables.Mensajeria.Error, "El numero de factura colocado ya existe en la base de datos.");
+                Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
             }
         }
         private void txMontoPagar_TextBoxChanged(object sender, EventArgs e)

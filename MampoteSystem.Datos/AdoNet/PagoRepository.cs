@@ -39,7 +39,7 @@ namespace MampoteSystem.Datos.AdoNet
                                                     new SqlParameter("@Discount",ApplyDescuento),
                                                     new SqlParameter("@Comision",NuevaComision),
                                                     new SqlParameter("@NewTotal",NuevoMonto),
-                                                    new SqlParameter("@Descuento",Descuento),
+                                                    new SqlParameter("@PorcentajeDescuento",Descuento),
                                                     new SqlParameter("@TotalDescuento",TotalDescuento),
                                                     new SqlParameter("@AddDescuentoInNota",AddDescuentoInNota)
                                     });

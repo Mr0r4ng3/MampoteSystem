@@ -149,8 +149,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas
 
                 foreach (DataGridViewRow row in grdData.Rows)
                 {
-                    totalBs += Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
-                    totalDeuda += Convert.ToDecimal(row.Cells[7].Value, new CultureInfo("en-US"));
+                    totalBs += Convert.ToDecimal(row.Cells[8].Value, new CultureInfo("en-US"));
+                    totalDeuda += Convert.ToDecimal(row.Cells[9].Value, new CultureInfo("en-US"));
                     totalComision += Convert.ToDecimal(row.Cells[4].Value, new CultureInfo("en-US"));
                 }
 
