@@ -80,7 +80,7 @@
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmInformeVenta";
-            this.Text = "Factura de Venta";
+            this.Text = "Orden de Venta";
             this.Load += new System.EventHandler(this.frmInformeVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ventaReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleVentaReportBindingSource)).EndInit();

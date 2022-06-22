@@ -129,20 +129,20 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             }
 
             decimal montoPago = txMontoPago.Text == "" ? Convert.ToDecimal(0.00, new CultureInfo("en_US")) 
-                : Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en_US"));
+                : Math.Round(Convert.ToDecimal(txMontoPago.Text, new CultureInfo("en_US")),2);
 
             decimal montoVueltoOrPropina = ObtenerMontoVueltoPropina();
 
             if (cbTiposPago.Text == "Efectivo Dolares")
             {
-                total += Convert.ToDecimal(montoPago, new CultureInfo("en-US")) * _Tasa;
+                total += Math.Round(Convert.ToDecimal(montoPago, new CultureInfo("en-US")) * _Tasa, 2);
             }
             else
             {
-                total += Convert.ToDecimal(montoPago, new CultureInfo("en-US"));
+                total += Math.Round(Convert.ToDecimal(montoPago, new CultureInfo("en-US")),2);
             }
 
-            decimal newMontoPagar = MontoPagar;
+            decimal newMontoPagar = Math.Round(MontoPagar,2);
 
             if(chkDescuento.Checked == true)
             {
@@ -158,11 +158,13 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 NuevoMonto = newMontoPagar;
             }
 
-            diferencia = Convert.ToDecimal(newMontoPagar - total + montoVueltoOrPropina, new CultureInfo("en-US"));
+            diferencia = Convert.ToDecimal(newMontoPagar - Math.Round(total + montoVueltoOrPropina,2), new CultureInfo("en-US"));
+            diferencia = diferencia < 0.10m ? 0.00m : diferencia;
+            decimal diferenciaDivisa = diferencia / _Tasa;
 
 
             lbTotalPagos.Text = total.ToString("F2", new CultureInfo("en-US"));
-            lbDiferencia.Text = (diferencia / _Tasa).ToString("F2", new CultureInfo("en-US"));
+            lbDiferencia.Text = (diferenciaDivisa).ToString("F2", new CultureInfo("en-US"));
             lbDiferenciaBs.Text = diferencia.ToString("F2", new CultureInfo("en-US"));
         }
         private decimal ObtenerMontoVueltoPropina()

@@ -319,7 +319,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>N° Factura:</Value>
+                <Value>N°:</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -328,14 +328,14 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
         <Left>0.33135cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>0.80667cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -363,14 +363,14 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>8.2665cm</Left>
+        <Left>9.05143cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>1.67979cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -435,7 +435,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.87998cm</Top>
-        <Left>3.08209cm</Left>
+        <Left>3.00774cm</Left>
         <Height>0.6cm</Height>
         <Width>4.46057cm</Width>
         <ZIndex>4</ZIndex>
@@ -465,13 +465,13 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.87998cm</Top>
-        <Left>0.4057cm</Left>
+        <Left>0.33135cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
@@ -516,9 +516,9 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>2.93718cm</Left>
+        <Left>1.31441cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.93294cm</Width>
+        <Width>6.1539cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
