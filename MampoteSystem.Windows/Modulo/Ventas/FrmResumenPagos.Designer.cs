@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNota = new Autonomo.CustomControls.FlatTextBox();
-            this.lblTasa = new System.Windows.Forms.Label();
-            this.lblVuelto = new System.Windows.Forms.Label();
             this.btnProcesar = new Autonomo.CustomControls.CustomButton();
             this.txFilter = new Autonomo.CustomControls.FlatFindText();
             this.dtHasta = new Autonomo.CustomControls.FlatDateTime();
@@ -151,11 +149,9 @@
             // ContenedorDoble.Panel2
             // 
             this.ContenedorDoble.Panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.ContenedorDoble.Panel2.Controls.Add(this.lblVuelto);
-            this.ContenedorDoble.Panel2.Controls.Add(this.lblTasa);
             this.ContenedorDoble.Panel2.Controls.Add(this.txtNota);
             this.ContenedorDoble.Size = new System.Drawing.Size(1236, 496);
-            this.ContenedorDoble.SplitterDistance = 844;
+            this.ContenedorDoble.SplitterDistance = 992;
             // 
             // txtNota
             // 
@@ -167,7 +163,7 @@
             this.txtNota.ColorLine = System.Drawing.Color.SeaGreen;
             this.txtNota.ColorText = System.Drawing.SystemColors.WindowText;
             this.txtNota.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNota.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtNota.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNota.DockIcon = System.Windows.Forms.DockStyle.Left;
             this.txtNota.Error = "";
             this.txtNota.FontText = new System.Drawing.Font("Verdana", 10F);
@@ -175,7 +171,7 @@
             this.txtNota.FormatLogin = false;
             this.txtNota.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txtNota.ImageIcon")));
             this.txtNota.Info = "";
-            this.txtNota.Location = new System.Drawing.Point(0, 264);
+            this.txtNota.Location = new System.Drawing.Point(0, 0);
             this.txtNota.MaterialStyle = false;
             this.txtNota.MaxLength = 32767;
             this.txtNota.MultiLineText = true;
@@ -184,34 +180,12 @@
             this.txtNota.Placeholder = "";
             this.txtNota.ReadOnly = true;
             this.txtNota.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNota.Size = new System.Drawing.Size(388, 232);
+            this.txtNota.Size = new System.Drawing.Size(240, 496);
             this.txtNota.SizeLine = 2;
             this.txtNota.TabIndex = 0;
             this.txtNota.Title = "Nota";
             this.txtNota.VisibleIcon = false;
             this.txtNota.VisibleTitle = true;
-            // 
-            // lblTasa
-            // 
-            this.lblTasa.AutoSize = true;
-            this.lblTasa.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTasa.Location = new System.Drawing.Point(21, 66);
-            this.lblTasa.Name = "lblTasa";
-            this.lblTasa.Size = new System.Drawing.Size(60, 18);
-            this.lblTasa.TabIndex = 1;
-            this.lblTasa.Text = "label2";
-            this.lblTasa.Visible = false;
-            // 
-            // lblVuelto
-            // 
-            this.lblVuelto.AutoSize = true;
-            this.lblVuelto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVuelto.Location = new System.Drawing.Point(21, 30);
-            this.lblVuelto.Name = "lblVuelto";
-            this.lblVuelto.Size = new System.Drawing.Size(60, 18);
-            this.lblVuelto.TabIndex = 2;
-            this.lblVuelto.Text = "label3";
-            this.lblVuelto.Visible = false;
             // 
             // btnProcesar
             // 
@@ -241,23 +215,23 @@
             this.txFilter.FontText = new System.Drawing.Font("Verdana", 10F);
             this.txFilter.FontTitle = new System.Drawing.Font("Verdana", 9F);
             this.txFilter.ImageIcon = null;
-            this.txFilter.Location = new System.Drawing.Point(353, 40);
+            this.txFilter.Location = new System.Drawing.Point(357, 45);
             this.txFilter.MaterialStyle = true;
             this.txFilter.MaxLength = 32767;
             this.txFilter.MultiLineText = false;
             this.txFilter.Name = "txFilter";
             this.txFilter.ObjectArray = null;
             this.txFilter.PasswordChar = '\0';
-            this.txFilter.Placeholder = "Buscar en la nota";
+            this.txFilter.Placeholder = "Buscar en la nota o por cliente";
             this.txFilter.PlaceHolderHeight = 18;
             this.txFilter.ReadOnly = false;
             this.txFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txFilter.Size = new System.Drawing.Size(242, 44);
+            this.txFilter.Size = new System.Drawing.Size(241, 39);
             this.txFilter.SizeLine = 2;
             this.txFilter.StringArray = null;
             this.txFilter.TabIndex = 23;
             this.txFilter.TextId = "";
-            this.txFilter.Title = "Buscar en la nota";
+            this.txFilter.Title = "Buscar en la nota o por cliente";
             this.txFilter.VisibleIcon = true;
             this.txFilter.VisibleTitle = false;
             this.txFilter.TextBoxChanged += new System.EventHandler(this.txFilter_TextBoxChanged);
@@ -333,7 +307,7 @@
             this.radEfecDolares.Image = ((System.Drawing.Image)(resources.GetObject("radEfecDolares.Image")));
             this.radEfecDolares.ImageChecking = ((System.Drawing.Image)(resources.GetObject("radEfecDolares.ImageChecking")));
             this.radEfecDolares.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("radEfecDolares.ImageUnChecking")));
-            this.radEfecDolares.Location = new System.Drawing.Point(581, 71);
+            this.radEfecDolares.Location = new System.Drawing.Point(604, 71);
             this.radEfecDolares.Name = "radEfecDolares";
             this.radEfecDolares.Size = new System.Drawing.Size(149, 27);
             this.radEfecDolares.TabIndex = 25;
@@ -355,7 +329,7 @@
             this.radEfectivoBs.Image = ((System.Drawing.Image)(resources.GetObject("radEfectivoBs.Image")));
             this.radEfectivoBs.ImageChecking = ((System.Drawing.Image)(resources.GetObject("radEfectivoBs.ImageChecking")));
             this.radEfectivoBs.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("radEfectivoBs.ImageUnChecking")));
-            this.radEfectivoBs.Location = new System.Drawing.Point(731, 71);
+            this.radEfectivoBs.Location = new System.Drawing.Point(754, 71);
             this.radEfectivoBs.Name = "radEfectivoBs";
             this.radEfectivoBs.Size = new System.Drawing.Size(159, 27);
             this.radEfectivoBs.TabIndex = 26;
@@ -377,7 +351,7 @@
             this.radPM.Image = ((System.Drawing.Image)(resources.GetObject("radPM.Image")));
             this.radPM.ImageChecking = ((System.Drawing.Image)(resources.GetObject("radPM.ImageChecking")));
             this.radPM.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("radPM.ImageUnChecking")));
-            this.radPM.Location = new System.Drawing.Point(731, 38);
+            this.radPM.Location = new System.Drawing.Point(754, 38);
             this.radPM.Name = "radPM";
             this.radPM.Size = new System.Drawing.Size(109, 27);
             this.radPM.TabIndex = 28;
@@ -400,7 +374,7 @@
             this.radPunto.Image = ((System.Drawing.Image)(resources.GetObject("radPunto.Image")));
             this.radPunto.ImageChecking = ((System.Drawing.Image)(resources.GetObject("radPunto.ImageChecking")));
             this.radPunto.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("radPunto.ImageUnChecking")));
-            this.radPunto.Location = new System.Drawing.Point(581, 38);
+            this.radPunto.Location = new System.Drawing.Point(604, 38);
             this.radPunto.Name = "radPunto";
             this.radPunto.Size = new System.Drawing.Size(79, 27);
             this.radPunto.TabIndex = 27;
@@ -423,7 +397,7 @@
             this.radCruceInv.Image = ((System.Drawing.Image)(resources.GetObject("radCruceInv.Image")));
             this.radCruceInv.ImageChecking = ((System.Drawing.Image)(resources.GetObject("radCruceInv.ImageChecking")));
             this.radCruceInv.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("radCruceInv.ImageUnChecking")));
-            this.radCruceInv.Location = new System.Drawing.Point(890, 38);
+            this.radCruceInv.Location = new System.Drawing.Point(913, 38);
             this.radCruceInv.Name = "radCruceInv";
             this.radCruceInv.Size = new System.Drawing.Size(152, 27);
             this.radCruceInv.TabIndex = 29;
@@ -480,7 +454,7 @@
             this.grdData.ReadOnly = true;
             this.grdData.RowHeadersVisible = false;
             this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdData.Size = new System.Drawing.Size(844, 496);
+            this.grdData.Size = new System.Drawing.Size(992, 496);
             this.grdData.TabIndex = 9;
             this.grdData.TabStop = false;
             this.grdData.SelectionChanged += new System.EventHandler(this.grdData_SelectionChanged);
@@ -500,7 +474,6 @@
             this.pnlTopButton.ResumeLayout(false);
             this.ContenedorDoble.Panel1.ResumeLayout(false);
             this.ContenedorDoble.Panel2.ResumeLayout(false);
-            this.ContenedorDoble.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContenedorDoble)).EndInit();
             this.ContenedorDoble.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
@@ -509,8 +482,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblVuelto;
-        private System.Windows.Forms.Label lblTasa;
         private Autonomo.CustomControls.FlatTextBox txtNota;
         private Autonomo.CustomControls.CustomButton btnProcesar;
         private Autonomo.CustomControls.FlatFindText txFilter;

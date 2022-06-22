@@ -41,17 +41,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lbPagosPM = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbPropina = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbVueltoBs = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.lbPagosEfectivo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbVuelto = new System.Windows.Forms.Label();
+            this.lbVueltoDivisa = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lbPagoDivisa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbPagosPM = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lbPagosPunto = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -168,37 +172,39 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panel4.Controls.Add(this.lbPagosPM);
-            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.lbPropina);
+            this.panel4.Controls.Add(this.label17);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(711, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(231, 94);
             this.panel4.TabIndex = 3;
             // 
-            // lbPagosPM
+            // lbPropina
             // 
-            this.lbPagosPM.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosPM.Location = new System.Drawing.Point(23, 42);
-            this.lbPagosPM.Name = "lbPagosPM";
-            this.lbPagosPM.Size = new System.Drawing.Size(192, 17);
-            this.lbPagosPM.TabIndex = 2;
-            this.lbPagosPM.Text = "0.00";
-            this.lbPagosPM.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbPropina.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPropina.Location = new System.Drawing.Point(35, 27);
+            this.lbPropina.Name = "lbPropina";
+            this.lbPropina.Size = new System.Drawing.Size(191, 17);
+            this.lbPropina.TabIndex = 8;
+            this.lbPropina.Text = "0.00";
+            this.lbPropina.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label5
+            // label17
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 14);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Pagos Pago Movil";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(12, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(89, 14);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Total Propina";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel3.Controls.Add(this.lbVueltoBs);
+            this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.lbPagosEfectivo);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,10 +213,30 @@
             this.panel3.Size = new System.Drawing.Size(230, 94);
             this.panel3.TabIndex = 2;
             // 
+            // lbVueltoBs
+            // 
+            this.lbVueltoBs.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVueltoBs.Location = new System.Drawing.Point(35, 68);
+            this.lbVueltoBs.Name = "lbVueltoBs";
+            this.lbVueltoBs.Size = new System.Drawing.Size(191, 17);
+            this.lbVueltoBs.TabIndex = 6;
+            this.lbVueltoBs.Text = "0.00";
+            this.lbVueltoBs.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(15, 50);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(142, 14);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Total Vuelto Bolivares";
+            // 
             // lbPagosEfectivo
             // 
             this.lbPagosEfectivo.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosEfectivo.Location = new System.Drawing.Point(18, 42);
+            this.lbPagosEfectivo.Location = new System.Drawing.Point(35, 27);
             this.lbPagosEfectivo.Name = "lbPagosEfectivo";
             this.lbPagosEfectivo.Size = new System.Drawing.Size(192, 17);
             this.lbPagosEfectivo.TabIndex = 2;
@@ -230,7 +256,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panel2.Controls.Add(this.lbVuelto);
+            this.panel2.Controls.Add(this.lbVueltoDivisa);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.lbPagoDivisa);
             this.panel2.Controls.Add(this.label3);
@@ -240,32 +266,30 @@
             this.panel2.Size = new System.Drawing.Size(230, 94);
             this.panel2.TabIndex = 1;
             // 
-            // lbVuelto
+            // lbVueltoDivisa
             // 
-            this.lbVuelto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVuelto.Location = new System.Drawing.Point(22, 68);
-            this.lbVuelto.Name = "lbVuelto";
-            this.lbVuelto.Size = new System.Drawing.Size(191, 17);
-            this.lbVuelto.TabIndex = 4;
-            this.lbVuelto.Text = "0.00";
-            this.lbVuelto.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbVuelto.Visible = false;
+            this.lbVueltoDivisa.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVueltoDivisa.Location = new System.Drawing.Point(36, 68);
+            this.lbVueltoDivisa.Name = "lbVueltoDivisa";
+            this.lbVueltoDivisa.Size = new System.Drawing.Size(191, 17);
+            this.lbVueltoDivisa.TabIndex = 8;
+            this.lbVueltoDivisa.Text = "0.00";
+            this.lbVueltoDivisa.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 54);
+            this.label14.Location = new System.Drawing.Point(6, 50);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 14);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Total Vuelto de Pagos en Divisa";
-            this.label14.Visible = false;
+            this.label14.Size = new System.Drawing.Size(122, 14);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Total Vuelto Divisa";
             // 
             // lbPagoDivisa
             // 
             this.lbPagoDivisa.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagoDivisa.Location = new System.Drawing.Point(22, 42);
+            this.lbPagoDivisa.Location = new System.Drawing.Point(36, 27);
             this.lbPagoDivisa.Name = "lbPagoDivisa";
             this.lbPagoDivisa.Size = new System.Drawing.Size(191, 17);
             this.lbPagoDivisa.TabIndex = 2;
@@ -276,7 +300,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 12);
+            this.label3.Location = new System.Drawing.Point(6, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 14);
             this.label3.TabIndex = 1;
@@ -285,6 +309,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.lbPagosPM);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lbPagosPunto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -293,10 +319,30 @@
             this.panel1.Size = new System.Drawing.Size(230, 94);
             this.panel1.TabIndex = 0;
             // 
+            // lbPagosPM
+            // 
+            this.lbPagosPM.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPagosPM.Location = new System.Drawing.Point(35, 68);
+            this.lbPagosPM.Name = "lbPagosPM";
+            this.lbPagosPM.Size = new System.Drawing.Size(192, 17);
+            this.lbPagosPM.TabIndex = 4;
+            this.lbPagosPM.Text = "0.00";
+            this.lbPagosPM.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(5, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 14);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Pagos Pago Movil";
+            // 
             // lbPagosPunto
             // 
             this.lbPagosPunto.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagosPunto.Location = new System.Drawing.Point(18, 42);
+            this.lbPagosPunto.Location = new System.Drawing.Point(35, 27);
             this.lbPagosPunto.Name = "lbPagosPunto";
             this.lbPagosPunto.Size = new System.Drawing.Size(192, 17);
             this.lbPagosPunto.TabIndex = 1;
@@ -307,7 +353,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 12);
+            this.label2.Location = new System.Drawing.Point(7, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 14);
             this.label2.TabIndex = 0;
@@ -347,7 +393,9 @@
             // btnOkCustomDate
             // 
             this.btnOkCustomDate.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnOkCustomDate.FlatAppearance.BorderSize = 0;
             this.btnOkCustomDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOkCustomDate.ForeColor = System.Drawing.Color.White;
             this.btnOkCustomDate.Location = new System.Drawing.Point(300, 32);
             this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnOkCustomDate.Name = "btnOkCustomDate";
@@ -360,57 +408,82 @@
             // 
             // btnCustomDate
             // 
+            this.btnCustomDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCustomDate.FlatAppearance.BorderSize = 0;
+            this.btnCustomDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomDate.ForeColor = System.Drawing.Color.White;
             this.btnCustomDate.Location = new System.Drawing.Point(343, 28);
             this.btnCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnCustomDate.Name = "btnCustomDate";
-            this.btnCustomDate.Size = new System.Drawing.Size(88, 35);
+            this.btnCustomDate.Size = new System.Drawing.Size(96, 35);
             this.btnCustomDate.TabIndex = 13;
             this.btnCustomDate.Text = "Personalizada";
-            this.btnCustomDate.UseVisualStyleBackColor = true;
+            this.btnCustomDate.UseVisualStyleBackColor = false;
             this.btnCustomDate.Click += new System.EventHandler(this.btnCustomDate_Click);
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(441, 28);
+            this.btnToday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnToday.FlatAppearance.BorderSize = 0;
+            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToday.ForeColor = System.Drawing.Color.White;
+            this.btnToday.Location = new System.Drawing.Point(449, 28);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(62, 35);
             this.btnToday.TabIndex = 12;
             this.btnToday.Text = "Hoy";
-            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.UseVisualStyleBackColor = false;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnLast7Days
             // 
-            this.btnLast7Days.Location = new System.Drawing.Point(513, 28);
+            this.btnLast7Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLast7Days.FlatAppearance.BorderSize = 0;
+            this.btnLast7Days.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLast7Days.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLast7Days.ForeColor = System.Drawing.Color.White;
+            this.btnLast7Days.Location = new System.Drawing.Point(521, 28);
             this.btnLast7Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast7Days.Name = "btnLast7Days";
-            this.btnLast7Days.Size = new System.Drawing.Size(80, 35);
+            this.btnLast7Days.Size = new System.Drawing.Size(111, 35);
             this.btnLast7Days.TabIndex = 11;
             this.btnLast7Days.Text = "Ultimos 7 Dias";
-            this.btnLast7Days.UseVisualStyleBackColor = true;
+            this.btnLast7Days.UseVisualStyleBackColor = false;
             this.btnLast7Days.Click += new System.EventHandler(this.btnLast7Days_Click);
             // 
             // btnLast30Days
             // 
-            this.btnLast30Days.Location = new System.Drawing.Point(603, 28);
+            this.btnLast30Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLast30Days.FlatAppearance.BorderSize = 0;
+            this.btnLast30Days.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLast30Days.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLast30Days.ForeColor = System.Drawing.Color.White;
+            this.btnLast30Days.Location = new System.Drawing.Point(642, 28);
             this.btnLast30Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast30Days.Name = "btnLast30Days";
-            this.btnLast30Days.Size = new System.Drawing.Size(60, 35);
+            this.btnLast30Days.Size = new System.Drawing.Size(110, 35);
             this.btnLast30Days.TabIndex = 10;
             this.btnLast30Days.Text = "Ultimos 30 Dias";
-            this.btnLast30Days.UseVisualStyleBackColor = true;
+            this.btnLast30Days.UseVisualStyleBackColor = false;
             this.btnLast30Days.Click += new System.EventHandler(this.btnLast30Days_Click);
             // 
             // btnThisMonth
             // 
-            this.btnThisMonth.Location = new System.Drawing.Point(673, 28);
+            this.btnThisMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnThisMonth.FlatAppearance.BorderSize = 0;
+            this.btnThisMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThisMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThisMonth.ForeColor = System.Drawing.Color.White;
+            this.btnThisMonth.Location = new System.Drawing.Point(762, 27);
             this.btnThisMonth.Margin = new System.Windows.Forms.Padding(5);
             this.btnThisMonth.Name = "btnThisMonth";
             this.btnThisMonth.Size = new System.Drawing.Size(70, 35);
             this.btnThisMonth.TabIndex = 9;
             this.btnThisMonth.Text = "Este Mes";
-            this.btnThisMonth.UseVisualStyleBackColor = true;
+            this.btnThisMonth.UseVisualStyleBackColor = false;
             this.btnThisMonth.Click += new System.EventHandler(this.btnThisMonth_Click);
             // 
             // dtpEndDate
@@ -865,8 +938,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbPagosPM;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbPagosEfectivo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbPagoDivisa;
@@ -907,7 +978,13 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label6;
         private Autonomo.CustomControls.CustomGrid dgvUnderstock;
-        private System.Windows.Forms.Label lbVuelto;
+        private System.Windows.Forms.Label lbPropina;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbVueltoBs;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbVueltoDivisa;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbPagosPM;
+        private System.Windows.Forms.Label label5;
     }
 }

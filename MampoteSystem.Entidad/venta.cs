@@ -14,8 +14,11 @@ namespace MampoteSystem.Entidad
         public int idCliente { get; set; }
         public decimal Comision { get; set; }
         public string EstadoComision { get; set; }
+        public string Descuento { get; set; }
+        public decimal TotalDescuento { get; set; }
         public decimal MontoTotal { get; set; }
         public decimal Deuda { get; set; }
         public decimal Fecha { get; set; }
+        public string Nota { get; set; }
     }
 }

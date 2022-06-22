@@ -23,10 +23,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
     {
         public bool NuevaVenta;
         public string GetID;
-        public string CedulaModifiyVenta;
+        public string ClienteNameInEdit;
         public decimal TotalOld;
         public bool Comisionada;
         public Object DetalleVenta;
+        public string Nota;
 
 
         private decimal total;
@@ -243,13 +244,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 txCliente.Text = cliente.Nombres + " " + cliente.Apellidos;
 
-                if (!NuevaVenta)
-                {
-                    txCliente.Enabled = false;
-                    cbCedula.Enabled = false;
-                    return;
-                }
-
                 lblMessageGrid.Text = $"{cliente.Nombres} {cliente.Apellidos} seleccionado como cliente para la venta.";
                 lblMessageGrid.BackColor = Color.SeaGreen;
                 txCliente.ReadOnly = true;
@@ -268,10 +262,10 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         {
             controlsEmpty = string.Empty;
            
-            if (!DataGridHelper.ValidateEmptyGrid(grdCanastilla))
+            if (!DataGridHelper.ValidateEmptyGrid(grdCanastilla) && txNota.Text == Nota)
             {
                 controlsEmpty = "¡No ha añadido nada a la venta!";
-                lblMessageGrid.Text = "Debe añadir algo a la venta para continuar.";
+                lblMessageGrid.Text = "Debe añadir algo a la venta o editar la nota para guardar.";
                 lblMessageGrid.BackColor = Color.Coral;
                 return false;
             }
@@ -339,12 +333,13 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                           new Entidad.venta()
                           {
                               id = GetID,
-                              NumeroFactura = "SIN FACTURAR",
+                              NumeroFactura = "",
                               idCliente = cliente.id,
                               Comision = comision,
                               EstadoComision = comision > 0 ? "Sin Pagar" : "No Aplica",
                               MontoTotal = Convert.ToDecimal(total, new CultureInfo("en-US")),
-                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US"))
+                              Deuda = Convert.ToDecimal(total, new CultureInfo("en-US")),
+                              Nota = txNota.Text
 
                           }, new Entidad.detalleVenta()
                           {
@@ -357,6 +352,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                           }, Comisionada);
                     }
 
+                    if(grdCanastilla.Rows.Count == 0)
+                    {
+                        response = uow.venta.actualizarNota(GetID, txNota.Text);
+                    }
+
                     if (response > 0)
                     {
                         Tools.Mensaje.MessageBox(
@@ -367,8 +367,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     else
                     {
                         Tools.Mensaje.MessageBox(
-                            Enumerables.Mensajeria.Succesful,
-                            "No se guardo");
+                            Enumerables.Mensajeria.Error,
+                            "Ocurrió un error al guardar.");
                         base.Set();
                     }
                 }
@@ -378,7 +378,6 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 Tools.Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
             }
         }
-
         private void frmAbrirVentaModal_Load(object sender, EventArgs e)
         {
             Autonomo.Class.RoundObject.RoundButton(btnGuardar, 7, 7);
@@ -391,14 +390,21 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 chkComision.Checked = Comisionada;
                 chkComision.Enabled = false;
-                GetCliente(CedulaModifiyVenta);
+
+                cliente = new clientes();
+                cliente.id = 0;
+                txCliente.Text = ClienteNameInEdit;
+                txCliente.Enabled = false;
+                cbCedula.Enabled = false;
+                txNota.Text = Nota;
+
                 MostrarTotales();
                 grdDetalle.DataSource = DetalleVenta;
+                grdDetalle.Columns[0].Visible = false;
             }
 
             cbCedula.DataSource = TIPOS_CEDULA;
         }
-
         private void grdCanastilla_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             RemoverItem(e);
@@ -446,11 +452,51 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
         }
-
         private void txFiltro_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 LoadData();
+        }
+        private void chkDeudaInicial_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkDeudaInicial.Checked == true)
+            {
+                txMontoDeuda.Visible = true;
+                btnAddDeuda.Visible = true;
+            }
+            else
+            {
+                txMontoDeuda.Visible = false;
+                btnAddDeuda.Visible = false;
+            }
+        }
+        private void btnAddDeuda_Click(object sender, EventArgs e)
+        {
+            if(txMontoDeuda.Text == "")
+            {
+                lblMessageGrid.Text = "Debe añadir el monto de la Deuda";
+                lblMessageGrid.BackColor = Color.Coral;
+                txMontoDeuda.Error = "Obligatorio";
+                return;
+            }
+
+            CarroVenta Deuda = new CarroVenta();
+
+            Deuda.Tipo = "DEUDA";
+            Deuda.Cantidad = 1;
+            Deuda.Stock = 1;
+            Deuda.Nombre = "Deuda inicial";
+            Deuda.Categoria = "Deuda";
+            Deuda.IVA = 0;
+            Deuda.Codigo = "DEUD000";
+            Deuda.PrecioVenta = Convert.ToDecimal(txMontoDeuda.Text, new CultureInfo("en-US"));
+            Deuda.Subtotal = Convert.ToDecimal(txMontoDeuda.Text, new CultureInfo("en-US"));
+
+            PopulateGrid(Deuda);
+
+            txMontoDeuda.Error = "";
+            lblMessageGrid.Text = "";
+            lblMessageGrid.BackColor = Color.SeaGreen;
         }
     }
 }

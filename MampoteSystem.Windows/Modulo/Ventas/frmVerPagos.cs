@@ -53,39 +53,23 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             if (grdData.SelectedRows.Count > 0)
             {
                 string descripcion = grdData.CurrentRow.Cells["Descripcion"].Value.ToString();
-                if (descripcion == "Efectivo Dolares")
-                {
-                    txTipoPago.Text = descripcion;
 
-                    txNota.Text = grdData.CurrentRow.Cells["Nota"].Value.ToString();
+                txTipoPago.Text = descripcion;
 
-                    txMontoPago.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Monto"].Value, new CultureInfo("en-Us"))
-                        .ToString("F2", new CultureInfo("en-US"));
-                    txVuelto.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Vuelto"].Value, new CultureInfo("en-Us"))
-                        .ToString("F2", new CultureInfo("en-US"));
-                    txVuelto.Title = "Vuelto";
-                    txVuelto.Visible = true;
-                }
-                else
-                {
-                    txTipoPago.Text = descripcion;
+                txNota.Text = grdData.CurrentRow.Cells["Nota"].Value.ToString();
 
-                    txNota.Text = grdData.CurrentRow.Cells["Nota"].Value.ToString();
-
-                    txMontoPago.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Monto"].Value, new CultureInfo("en-Us"))
-                        .ToString("F2", new CultureInfo("en-US"));
-                    txVuelto.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Tasa"].Value, new CultureInfo("en-Us"))
-                        .ToString("F2", new CultureInfo("en-US"));
-                    txVuelto.Title = "Tasa";
-                    txVuelto.Visible = true;
-                }
+                txMontoPago.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Monto"].Value, new CultureInfo("en-Us"))
+                    .ToString("F2", new CultureInfo("en-US"));
+                txTasa.Text = Convert.ToDecimal(grdData.CurrentRow.Cells["Tasa"].Value, new CultureInfo("en-Us"))
+                    .ToString("F2", new CultureInfo("en-US"));
+                txTasa.Visible = true;
             }
             else
             {
-                txVuelto.Visible = false;
+                txTasa.Visible = false;
                 txNota.Clear();
                 txMontoPago.Text = "0.00";
-                txVuelto.Text = "0.00";
+                txTasa.Text = "0.00";
             }
         }
     }

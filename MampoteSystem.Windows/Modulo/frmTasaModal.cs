@@ -25,23 +25,29 @@ namespace MampoteSystem.Windows.Modulo
 
         private void txTasa_TextBoxChanged(object sender, EventArgs e)
         {
-            if (txTasa.Text == String.Empty)
-            {
-                txTasa.Text = "0.00";
-            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txTasa.Text != "0.00")
             {
-                frmMenu Home = frmMenu.GetInstance();
+                string newTasa = txTasa.Text != String.Empty ? txTasa.Text : "0.00";
 
-                Tools.Configs.AddUpdateSetting("Tasa", txTasa.Text);
+                bool response = Tools.Configs.setTasa(newTasa);
 
-                Home.TCambio = Tools.Configs.ReadSetting("Tasa");
+                if (response)
+                {
+                    frmMenu Home = frmMenu.GetInstance();
 
-                base.Set();
+                    Home.TCambio = newTasa;
+
+                    base.Set();
+                }
+                else
+                {
+                    Tools.Mensaje.MessageBox(Tools.Enumerables.Mensajeria.Error, "Ocurrió un error al intentar fijar la tasa.");
+                }
             }
             else
             {

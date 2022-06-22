@@ -34,9 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbrirVentaModal));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbrirVentaModal));
             this.panelCanastilla = new System.Windows.Forms.Panel();
             this.grdCanastilla = new Autonomo.CustomControls.CustomGrid();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +56,9 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.lblTotals = new System.Windows.Forms.Label();
             this.panelControles = new System.Windows.Forms.Panel();
+            this.chkDeudaInicial = new Autonomo.CustomControls.CustomCheck();
+            this.txMontoDeuda = new Autonomo.CustomControls.FlatTextBox();
+            this.btnAddDeuda = new Autonomo.CustomControls.CustomButton();
             this.chkComision = new Autonomo.CustomControls.CustomCheck();
             this.btnGuardar = new Autonomo.CustomControls.CustomButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -69,6 +72,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grdDetalle = new Autonomo.CustomControls.CustomGrid();
+            this.txNota = new Autonomo.CustomControls.FlatTextBox();
             this.Contenedor.SuspendLayout();
             this.Body.SuspendLayout();
             this.Footer.SuspendLayout();
@@ -125,7 +129,7 @@
             this.panelCanastilla.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelCanastilla.Location = new System.Drawing.Point(3, 3);
             this.panelCanastilla.Name = "panelCanastilla";
-            this.panelCanastilla.Size = new System.Drawing.Size(951, 412);
+            this.panelCanastilla.Size = new System.Drawing.Size(951, 342);
             this.panelCanastilla.TabIndex = 5;
             // 
             // grdCanastilla
@@ -183,7 +187,7 @@
             this.grdCanastilla.ReadOnly = true;
             this.grdCanastilla.RowHeadersVisible = false;
             this.grdCanastilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdCanastilla.Size = new System.Drawing.Size(951, 329);
+            this.grdCanastilla.Size = new System.Drawing.Size(951, 259);
             this.grdCanastilla.TabIndex = 9;
             this.grdCanastilla.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCanastilla_CellContentDoubleClick);
             // 
@@ -262,7 +266,7 @@
             this.panlTotals.Controls.Add(this.lbTotal);
             this.panlTotals.Controls.Add(this.lblTotals);
             this.panlTotals.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panlTotals.Location = new System.Drawing.Point(0, 329);
+            this.panlTotals.Location = new System.Drawing.Point(0, 259);
             this.panlTotals.Name = "panlTotals";
             this.panlTotals.Size = new System.Drawing.Size(951, 83);
             this.panlTotals.TabIndex = 8;
@@ -360,13 +364,92 @@
             // 
             // panelControles
             // 
+            this.panelControles.Controls.Add(this.txNota);
+            this.panelControles.Controls.Add(this.chkDeudaInicial);
+            this.panelControles.Controls.Add(this.txMontoDeuda);
+            this.panelControles.Controls.Add(this.btnAddDeuda);
             this.panelControles.Controls.Add(this.chkComision);
             this.panelControles.Controls.Add(this.btnGuardar);
             this.panelControles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControles.Location = new System.Drawing.Point(385, 530);
+            this.panelControles.Location = new System.Drawing.Point(385, 460);
             this.panelControles.Name = "panelControles";
-            this.panelControles.Size = new System.Drawing.Size(965, 97);
+            this.panelControles.Size = new System.Drawing.Size(965, 167);
             this.panelControles.TabIndex = 6;
+            // 
+            // chkDeudaInicial
+            // 
+            this.chkDeudaInicial.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkDeudaInicial.AutoSize = true;
+            this.chkDeudaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkDeudaInicial.FlatAppearance.BorderSize = 0;
+            this.chkDeudaInicial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.chkDeudaInicial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.chkDeudaInicial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDeudaInicial.Font = new System.Drawing.Font("Verdana", 10F);
+            this.chkDeudaInicial.Image = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.Image")));
+            this.chkDeudaInicial.ImageChecking = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.ImageChecking")));
+            this.chkDeudaInicial.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("chkDeudaInicial.ImageUnChecking")));
+            this.chkDeudaInicial.Location = new System.Drawing.Point(4, 6);
+            this.chkDeudaInicial.Name = "chkDeudaInicial";
+            this.chkDeudaInicial.Size = new System.Drawing.Size(124, 27);
+            this.chkDeudaInicial.TabIndex = 11;
+            this.chkDeudaInicial.Text = "Deuda Inicial";
+            this.chkDeudaInicial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.chkDeudaInicial.UseVisualStyleBackColor = true;
+            this.chkDeudaInicial.CheckedChanged += new System.EventHandler(this.chkDeudaInicial_CheckedChanged);
+            // 
+            // txMontoDeuda
+            // 
+            this.txMontoDeuda.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txMontoDeuda.BackColor = System.Drawing.Color.White;
+            this.txMontoDeuda.Category = '\0';
+            this.txMontoDeuda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txMontoDeuda.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txMontoDeuda.ColorLine = System.Drawing.Color.Gray;
+            this.txMontoDeuda.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txMontoDeuda.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txMontoDeuda.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txMontoDeuda.Error = "";
+            this.txMontoDeuda.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txMontoDeuda.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txMontoDeuda.FormatLogin = false;
+            this.txMontoDeuda.ImageIcon = null;
+            this.txMontoDeuda.Info = "";
+            this.txMontoDeuda.Location = new System.Drawing.Point(6, 32);
+            this.txMontoDeuda.MaterialStyle = false;
+            this.txMontoDeuda.MaxLength = 32767;
+            this.txMontoDeuda.MultiLineText = false;
+            this.txMontoDeuda.Name = "txMontoDeuda";
+            this.txMontoDeuda.PasswordChar = '\0';
+            this.txMontoDeuda.Placeholder = "";
+            this.txMontoDeuda.ReadOnly = false;
+            this.txMontoDeuda.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txMontoDeuda.Size = new System.Drawing.Size(130, 53);
+            this.txMontoDeuda.SizeLine = 2;
+            this.txMontoDeuda.TabIndex = 10;
+            this.txMontoDeuda.Text = "00.00";
+            this.txMontoDeuda.Title = "Bs.";
+            this.txMontoDeuda.Visible = false;
+            this.txMontoDeuda.VisibleIcon = true;
+            this.txMontoDeuda.VisibleTitle = true;
+            // 
+            // btnAddDeuda
+            // 
+            this.btnAddDeuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnAddDeuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddDeuda.FlatAppearance.BorderSize = 0;
+            this.btnAddDeuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDeuda.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnAddDeuda.ForeColor = System.Drawing.Color.White;
+            this.btnAddDeuda.Location = new System.Drawing.Point(22, 91);
+            this.btnAddDeuda.Name = "btnAddDeuda";
+            this.btnAddDeuda.Size = new System.Drawing.Size(113, 34);
+            this.btnAddDeuda.TabIndex = 9;
+            this.btnAddDeuda.Text = "Añadir Deuda";
+            this.btnAddDeuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddDeuda.UseVisualStyleBackColor = false;
+            this.btnAddDeuda.Visible = false;
+            this.btnAddDeuda.Click += new System.EventHandler(this.btnAddDeuda_Click);
             // 
             // chkComision
             // 
@@ -381,7 +464,7 @@
             this.chkComision.Image = ((System.Drawing.Image)(resources.GetObject("chkComision.Image")));
             this.chkComision.ImageChecking = ((System.Drawing.Image)(resources.GetObject("chkComision.ImageChecking")));
             this.chkComision.ImageUnChecking = ((System.Drawing.Image)(resources.GetObject("chkComision.ImageUnChecking")));
-            this.chkComision.Location = new System.Drawing.Point(478, 32);
+            this.chkComision.Location = new System.Drawing.Point(665, 127);
             this.chkComision.Name = "chkComision";
             this.chkComision.Size = new System.Drawing.Size(100, 27);
             this.chkComision.TabIndex = 8;
@@ -399,7 +482,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Verdana", 10F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(598, 24);
+            this.btnGuardar.Location = new System.Drawing.Point(785, 119);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(168, 42);
             this.btnGuardar.TabIndex = 7;
@@ -557,7 +640,7 @@
             this.tabControl1.Location = new System.Drawing.Point(385, 85);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(965, 445);
+            this.tabControl1.Size = new System.Drawing.Size(965, 375);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -567,7 +650,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(957, 418);
+            this.tabPage1.Size = new System.Drawing.Size(957, 348);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Carro de Productos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -635,6 +718,39 @@
             this.grdDetalle.TabIndex = 14;
             this.grdDetalle.TabStop = false;
             // 
+            // txNota
+            // 
+            this.txNota.AlignText = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txNota.BackColor = System.Drawing.Color.White;
+            this.txNota.Category = '\0';
+            this.txNota.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txNota.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.txNota.ColorLine = System.Drawing.Color.Gray;
+            this.txNota.ColorText = System.Drawing.SystemColors.WindowText;
+            this.txNota.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txNota.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.txNota.Error = "";
+            this.txNota.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.txNota.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.txNota.FormatLogin = false;
+            this.txNota.ImageIcon = ((System.Drawing.Image)(resources.GetObject("txNota.ImageIcon")));
+            this.txNota.Info = "";
+            this.txNota.Location = new System.Drawing.Point(188, 15);
+            this.txNota.MaterialStyle = false;
+            this.txNota.MaxLength = 32767;
+            this.txNota.MultiLineText = true;
+            this.txNota.Name = "txNota";
+            this.txNota.PasswordChar = '\0';
+            this.txNota.Placeholder = "";
+            this.txNota.ReadOnly = false;
+            this.txNota.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txNota.Size = new System.Drawing.Size(278, 133);
+            this.txNota.SizeLine = 2;
+            this.txNota.TabIndex = 12;
+            this.txNota.Title = "Nota";
+            this.txNota.VisibleIcon = true;
+            this.txNota.VisibleTitle = true;
+            // 
             // frmAbrirVentaModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,5 +814,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Autonomo.CustomControls.CustomGrid grdDetalle;
+        private Autonomo.CustomControls.CustomButton btnAddDeuda;
+        private Autonomo.CustomControls.CustomCheck chkDeudaInicial;
+        private Autonomo.CustomControls.FlatTextBox txMontoDeuda;
+        private Autonomo.CustomControls.FlatTextBox txNota;
     }
 }

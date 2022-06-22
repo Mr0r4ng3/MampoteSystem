@@ -32,14 +32,16 @@ namespace MampoteSystem.Windows.Modulo.Reporte
             var refreshData = model.LoadData(dtpStartDate.Value, dtpEndDate.Value);
             if (refreshData == true)
             {
-                lbPagoDivisa.Text = $"$. {model.PagoDivisas}";
-                lbVuelto.Text = $"$. {model.VueltoDivisas}";
-                lbPagosPunto.Text = $"Bs. {model.PagoPunto}";
-                lbPagosEfectivo.Text = $"Bs. {model.PagoEfectivo}";
-                lbPagosPM.Text = $"Bs. {model.PagoPM}";
+                lbPagoDivisa.Text = $"$. {model.PagoDivisas.ToString("F2")}";
+                lbVueltoDivisa.Text = $"$. {model.VueltoDivisas.ToString("F2")}";
+                lbVueltoBs.Text = $"Bs. {model.VueltoBolivares.ToString("F2")}";
+                lbPropina.Text = $"Bs. {model.Propina.ToString("F2")}";
+                lbPagosPunto.Text = $"Bs. {model.PagoPunto.ToString("F2")}";
+                lbPagosEfectivo.Text = $"Bs. {model.PagoEfectivo.ToString("F2")}";
+                lbPagosPM.Text = $"Bs. {model.PagoPM.ToString("F2")}";
 
                 lblNumOrders.Text = model.NumOrders.ToString();
-                lbTotalGanancias.Text = "Bs. " + model.TotalRevenue.ToString();
+                lbTotalGanancias.Text = "Bs. " + model.TotalRevenue.ToString("F2");
 
                 lbTotalCliente.Text = model.NumCustomers.ToString();
                 lbTotalProveedores.Text = model.NumSuppliers.ToString();

@@ -51,46 +51,95 @@ namespace MampoteSystem.Windows.Modulo.Almacen
                               };
 
                 //Lambda
-                grdData.DataSource = newList
-                    .Where(o => o.Codigo.Contains(txFilter.Text))
-                    .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
-                    .ToList();
+                if (chkPromociones.Checked == false)
+                {
+                    grdData.DataSource = newList
+                        .Where(o => o.idCategoria != "CG001" && (o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) || o.Codigo.ToLower().Contains(txFilter.Text.ToLower())))
+                        .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
+                        .ToList();
+                    grdData.Columns[2].Visible = true;
+                    grdData.Columns[5].Visible = true;
+                    grdData.Columns[6].Visible = true;
+                }
+                else
+                {
+                    grdData.DataSource = newList
+                        .Where(o => o.idCategoria == "CG001" && (o.Nombre.ToLower().Contains(txFilter.Text.ToLower()) || o.Codigo.ToLower().Contains(txFilter.Text.ToLower())))
+                        .OrderBy(o => o.Categoria).ThenBy(o => o.Nombre)
+                        .ToList();
+
+                    grdData.Columns[2].Visible = false;
+                    grdData.Columns[5].Visible = false;
+                    grdData.Columns[6].Visible = false;
+                }
             }
         }
         private void LoadModal(string option, string title)
         {
-            var form = new frmProductosModal();
-            form.Title.Text = title;
-            form.Tag = option;
-            
-            
-
-            if(option == "Update")
+            if(chkPromociones.Checked == false)
             {
-                form.ComboNoVisible();
+                var form = new frmProductosModal();
+                form.Title.Text = title;
+                form.Tag = option;
 
-                string codigo = grdData.CurrentRow.Cells["Codigo"].Value.ToString();
-                var obj = productos.FirstOrDefault(o => o.Codigo == codigo);
-
-                if(obj != null) 
+                if (option == "Update")
                 {
-                    form.LoadData(obj);
-                }
+                    form.ComboNoVisible();
+
+                    string codigo = grdData.CurrentRow.Cells["Codigo"].Value.ToString();
+                    var obj = productos.FirstOrDefault(o => o.Codigo == codigo);
+
+                    if(obj != null) 
+                    {
+                        form.LoadData(obj);
+                    }
                 
+                }
+                else
+                {
+                }
+            
+                form.LoadCombo();
+
+                Autonomo.Class.Fomulary.ShowModal(form, option, false);
+                if(form.Tag.ToString() == "Get")
+                {
+                    LoadData();
+                }
+                form.Dispose();
+
             }
             else
             {
-            }
-            
-            form.LoadCombo();
+                var form = new frmPromocionModal();
+                form.Title.Text = title;
+                form.Tag = option;
 
-            Autonomo.Class.Fomulary.ShowModal(form, option, false);
-            if(form.Tag.ToString() == "Get")
-            {
-                LoadData();
-            }
-            form.Dispose();
 
+                if (option == "Update")
+                {
+
+                    string codigo = grdData.CurrentRow.Cells["Codigo"].Value.ToString();
+                    var obj = productos.FirstOrDefault(o => o.Codigo == codigo);
+
+                    if (obj != null)
+                    {
+                        form.LoadData(obj);
+                    }
+
+                }
+                else
+                {
+                }
+
+                Autonomo.Class.Fomulary.ShowModal(form, option, false);
+                if (form.Tag.ToString() == "Get")
+                {
+                    LoadData();
+                }
+                form.Dispose();
+
+            }
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
@@ -138,6 +187,11 @@ namespace MampoteSystem.Windows.Modulo.Almacen
         private void frmProductos_Activated(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void chkPromociones_CheckedChanged(object sender, EventArgs e)
+        {
+            FilterData();
         }
     }
 }

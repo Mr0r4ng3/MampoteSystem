@@ -34,6 +34,7 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@EstadoComision",venta.EstadoComision),
                         new SqlParameter("@MontoTotal",venta.MontoTotal),
                         new SqlParameter("@Deuda",venta.Deuda),
+                        new SqlParameter("@Nota",venta.Nota),
                         new SqlParameter("@IsComision",isComision),
 
                       //Sección para Detale
@@ -73,6 +74,21 @@ namespace MampoteSystem.Datos.AdoNet
             }
         }
 
+        public int actualizarNota(string idVenta, string Nota)
+        {
+            try
+            {
+
+                string querySql = $"update venta set Nota = '{Nota}' where id = '{idVenta}'";
+
+                return ObjContext.ExecuteNonQuery(querySql, System.Data.CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public IEnumerable<ventaReport> GetList(DateTime desde, DateTime hasta, bool Vendido)
         {
             return ObjContext.ToList<ventaReport>(
@@ -102,7 +118,7 @@ namespace MampoteSystem.Datos.AdoNet
         {
             try
             {
-                return ObjContext.ExecuteNonQuery($"delete venta where id = '{idVenta}'", System.Data.CommandType.Text);
+                return ObjContext.ExecuteNonQuery($"delete from detalleVenta where idVenta = '{idVenta}' delete venta where id = '{idVenta}'", System.Data.CommandType.Text);
             }
             catch(Exception ex)
             {
@@ -120,6 +136,23 @@ namespace MampoteSystem.Datos.AdoNet
             {
                 throw ex;
             }
+        }
+
+        public ventaReport GetVentaById(string idVenta)
+        {
+            ventaReport obj = null;
+
+            var Lista = ObjContext.ToList<ventaReport>(ObjContext.GetData("dbo.SpBuscarVenta",
+                new SqlParameter[]{
+                        new SqlParameter("@idVenta",idVenta)}
+                ).Tables[0]);
+
+            if (Lista.Count != 0)
+            {
+                obj = Lista[0];
+            }
+
+            return obj;
         }
     }
 }

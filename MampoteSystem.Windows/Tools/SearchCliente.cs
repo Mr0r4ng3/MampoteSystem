@@ -25,9 +25,7 @@ namespace MampoteSystem.Windows.Tools
 
                 if (cliente != null)
                 {
-                    int OrdenesSinPagar = uow.clientes.ClienteTieneOrden(cliente.id);
-
-                    if ( OrdenesSinPagar > 0)
+                    if (haveDeuda(cliente))
                     {
                        DialogResult response = MessageBox.Show($"{cliente.Nombres} {cliente.Apellidos} tiene ya una Orden de Venta sin pagar, ¿Desea continuar?", "¡Advertencia!",MessageBoxButtons.YesNo);
                         if (response == DialogResult.Yes)
@@ -58,6 +56,30 @@ namespace MampoteSystem.Windows.Tools
                     form.Dispose();
                     return null;
                 }
+            }
+        }
+        public static bool haveDeuda(clientes cliente)
+        {
+            try
+            {
+                using (UnitOfWork uow = new UnitOfWork())
+                {
+                    int OrdenesSinPagar = uow.clientes.ClienteTieneOrden(cliente.id);
+
+                    if (OrdenesSinPagar > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
+                return false;
             }
         }
     }

@@ -31,7 +31,7 @@ namespace MampoteSystem.Windows.Modulo.Compras
             using (UnitOfWork uow = new UnitOfWork())
             {
                 var stock = uow.productos.GetListProds()
-                    .Where(o => o.Nombre.ToLower().Contains(txFiltro.Text.ToLower()))
+                    .Where(o => o.Nombre.ToLower().Contains(txFiltro.Text.ToLower()) && o.Categoria != "PROMOCION")
                     .ToList();
 
                 PopulateCart(stock);
@@ -266,7 +266,6 @@ namespace MampoteSystem.Windows.Modulo.Compras
         private void frmCompraModal_Load(object sender, EventArgs e)
         {
             Autonomo.Class.RoundObject.RoundButton(btnGuardar, 7, 7);
-            LoadData();
         }
 
         private void txFiltro_KeyDown(object sender, KeyEventArgs e)

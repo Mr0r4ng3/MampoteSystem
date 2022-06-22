@@ -199,8 +199,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = txPassword2.Text,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = txPassword2.Text
 
                                         }, option); ;
                                 if (result > 0) { base.Set(); }
@@ -217,8 +216,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = txPassword2.Text,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = txPassword2.Text
 
                                         }, option);
                                 if (result > 0) { base.Set(); }
@@ -238,8 +236,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = passwd,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = passwd
 
                                         }, option);
                                 if (result > 0) { base.Set(); }
@@ -256,8 +253,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = passwd,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = passwd
 
                                         }, option);
                                 if (result > 0) { base.Set(); }
@@ -277,8 +273,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = txPassword2.Text,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = txPassword2.Text
 
                                         }, option); ;
                                 if (result > 0) { base.Set(); }
@@ -295,8 +290,7 @@ namespace MampoteSystem.Windows.Admin
                                             Apellidos = txApellidos.Text,
                                             username = txUsername.Text,
                                             NivelAcceso = cbAcceso.Text,
-                                            passwd = txPassword2.Text,
-                                            EditorUser = Configs.GetEditorUser()
+                                            passwd = txPassword2.Text
 
                                         }, option);
                                 if (result > 0) { base.Set(); }

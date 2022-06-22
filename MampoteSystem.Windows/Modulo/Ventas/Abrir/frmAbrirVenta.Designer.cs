@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbrirVenta));
             this.btnProcesar = new Autonomo.CustomControls.CustomButton();
             this.txFilter = new Autonomo.CustomControls.FlatFindText();
@@ -39,6 +39,12 @@
             this.dtDesde = new Autonomo.CustomControls.FlatDateTime();
             this.grdData = new Autonomo.CustomControls.CustomGrid();
             this.grdDetalle = new Autonomo.CustomControls.CustomGrid();
+            this.radPagada = new Autonomo.CustomControls.CustomRadius();
+            this.radSinPagar = new Autonomo.CustomControls.CustomRadius();
+            this.chkOnlyComision = new Autonomo.CustomControls.CustomCheck();
+            this.radOpcionAPago = new Autonomo.CustomControls.CustomRadius();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelControles = new System.Windows.Forms.Panel();
             this.lbidVenta = new System.Windows.Forms.Label();
             this.btnPagos = new Autonomo.CustomControls.CustomButton();
@@ -52,12 +58,11 @@
             this.lbIGVtext = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radPagada = new Autonomo.CustomControls.CustomRadius();
-            this.radSinPagar = new Autonomo.CustomControls.CustomRadius();
-            this.chkOnlyComision = new Autonomo.CustomControls.CustomCheck();
-            this.radOpcionAPago = new Autonomo.CustomControls.CustomRadius();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txNota = new System.Windows.Forms.TextBox();
+            this.cbBuscarPor = new Autonomo.CustomControls.FlatComboBox();
+            this.customButton1 = new Autonomo.CustomControls.CustomButton();
             this.pnlContenedor.SuspendLayout();
             this.pnlBottonControl.SuspendLayout();
             this.pnlTopControl.SuspendLayout();
@@ -68,24 +73,28 @@
             this.ContenedorDoble.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalle)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panelControles.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedor
             // 
-            this.pnlContenedor.Size = new System.Drawing.Size(1246, 589);
+            this.pnlContenedor.Size = new System.Drawing.Size(1276, 661);
             // 
             // pnlBottonControl
             // 
-            this.pnlBottonControl.Location = new System.Drawing.Point(0, 557);
-            this.pnlBottonControl.Size = new System.Drawing.Size(1246, 32);
+            this.pnlBottonControl.Location = new System.Drawing.Point(0, 629);
+            this.pnlBottonControl.Size = new System.Drawing.Size(1276, 32);
             // 
             // BottomLine
             // 
-            this.BottomLine.Size = new System.Drawing.Size(1246, 2);
+            this.BottomLine.Size = new System.Drawing.Size(1276, 2);
             // 
             // pnlTopControl
             // 
+            this.pnlTopControl.Controls.Add(this.cbBuscarPor);
             this.pnlTopControl.Controls.Add(this.radOpcionAPago);
             this.pnlTopControl.Controls.Add(this.chkOnlyComision);
             this.pnlTopControl.Controls.Add(this.radSinPagar);
@@ -94,7 +103,7 @@
             this.pnlTopControl.Controls.Add(this.txFilter);
             this.pnlTopControl.Controls.Add(this.dtHasta);
             this.pnlTopControl.Controls.Add(this.dtDesde);
-            this.pnlTopControl.Size = new System.Drawing.Size(1246, 123);
+            this.pnlTopControl.Size = new System.Drawing.Size(1276, 123);
             this.pnlTopControl.Controls.SetChildIndex(this.dtDesde, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.dtHasta, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.txFilter, 0);
@@ -106,11 +115,12 @@
             this.pnlTopControl.Controls.SetChildIndex(this.radSinPagar, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.chkOnlyComision, 0);
             this.pnlTopControl.Controls.SetChildIndex(this.radOpcionAPago, 0);
+            this.pnlTopControl.Controls.SetChildIndex(this.cbBuscarPor, 0);
             // 
             // pnlTopButton
             // 
             this.pnlTopButton.Location = new System.Drawing.Point(0, 86);
-            this.pnlTopButton.Size = new System.Drawing.Size(1246, 35);
+            this.pnlTopButton.Size = new System.Drawing.Size(1276, 35);
             // 
             // btnCommand3
             // 
@@ -174,7 +184,7 @@
             // TopLine
             // 
             this.TopLine.Location = new System.Drawing.Point(0, 121);
-            this.TopLine.Size = new System.Drawing.Size(1246, 2);
+            this.TopLine.Size = new System.Drawing.Size(1276, 2);
             // 
             // ContenedorDoble
             // 
@@ -186,10 +196,10 @@
             // 
             // ContenedorDoble.Panel2
             // 
-            this.ContenedorDoble.Panel2.Controls.Add(this.panelControles);
+            this.ContenedorDoble.Panel2.Controls.Add(this.tabControl1);
             this.ContenedorDoble.Panel2.Controls.Add(this.grdDetalle);
-            this.ContenedorDoble.Size = new System.Drawing.Size(1246, 434);
-            this.ContenedorDoble.SplitterDistance = 694;
+            this.ContenedorDoble.Size = new System.Drawing.Size(1276, 506);
+            this.ContenedorDoble.SplitterDistance = 710;
             // 
             // btnProcesar
             // 
@@ -198,7 +208,7 @@
             this.btnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesar.Font = new System.Drawing.Font("Verdana", 10F);
             this.btnProcesar.Image = ((System.Drawing.Image)(resources.GetObject("btnProcesar.Image")));
-            this.btnProcesar.Location = new System.Drawing.Point(291, 30);
+            this.btnProcesar.Location = new System.Drawing.Point(268, 30);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(56, 46);
             this.btnProcesar.TabIndex = 24;
@@ -219,23 +229,23 @@
             this.txFilter.FontText = new System.Drawing.Font("Verdana", 10F);
             this.txFilter.FontTitle = new System.Drawing.Font("Verdana", 9F);
             this.txFilter.ImageIcon = null;
-            this.txFilter.Location = new System.Drawing.Point(349, 32);
+            this.txFilter.Location = new System.Drawing.Point(501, 32);
             this.txFilter.MaterialStyle = true;
             this.txFilter.MaxLength = 32767;
             this.txFilter.MultiLineText = false;
             this.txFilter.Name = "txFilter";
             this.txFilter.ObjectArray = null;
             this.txFilter.PasswordChar = '\0';
-            this.txFilter.Placeholder = "Buscar por nombres y apellidos";
+            this.txFilter.Placeholder = "";
             this.txFilter.PlaceHolderHeight = 18;
             this.txFilter.ReadOnly = false;
             this.txFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txFilter.Size = new System.Drawing.Size(242, 44);
+            this.txFilter.Size = new System.Drawing.Size(139, 44);
             this.txFilter.SizeLine = 2;
             this.txFilter.StringArray = null;
             this.txFilter.TabIndex = 23;
             this.txFilter.TextId = "";
-            this.txFilter.Title = "Buscar por nombres y apellidos";
+            this.txFilter.Title = "";
             this.txFilter.VisibleIcon = true;
             this.txFilter.VisibleTitle = false;
             this.txFilter.TextBoxChanged += new System.EventHandler(this.txFilter_TextBoxChanged);
@@ -260,7 +270,7 @@
             this.dtHasta.MaterialStyle = false;
             this.dtHasta.Name = "dtHasta";
             this.dtHasta.Placeholder = "";
-            this.dtHasta.Size = new System.Drawing.Size(133, 46);
+            this.dtHasta.Size = new System.Drawing.Size(115, 46);
             this.dtHasta.SizeLine = 2;
             this.dtHasta.TabIndex = 22;
             this.dtHasta.Text = "21/06/2021";
@@ -289,7 +299,7 @@
             this.dtDesde.MaterialStyle = false;
             this.dtDesde.Name = "dtDesde";
             this.dtDesde.Placeholder = "";
-            this.dtDesde.Size = new System.Drawing.Size(133, 46);
+            this.dtDesde.Size = new System.Drawing.Size(114, 46);
             this.dtDesde.SizeLine = 2;
             this.dtDesde.TabIndex = 21;
             this.dtDesde.Text = "21/06/2021";
@@ -312,24 +322,24 @@
             this.grdData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdData.CellStyleBackColor = System.Drawing.SystemColors.Window;
             this.grdData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grdData.ColumnHeadersHeight = 34;
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdData.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdData.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdData.EnableBottomDown = false;
             this.grdData.EnableBottomLeft = false;
@@ -346,7 +356,7 @@
             this.grdData.ReadOnly = true;
             this.grdData.RowHeadersVisible = false;
             this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdData.Size = new System.Drawing.Size(694, 434);
+            this.grdData.Size = new System.Drawing.Size(710, 506);
             this.grdData.TabIndex = 9;
             this.grdData.TabStop = false;
             this.grdData.SelectionChanged += new System.EventHandler(this.grdData_SelectionChanged);
@@ -356,34 +366,34 @@
             this.grdDetalle.AllowUserToAddRows = false;
             this.grdDetalle.AllowUserToDeleteRows = false;
             this.grdDetalle.AllowUserToResizeRows = false;
-            this.grdDetalle.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.grdDetalle.BackgroundColor = System.Drawing.Color.White;
             this.grdDetalle.BodyFont = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdDetalle.BodyForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetalle.BodySelectColor = System.Drawing.Color.LimeGreen;
+            this.grdDetalle.BodySelectColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.grdDetalle.BodySelectForeColor = System.Drawing.SystemColors.ControlText;
             this.grdDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdDetalle.CellStyleBackColor = System.Drawing.Color.ForestGreen;
             this.grdDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.grdDetalle.ColumnHeadersHeight = 34;
             this.grdDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.ForestGreen;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdDetalle.DefaultCellStyle = dataGridViewCellStyle20;
-            this.grdDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdDetalle.DefaultCellStyle = dataGridViewCellStyle8;
+            this.grdDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdDetalle.EnableBottomDown = false;
             this.grdDetalle.EnableBottomLeft = false;
             this.grdDetalle.EnableBottomRight = false;
@@ -399,186 +409,9 @@
             this.grdDetalle.ReadOnly = true;
             this.grdDetalle.RowHeadersVisible = false;
             this.grdDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdDetalle.Size = new System.Drawing.Size(548, 434);
+            this.grdDetalle.Size = new System.Drawing.Size(562, 289);
             this.grdDetalle.TabIndex = 13;
             this.grdDetalle.TabStop = false;
-            // 
-            // panelControles
-            // 
-            this.panelControles.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelControles.Controls.Add(this.lbidVenta);
-            this.panelControles.Controls.Add(this.btnPagos);
-            this.panelControles.Controls.Add(this.lbComision);
-            this.panelControles.Controls.Add(this.label8);
-            this.panelControles.Controls.Add(this.lbTotalCantidad);
-            this.panelControles.Controls.Add(this.lbDeudaBs);
-            this.panelControles.Controls.Add(this.lbDeudaDolares);
-            this.panelControles.Controls.Add(this.lbTotal);
-            this.panelControles.Controls.Add(this.label7);
-            this.panelControles.Controls.Add(this.lbIGVtext);
-            this.panelControles.Controls.Add(this.label5);
-            this.panelControles.Controls.Add(this.label4);
-            this.panelControles.Controls.Add(this.label3);
-            this.panelControles.Controls.Add(this.label2);
-            this.panelControles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControles.Location = new System.Drawing.Point(0, 228);
-            this.panelControles.Name = "panelControles";
-            this.panelControles.Size = new System.Drawing.Size(548, 206);
-            this.panelControles.TabIndex = 14;
-            // 
-            // lbidVenta
-            // 
-            this.lbidVenta.AutoSize = true;
-            this.lbidVenta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbidVenta.ForeColor = System.Drawing.Color.DimGray;
-            this.lbidVenta.Location = new System.Drawing.Point(186, 63);
-            this.lbidVenta.Name = "lbidVenta";
-            this.lbidVenta.Size = new System.Drawing.Size(56, 16);
-            this.lbidVenta.TabIndex = 14;
-            this.lbidVenta.Text = "idVenta";
-            this.lbidVenta.Visible = false;
-            // 
-            // btnPagos
-            // 
-            this.btnPagos.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPagos.FlatAppearance.BorderSize = 0;
-            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagos.ForeColor = System.Drawing.Color.White;
-            this.btnPagos.Image = ((System.Drawing.Image)(resources.GetObject("btnPagos.Image")));
-            this.btnPagos.Location = new System.Drawing.Point(57, 143);
-            this.btnPagos.Name = "btnPagos";
-            this.btnPagos.Size = new System.Drawing.Size(278, 52);
-            this.btnPagos.TabIndex = 13;
-            this.btnPagos.Text = "Ver Pagos en detalle";
-            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPagos.UseVisualStyleBackColor = false;
-            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
-            // 
-            // lbComision
-            // 
-            this.lbComision.AutoSize = true;
-            this.lbComision.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbComision.Location = new System.Drawing.Point(284, 63);
-            this.lbComision.Name = "lbComision";
-            this.lbComision.Size = new System.Drawing.Size(79, 16);
-            this.lbComision.TabIndex = 11;
-            this.lbComision.Text = ":  Bs. 0.00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(4, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 16);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Comision";
-            // 
-            // lbTotalCantidad
-            // 
-            this.lbTotalCantidad.AutoSize = true;
-            this.lbTotalCantidad.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalCantidad.Location = new System.Drawing.Point(284, 31);
-            this.lbTotalCantidad.Name = "lbTotalCantidad";
-            this.lbTotalCantidad.Size = new System.Drawing.Size(100, 16);
-            this.lbTotalCantidad.TabIndex = 9;
-            this.lbTotalCantidad.Text = ":  0 Unidades";
-            // 
-            // lbDeudaBs
-            // 
-            this.lbDeudaBs.AutoSize = true;
-            this.lbDeudaBs.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDeudaBs.Location = new System.Drawing.Point(284, 121);
-            this.lbDeudaBs.Name = "lbDeudaBs";
-            this.lbDeudaBs.Size = new System.Drawing.Size(79, 16);
-            this.lbDeudaBs.TabIndex = 8;
-            this.lbDeudaBs.Text = ":  Bs. 0.00";
-            // 
-            // lbDeudaDolares
-            // 
-            this.lbDeudaDolares.AutoSize = true;
-            this.lbDeudaDolares.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDeudaDolares.Location = new System.Drawing.Point(284, 102);
-            this.lbDeudaDolares.Name = "lbDeudaDolares";
-            this.lbDeudaDolares.Size = new System.Drawing.Size(65, 16);
-            this.lbDeudaDolares.TabIndex = 7;
-            this.lbDeudaDolares.Text = ":  $ 0.00";
-            // 
-            // lbTotal
-            // 
-            this.lbTotal.AutoSize = true;
-            this.lbTotal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotal.Location = new System.Drawing.Point(284, 83);
-            this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(79, 16);
-            this.lbTotal.TabIndex = 6;
-            this.lbTotal.Text = ":  Bs. 0.00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(5, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(209, 16);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Total de Productos Comprados";
-            // 
-            // lbIGVtext
-            // 
-            this.lbIGVtext.AutoSize = true;
-            this.lbIGVtext.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIGVtext.ForeColor = System.Drawing.Color.DimGray;
-            this.lbIGVtext.Location = new System.Drawing.Point(4, 121);
-            this.lbIGVtext.Name = "lbIGVtext";
-            this.lbIGVtext.Size = new System.Drawing.Size(94, 16);
-            this.lbIGVtext.TabIndex = 4;
-            this.lbIGVtext.Text = "Deuda en Bs.";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(5, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Deuda en $";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(4, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Total de la Venta";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 18);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Resumen Facturación";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(548, 1);
-            this.label2.TabIndex = 0;
             // 
             // radPagada
             // 
@@ -672,10 +505,273 @@
             this.radOpcionAPago.UseVisualStyleBackColor = true;
             this.radOpcionAPago.Visible = false;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 289);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(562, 217);
+            this.tabControl1.TabIndex = 14;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panelControles);
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(554, 190);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Resumen de Facturación";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panelControles
+            // 
+            this.panelControles.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelControles.Controls.Add(this.customButton1);
+            this.panelControles.Controls.Add(this.lbidVenta);
+            this.panelControles.Controls.Add(this.btnPagos);
+            this.panelControles.Controls.Add(this.lbComision);
+            this.panelControles.Controls.Add(this.label8);
+            this.panelControles.Controls.Add(this.lbTotalCantidad);
+            this.panelControles.Controls.Add(this.lbDeudaBs);
+            this.panelControles.Controls.Add(this.lbDeudaDolares);
+            this.panelControles.Controls.Add(this.lbTotal);
+            this.panelControles.Controls.Add(this.label7);
+            this.panelControles.Controls.Add(this.lbIGVtext);
+            this.panelControles.Controls.Add(this.label5);
+            this.panelControles.Controls.Add(this.label4);
+            this.panelControles.Controls.Add(this.label2);
+            this.panelControles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControles.Location = new System.Drawing.Point(3, 3);
+            this.panelControles.Name = "panelControles";
+            this.panelControles.Size = new System.Drawing.Size(548, 184);
+            this.panelControles.TabIndex = 15;
+            // 
+            // lbidVenta
+            // 
+            this.lbidVenta.AutoSize = true;
+            this.lbidVenta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbidVenta.ForeColor = System.Drawing.Color.DimGray;
+            this.lbidVenta.Location = new System.Drawing.Point(190, 38);
+            this.lbidVenta.Name = "lbidVenta";
+            this.lbidVenta.Size = new System.Drawing.Size(56, 16);
+            this.lbidVenta.TabIndex = 14;
+            this.lbidVenta.Text = "idVenta";
+            this.lbidVenta.Visible = false;
+            // 
+            // btnPagos
+            // 
+            this.btnPagos.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.ForeColor = System.Drawing.Color.White;
+            this.btnPagos.Image = ((System.Drawing.Image)(resources.GetObject("btnPagos.Image")));
+            this.btnPagos.Location = new System.Drawing.Point(14, 120);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Size = new System.Drawing.Size(278, 52);
+            this.btnPagos.TabIndex = 13;
+            this.btnPagos.Text = "Ver Pagos en detalle";
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = false;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            // 
+            // lbComision
+            // 
+            this.lbComision.AutoSize = true;
+            this.lbComision.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbComision.Location = new System.Drawing.Point(288, 38);
+            this.lbComision.Name = "lbComision";
+            this.lbComision.Size = new System.Drawing.Size(79, 16);
+            this.lbComision.TabIndex = 11;
+            this.lbComision.Text = ":  Bs. 0.00";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(8, 37);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 16);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Comision";
+            // 
+            // lbTotalCantidad
+            // 
+            this.lbTotalCantidad.AutoSize = true;
+            this.lbTotalCantidad.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalCantidad.Location = new System.Drawing.Point(288, 6);
+            this.lbTotalCantidad.Name = "lbTotalCantidad";
+            this.lbTotalCantidad.Size = new System.Drawing.Size(100, 16);
+            this.lbTotalCantidad.TabIndex = 9;
+            this.lbTotalCantidad.Text = ":  0 Unidades";
+            // 
+            // lbDeudaBs
+            // 
+            this.lbDeudaBs.AutoSize = true;
+            this.lbDeudaBs.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDeudaBs.Location = new System.Drawing.Point(288, 96);
+            this.lbDeudaBs.Name = "lbDeudaBs";
+            this.lbDeudaBs.Size = new System.Drawing.Size(79, 16);
+            this.lbDeudaBs.TabIndex = 8;
+            this.lbDeudaBs.Text = ":  Bs. 0.00";
+            // 
+            // lbDeudaDolares
+            // 
+            this.lbDeudaDolares.AutoSize = true;
+            this.lbDeudaDolares.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDeudaDolares.Location = new System.Drawing.Point(288, 77);
+            this.lbDeudaDolares.Name = "lbDeudaDolares";
+            this.lbDeudaDolares.Size = new System.Drawing.Size(65, 16);
+            this.lbDeudaDolares.TabIndex = 7;
+            this.lbDeudaDolares.Text = ":  $ 0.00";
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.Location = new System.Drawing.Point(288, 58);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(79, 16);
+            this.lbTotal.TabIndex = 6;
+            this.lbTotal.Text = ":  Bs. 0.00";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(9, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(209, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Total de Productos Comprados";
+            // 
+            // lbIGVtext
+            // 
+            this.lbIGVtext.AutoSize = true;
+            this.lbIGVtext.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIGVtext.ForeColor = System.Drawing.Color.DimGray;
+            this.lbIGVtext.Location = new System.Drawing.Point(8, 96);
+            this.lbIGVtext.Name = "lbIGVtext";
+            this.lbIGVtext.Size = new System.Drawing.Size(94, 16);
+            this.lbIGVtext.TabIndex = 4;
+            this.lbIGVtext.Text = "Deuda en Bs.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(9, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Deuda en $";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(8, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Total de la Venta";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(548, 1);
+            this.label2.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.txNota);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(554, 190);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Nota";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txNota
+            // 
+            this.txNota.BackColor = System.Drawing.Color.Gainsboro;
+            this.txNota.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txNota.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txNota.ForeColor = System.Drawing.Color.Black;
+            this.txNota.Location = new System.Drawing.Point(3, 3);
+            this.txNota.Margin = new System.Windows.Forms.Padding(0);
+            this.txNota.Multiline = true;
+            this.txNota.Name = "txNota";
+            this.txNota.ReadOnly = true;
+            this.txNota.Size = new System.Drawing.Size(548, 184);
+            this.txNota.TabIndex = 0;
+            // 
+            // cbBuscarPor
+            // 
+            this.cbBuscarPor.BackColor = System.Drawing.Color.White;
+            this.cbBuscarPor.Category = '\0';
+            this.cbBuscarPor.ColorFocus = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.cbBuscarPor.ColorLine = System.Drawing.Color.Gray;
+            this.cbBuscarPor.ColorText = System.Drawing.SystemColors.WindowText;
+            this.cbBuscarPor.ColorTitle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbBuscarPor.DisplayMember = "";
+            this.cbBuscarPor.DockIcon = System.Windows.Forms.DockStyle.Left;
+            this.cbBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBuscarPor.Error = "";
+            this.cbBuscarPor.FontText = new System.Drawing.Font("Verdana", 10F);
+            this.cbBuscarPor.FontTitle = new System.Drawing.Font("Verdana", 9F);
+            this.cbBuscarPor.ImageIcon = ((System.Drawing.Image)(resources.GetObject("cbBuscarPor.ImageIcon")));
+            this.cbBuscarPor.Info = "";
+            this.cbBuscarPor.Location = new System.Drawing.Point(335, 22);
+            this.cbBuscarPor.MaterialStyle = true;
+            this.cbBuscarPor.Name = "cbBuscarPor";
+            this.cbBuscarPor.Placeholder = "Buscar por";
+            this.cbBuscarPor.SelectedIndex = -1;
+            this.cbBuscarPor.Size = new System.Drawing.Size(160, 68);
+            this.cbBuscarPor.SizeLine = 2;
+            this.cbBuscarPor.TabIndex = 32;
+            this.cbBuscarPor.Title = "Buscar por";
+            this.cbBuscarPor.ValueMember = "";
+            this.cbBuscarPor.VisibleIcon = false;
+            this.cbBuscarPor.VisibleTitle = false;
+            this.cbBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cbBuscarPor_SelectedIndexChanged);
+            // 
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.Color.Teal;
+            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Image = ((System.Drawing.Image)(resources.GetObject("customButton1.Image")));
+            this.customButton1.Location = new System.Drawing.Point(298, 120);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(148, 52);
+            this.customButton1.TabIndex = 15;
+            this.customButton1.Text = "Ver Factura";
+            this.customButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
+            // 
             // frmAbrirVenta
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1246, 589);
+            this.ClientSize = new System.Drawing.Size(1276, 661);
             this.Name = "frmAbrirVenta";
             this.Text = "frmAbrirVenta";
             this.Load += new System.EventHandler(this.frmAbrirVenta_Load);
@@ -691,8 +787,12 @@
             this.ContenedorDoble.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalle)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.panelControles.ResumeLayout(false);
             this.panelControles.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -705,7 +805,17 @@
         private Autonomo.CustomControls.FlatDateTime dtDesde;
         private Autonomo.CustomControls.CustomGrid grdData;
         private Autonomo.CustomControls.CustomGrid grdDetalle;
+        private Autonomo.CustomControls.CustomCheck chkOnlyComision;
+        private Autonomo.CustomControls.CustomRadius radSinPagar;
+        private Autonomo.CustomControls.CustomRadius radPagada;
+        private Autonomo.CustomControls.CustomRadius radOpcionAPago;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panelControles;
+        private System.Windows.Forms.Label lbidVenta;
+        private Autonomo.CustomControls.CustomButton btnPagos;
+        private System.Windows.Forms.Label lbComision;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbTotalCantidad;
         private System.Windows.Forms.Label lbDeudaBs;
         private System.Windows.Forms.Label lbDeudaDolares;
@@ -714,15 +824,10 @@
         private System.Windows.Forms.Label lbIGVtext;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbComision;
-        private System.Windows.Forms.Label label8;
-        private Autonomo.CustomControls.CustomButton btnPagos;
-        private System.Windows.Forms.Label lbidVenta;
-        private Autonomo.CustomControls.CustomCheck chkOnlyComision;
-        private Autonomo.CustomControls.CustomRadius radSinPagar;
-        private Autonomo.CustomControls.CustomRadius radPagada;
-        private Autonomo.CustomControls.CustomRadius radOpcionAPago;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox txNota;
+        private Autonomo.CustomControls.FlatComboBox cbBuscarPor;
+        private Autonomo.CustomControls.CustomButton customButton1;
     }
 }

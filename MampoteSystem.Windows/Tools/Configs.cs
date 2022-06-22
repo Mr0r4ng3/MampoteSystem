@@ -1,4 +1,5 @@
-﻿using MampoteSystem.Windows.Home;
+﻿using MampoteSystem.Datos;
+using MampoteSystem.Windows.Home;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,6 +24,45 @@ namespace MampoteSystem.Windows.Tools
             catch (ConfigurationErrorsException)
             {
                 return "Error leyendo el archivo de configuración.";
+            }
+        }
+
+        public static string ReadTasa()
+        {
+            try
+            {
+                using(UnitOfWork uow = new UnitOfWork())
+                {
+                    return uow.tasa.readTasa();
+                }
+            }
+            catch(Exception ex)
+            {
+                Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
+                return null;
+            }
+
+        }
+
+        public static bool setTasa(string newTasa)
+        {
+            try
+            {
+                using(UnitOfWork uow = new UnitOfWork())
+                {
+                    int response = uow.tasa.setTasa(newTasa);
+
+                    if(response > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
+                return false;
             }
         }
 

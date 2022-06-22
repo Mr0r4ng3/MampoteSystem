@@ -13,8 +13,6 @@ namespace MampoteSystem.Entidad
         public string idCategoria { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public decimal Precio_Venta { get; set; }
-        public decimal IVA { get; set; }
-
+        public decimal Descuento { get; set; }
     }
 }

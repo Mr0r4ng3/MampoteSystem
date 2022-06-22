@@ -235,6 +235,17 @@ namespace MampoteSystem.Windows.Modulo.Clientes
                 Cliente.Cedula = grdData.SelectedRows[0].Cells[1].Value.ToString();
                 Cliente.Nombres = grdData.SelectedRows[0].Cells[2].Value.ToString();
                 Cliente.Apellidos = grdData.SelectedRows[0].Cells[3].Value.ToString();
+
+                if (SearchCliente.haveDeuda(Cliente))
+                {
+                    DialogResult response = MessageBox.Show($"{Cliente.Nombres} {Cliente.Apellidos} tiene ya una Orden de Venta sin pagar, ¿Desea continuar?", "¡Advertencia!", MessageBoxButtons.YesNo);
+                    if (response == DialogResult.No)
+                    {
+                        Cliente = new clientes();
+                        return;
+                    }
+                }
+                    
                 base.Set();
             }
             else

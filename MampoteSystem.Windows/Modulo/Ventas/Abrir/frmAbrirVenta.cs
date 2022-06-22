@@ -20,12 +20,16 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
     public partial class frmAbrirVenta : Autonomo.CustomTemplate.RegistryDouble
     {
         List<ventaReport> _ventaList;
+        private String[] BUSCARPOR = { "Cliente", "Nota" };
 
         private string NivelAcceso = Configs.GetNivelAcceso();
 
         public frmAbrirVenta()
         {
             InitializeComponent();
+
+            cbBuscarPor.DataSource = BUSCARPOR;
+            cbBuscarPor.SelectedIndex = 0;
         }
         private void LoadModal(string title, bool isNuevo)
         {
@@ -46,7 +50,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                         if (grdData.SelectedRows.Count > 0)
                         {
                                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
-                                string Cedula = grdData.SelectedRows[0].Cells["Cedula"].Value.ToString();
+                                string ClienteName = grdData.SelectedRows[0].Cells["Cliente"].Value.ToString();
+                                string Nota = grdData.SelectedRows[0].Cells["Nota"].Value.ToString();
                                 decimal MontoTotal = Convert.ToDecimal(grdData.SelectedRows[0].Cells["MontoTotal"].Value, new CultureInfo("en-US"));
                                 bool Comisioned = false;
 
@@ -56,7 +61,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                                 }
 
                             f.GetID = _idVenta;
-                            f.CedulaModifiyVenta = Cedula;
+                            f.ClienteNameInEdit = ClienteName;
+                            f.Nota = Nota;
                             f.TotalOld = Convert.ToDecimal(MontoTotal, new CultureInfo("en-US"));
                             f.Comisionada = Comisioned;
                             f.DetalleVenta = grdDetalle.DataSource;
@@ -99,15 +105,15 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             }
         }
 
-        private void GetDetail(string idVenta, decimal montoTotal, decimal Deuda, decimal Comision, decimal Tasa)
+        private void GetDetail(string idVenta, decimal montoTotal, decimal Deuda, decimal Comision, decimal Tasa, string Nota)
         {
             using (UnitOfWork uow = new UnitOfWork())
             {
                 var element = uow.detalleVenta.GetDetalles(idVenta).ToList();
                 grdDetalle.DataSource = element;
                 grdDetalle.Columns[0].Visible = false;
-                grdDetalle.Columns[1].Visible = false;
-                grdDetalle.Columns[6].Visible = false;
+                grdDetalle.Columns[2].Visible = false;
+                grdDetalle.Columns[7].Visible = false;
                 grdDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
 
@@ -115,7 +121,11 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
             foreach (DataGridViewRow row in grdDetalle.Rows)
             {
-                cantidad += int.Parse(row.Cells[4].Value.ToString());
+                if (row.Cells[2].Value.ToString() == "PROMOCIONES")
+                {
+                    continue;
+                }
+               cantidad += int.Parse(row.Cells[5].Value.ToString());
             }
 
             lbTotalCantidad.Text = $":  {cantidad} Unidades";
@@ -123,43 +133,80 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             lbComision.Text = $":  Bs. {Comision}";
             lbDeudaBs.Text = $":  Bs. {Deuda}";
             lbDeudaDolares.Text = $":  $ {(Deuda / Tasa).ToString("F2")}";
+            txNota.Text = Nota;
         }
 
         private void FilterData()
         {
             if (_ventaList != null && _ventaList.Count > 0)
             {
-                var data = _ventaList
-                    .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
 
-                if(chkOnlyComision.Checked == true)
+                if(cbBuscarPor.SelectedIndex == 0)
                 {
-                    if(radPagada.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
-                    }
-                    
-                    if (radSinPagar.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
-                    }
-                    if(radOpcionAPago.Checked == true)
-                    {
-                        data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
-                        data = data.Where(o => o.Deuda != o.MontoTotal);
-                    }
-                }
+                    var data = _ventaList
+                     .Where(o => o.Cliente.ToLower().Contains(txFilter.Text.ToLower()));
 
-                grdData.DataSource = data.ToList();
-                grdData.Columns[0].Visible = false;
-                grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if(grdData.Rows.Count > 0)
+                    if (chkOnlyComision.Checked == true)
+                    {
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
+                        if (radOpcionAPago.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                            data = data.Where(o => o.Deuda != o.MontoTotal);
+                        }
+                    }
+
+                    grdData.DataSource = data.OrderBy(o => o.NumeroFactura).ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
+                    {
+                        grdData.Rows[0].Selected = true;
+                    }
+
+                }
+                else
                 {
-                    grdData.Rows[0].Selected = true;
-                }
+                   var  data = _ventaList
+                        .Where(o => o.Nota.ToLower().Contains(txFilter.Text.ToLower()));
 
-                getEstadisticas();
+                    if (chkOnlyComision.Checked == true)
+                    {
+                        if (radPagada.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("pagada"));
+                        }
+
+                        if (radSinPagar.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                        }
+                        if (radOpcionAPago.Checked == true)
+                        {
+                            data = data.Where(o => o.EstadoComision.ToLower().Equals("sin pagar"));
+                            data = data.Where(o => o.Deuda != o.MontoTotal);
+                        }
+                    }
+
+                    grdData.DataSource = data.ToList();
+                    grdData.Columns[0].Visible = false;
+                    grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (grdData.Rows.Count > 0)
+                    {
+                        grdData.Rows[0].Selected = true;
+                    }
+
+                }
             }
+                getEstadisticas();
         }
 
         private void getEstadisticas()
@@ -174,25 +221,22 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
                 foreach (DataGridViewRow row in grdData.Rows)
                 {
-                    totalBs += Convert.ToDecimal(row.Cells[6].Value, new CultureInfo("en-US"));
-                    totalDeuda += Convert.ToDecimal(row.Cells[7].Value, new CultureInfo("en-US"));
+                    totalBs += Convert.ToDecimal(row.Cells[8].Value, new CultureInfo("en-US"));
+                    totalDeuda += Convert.ToDecimal(row.Cells[9].Value, new CultureInfo("en-US"));
                     totalComision += Convert.ToDecimal(row.Cells[4].Value, new CultureInfo("en-US"));
                 }
 
                 cantidadVentas = grdData.RowCount;
 
                 DescriptionData.Text = $"Cantidad de ventas encontradas: {cantidadVentas}  | Total : Bs. {totalBs.ToString("F2")}  | Total Deuda : Bs. {totalDeuda.ToString("F2")}  | Total Comision : Bs. {totalComision.ToString("F2")}";
+                return;
             }
-            else
-            {
-                DescriptionData.Text = "Cantidad de ventas encontradas: 0  | Total : Bs. 0.00  | Total Deuda : Bs. 0.00  | Total Comision : Bs. 0.00";
-
-            }
+            DescriptionData.Text = "Cantidad de ventas encontradas: 0  | Total : Bs. 0.00  | Total Deuda : Bs. 0.00  | Total Comision : Bs. 0.00";
         }
 
         public void onLoad()
         {
-            dtDesde.Value = Autonomo.Class.Obtaining.GetFirstDayMonth();
+            dtDesde.Value = new DateTime(DateTime.Today.Year, 1, 1);
             dtHasta.Value = DateTime.Now;
             ThemeStyle(Theme.White);
             LoadData();
@@ -263,6 +307,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             if (grdData.SelectedRows.Count > 0)
             {
                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
+                string _Nota = grdData.SelectedRows[0].Cells["Nota"].Value.ToString();
                 decimal _Tasa = Convert.ToDecimal(frmMenu.GetInstance().TCambio, new CultureInfo("en-US"));
                 decimal _montoTotal = Convert.ToDecimal(grdData.SelectedRows[0].Cells["MontoTotal"].Value.ToString());
                 decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value.ToString());
@@ -270,7 +315,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
                 lbidVenta.Text = _idVenta;
 
-                GetDetail(_idVenta, _montoTotal, _Deuda, _Comision, _Tasa);
+                GetDetail(_idVenta, _montoTotal, _Deuda, _Comision, _Tasa, _Nota);
 
                 string _estadoComision = grdData.SelectedRows[0].Cells["EstadoComision"].Value.ToString();
 
@@ -305,6 +350,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 lbDeudaBs.Text = ":  Bs. 0.00";
                 btnCommand2.Enabled = false;
                 btnCommand2.Text = "-----";
+                txNota.Clear();
             }
         }
 
@@ -334,11 +380,12 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
                 decimal _Total = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Deuda"].Value, new CultureInfo("en-US"));
+                decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value, new CultureInfo("en-US"));
 
                 var f = new Cerrar.frmCerrarVentaModal();
                 f.Title.Text = "Cerrar venta y agregar Pagos";
 
-                f.CargarMontos(_Total, _idVenta);
+                f.CargarMontos(_Total, _idVenta, _Comision);
 
                 Autonomo.Class.Fomulary.ShowModal(f, "", false);
 
@@ -493,6 +540,34 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                         }
 
                     }
+                }
+            }
+        }
+
+        private void cbBuscarPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            if (grdData.SelectedRows.Count > 0)
+            {
+                string idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
+
+                using (UnitOfWork uow = new UnitOfWork())
+                {
+                    List<detalleVentaReport> promociones = uow.detalleVenta.GetDetalles(idVenta).Where(
+                        o => o.Tipo == "PROMOCIONES").ToList();
+
+                    List<detalleVentaReport> items = uow.detalleVenta.GetDetalles(idVenta).Where(
+                        o => o.Tipo != "PROMOCIONES").ToList();
+
+                    ventaReport venta = uow.venta.GetVentaById(idVenta);
+
+                    frmInformeVenta frm = new frmInformeVenta();
+                    frm.LoadData(venta, items, promociones);
+                    frm.Show();
                 }
             }
         }
