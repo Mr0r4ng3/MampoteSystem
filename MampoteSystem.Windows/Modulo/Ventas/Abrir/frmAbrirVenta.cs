@@ -566,7 +566,17 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     ventaReport venta = uow.venta.GetVentaById(idVenta);
 
                     frmInformeVenta frm = new frmInformeVenta();
-                    frm.LoadData(venta, items, promociones);
+                    Entidad.ventaInforme ventaInforme = new Entidad.ventaInforme();
+                    ventaInforme.NumeroFactura = venta.NumeroFactura;
+                    ventaInforme.Cliente = venta.Cliente;
+                    ventaInforme.Fecha = venta.Fecha.ToShortDateString();
+                    ventaInforme.TotalDescuento = venta.TotalDescuento;
+                    ventaInforme.Comision = venta.Comision;
+                    ventaInforme.MontoTotal = venta.MontoTotal;
+                    ventaInforme.Deuda = venta.Deuda;
+                    ventaInforme.TotalAbonado = venta.MontoTotal - venta.Deuda;
+
+                    frm.LoadData(ventaInforme, items, promociones);
                     frm.Show();
                 }
             }

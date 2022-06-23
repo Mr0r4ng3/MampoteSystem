@@ -10,7 +10,7 @@ using MampoteSystem.Entidad.Report;
 
 namespace MampoteSystem.Windows.Modulo.Ventas
 {
-    public partial class frmInformeVenta : Form
+    public partial class frmInformeVenta : System.Windows.Forms.Form
     {
         public frmInformeVenta()
         {
@@ -23,7 +23,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
             this.reportViewer1.RefreshReport();
         }
 
-        public void LoadData(ventaReport venta, List<detalleVentaReport> items, List<detalleVentaReport> promociones)
+        public void LoadData(Entidad.ventaInforme venta, List<detalleVentaReport> items, List<detalleVentaReport> promociones)
         {
             ventaReportBindingSource.DataSource = venta;
             detalleVentaReportBindingSource.DataSource = items;

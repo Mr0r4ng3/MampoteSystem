@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.36401cm</Width>
+              <Width>10.16926cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.94658cm</Width>
@@ -303,9 +303,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>3.77472cm</Top>
-        <Left>0.40569cm</Left>
+        <Left>1.36968cm</Left>
         <Height>1.2cm</Height>
-        <Width>13.82243cm</Width>
+        <Width>17.62768cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -333,7 +333,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>0.33135cm</Left>
+        <Left>1.28149cm</Left>
         <Height>0.6cm</Height>
         <Width>0.80667cm</Width>
         <ZIndex>1</ZIndex>
@@ -368,7 +368,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>9.05143cm</Left>
+        <Left>13.65957cm</Left>
         <Height>0.6cm</Height>
         <Width>1.67979cm</Width>
         <ZIndex>2</ZIndex>
@@ -388,11 +388,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Fecha.Value, "Venta")</Value>
+                <Value>=First(Fields!Fecha.Value, "venta")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Light</FontWeight>
-                  <Format>d</Format>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
@@ -401,7 +400,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>10.90761cm</Left>
+        <Left>15.51575cm</Left>
         <Height>0.6cm</Height>
         <Width>3.48161cm</Width>
         <ZIndex>3</ZIndex>
@@ -421,7 +420,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Cliente.Value, "Venta")</Value>
+                <Value>=First(Fields!Cliente.Value, "venta")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Light</FontWeight>
@@ -435,7 +434,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.87998cm</Top>
-        <Left>3.00774cm</Left>
+        <Left>3.95788cm</Left>
         <Height>0.6cm</Height>
         <Width>4.46057cm</Width>
         <ZIndex>4</ZIndex>
@@ -471,7 +470,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.87998cm</Top>
-        <Left>0.33135cm</Left>
+        <Left>1.28149cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
@@ -485,25 +484,13 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line2">
-        <Top>2.76221cm</Top>
-        <Left>14.68438cm</Left>
-        <Height>0cm</Height>
-        <Width>-14.68438cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
       <Textbox Name="NumFactValue">
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!NumeroFactura.Value, "Venta")</Value>
+                <Value>=First(Fields!NumeroFactura.Value, "venta")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Light</FontWeight>
@@ -516,10 +503,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>1.31441cm</Left>
+        <Left>2.26455cm</Left>
         <Height>0.6cm</Height>
         <Width>6.1539cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -550,10 +537,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>2.99833cm</Top>
-        <Left>0.3175cm</Left>
+        <Left>1.28149cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -568,7 +555,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.36401cm</Width>
+              <Width>10.16925cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.94658cm</Width>
@@ -741,10 +728,10 @@
         </TablixRowHierarchy>
         <DataSetName>promociones</DataSetName>
         <Top>4.98883cm</Top>
-        <Left>0.4057cm</Left>
+        <Left>1.36969cm</Left>
         <Height>0.6cm</Height>
-        <Width>13.82243cm</Width>
-        <ZIndex>9</ZIndex>
+        <Width>17.62767cm</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -917,7 +904,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox14">
+                    <Textbox Name="Textbox13">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -925,6 +912,79 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Monto Total:</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MontoTotal1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MontoTotal.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MontoTotal1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox14">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total Abonado:</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -953,14 +1013,18 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="MontoTotal">
+                    <Textbox Name="TotalAbonado">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!MontoTotal.Value</Value>
+                              <Value>-</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!TotalAbonado.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -969,7 +1033,80 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>MontoTotal</rd:DefaultName>
+                      <rd:DefaultName>TotalAbonado</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Deuda Restante:</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Deuda">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Deuda.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Deuda</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1001,16 +1138,18 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>Venta</DataSetName>
-        <Top>5.72994cm</Top>
-        <Left>4.97904cm</Left>
-        <Height>1.8cm</Height>
+        <DataSetName>venta</DataSetName>
+        <Top>5.76522cm</Top>
+        <Left>9.74826cm</Left>
+        <Height>3cm</Height>
         <Width>9.2491cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1018,13 +1157,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.36459in</Height>
+    <Height>4.14584in</Height>
     <Style />
   </Body>
-  <Width>6.05567in</Width>
+  <Width>9.59537in</Width>
   <Page>
-    <PageHeight>21cm</PageHeight>
-    <PageWidth>14.8cm</PageWidth>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>
@@ -1034,13 +1173,6 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="MampoteSystemEntidadReport">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>0a25128a-3ece-46f1-9908-58733bc8abb6</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="MampoteSystemEntidadReport1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
@@ -1054,6 +1186,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>1e86e9ed-565b-4e31-85e3-b35805494c58</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="MampoteSystemEntidad">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>e2657d50-9262-4c3f-9ca9-ce0319724d67</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1153,6 +1292,71 @@
         <rd:DataSetName>MampoteSystem.Entidad.Report</rd:DataSetName>
         <rd:TableName>detalleVentaReport</rd:TableName>
         <rd:ObjectDataSourceType>MampoteSystem.Entidad.Report.detalleVentaReport, MampoteSystem.Entidad, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="venta">
+      <Query>
+        <DataSourceName>MampoteSystemEntidad</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Cedula">
+          <DataField>Cedula</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cliente">
+          <DataField>Cliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Comision">
+          <DataField>Comision</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Descuento">
+          <DataField>Descuento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Deuda">
+          <DataField>Deuda</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EstadoComision">
+          <DataField>EstadoComision</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MontoTotal">
+          <DataField>MontoTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Nota">
+          <DataField>Nota</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NumeroFactura">
+          <DataField>NumeroFactura</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalAbonado">
+          <DataField>TotalAbonado</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalDescuento">
+          <DataField>TotalDescuento</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MampoteSystem.Entidad</rd:DataSetName>
+        <rd:TableName>ventaInforme</rd:TableName>
+        <rd:ObjectDataSourceType>MampoteSystem.Entidad.ventaInforme, MampoteSystem.Entidad, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
