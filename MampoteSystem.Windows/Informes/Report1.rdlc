@@ -303,7 +303,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>3.77472cm</Top>
-        <Left>1.36968cm</Left>
+        <Left>1.90887cm</Left>
         <Height>1.2cm</Height>
         <Width>17.62768cm</Width>
         <Style>
@@ -333,7 +333,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>1.28149cm</Left>
+        <Left>1.82068cm</Left>
         <Height>0.6cm</Height>
         <Width>0.80667cm</Width>
         <ZIndex>1</ZIndex>
@@ -368,7 +368,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>13.65957cm</Left>
+        <Left>14.19876cm</Left>
         <Height>0.6cm</Height>
         <Width>1.67979cm</Width>
         <ZIndex>2</ZIndex>
@@ -400,7 +400,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>15.51575cm</Left>
+        <Left>16.05494cm</Left>
         <Height>0.6cm</Height>
         <Width>3.48161cm</Width>
         <ZIndex>3</ZIndex>
@@ -434,7 +434,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.87998cm</Top>
-        <Left>3.95788cm</Left>
+        <Left>4.49707cm</Left>
         <Height>0.6cm</Height>
         <Width>4.46057cm</Width>
         <ZIndex>4</ZIndex>
@@ -470,7 +470,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.87998cm</Top>
-        <Left>1.28149cm</Left>
+        <Left>1.82068cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
@@ -503,7 +503,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.50299cm</Top>
-        <Left>2.26455cm</Left>
+        <Left>2.80374cm</Left>
         <Height>0.6cm</Height>
         <Width>6.1539cm</Width>
         <ZIndex>6</ZIndex>
@@ -537,7 +537,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>2.99833cm</Top>
-        <Left>1.28149cm</Left>
+        <Left>1.82068cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>7</ZIndex>
@@ -728,7 +728,7 @@
         </TablixRowHierarchy>
         <DataSetName>promociones</DataSetName>
         <Top>4.98883cm</Top>
-        <Left>1.36969cm</Left>
+        <Left>1.90888cm</Left>
         <Height>0.6cm</Height>
         <Width>17.62767cm</Width>
         <ZIndex>8</ZIndex>
@@ -1146,7 +1146,7 @@
         </TablixRowHierarchy>
         <DataSetName>venta</DataSetName>
         <Top>5.76522cm</Top>
-        <Left>9.74826cm</Left>
+        <Left>10.28745cm</Left>
         <Height>3cm</Height>
         <Width>9.2491cm</Width>
         <ZIndex>9</ZIndex>
