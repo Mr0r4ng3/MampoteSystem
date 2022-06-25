@@ -158,8 +158,8 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
                 NuevoMonto = newMontoPagar;
             }
 
-            diferencia = Convert.ToDecimal(newMontoPagar - Math.Round(total + montoVueltoOrPropina,2), new CultureInfo("en-US"));
-            diferencia = diferencia < 0.10m ? 0.00m : diferencia;
+            diferencia = Convert.ToDecimal(newMontoPagar - Math.Round(total - montoVueltoOrPropina,2), new CultureInfo("en-US"));
+            diferencia = diferencia < 0.10m && diferencia > 0 ? 0.00m : diferencia;
             decimal diferenciaDivisa = diferencia / _Tasa;
 
 
