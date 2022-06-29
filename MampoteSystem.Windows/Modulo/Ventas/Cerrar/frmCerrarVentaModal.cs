@@ -30,7 +30,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
         {
             InitializeComponent();
         }
-        public void CargarMontos(decimal newMontoPagar, string newIdVenta, decimal setComision)
+        public void CargarMontos(decimal newMontoPagar, string newIdVenta, decimal setComision, decimal Tasa)
         {
             decimal MontoPagarDolares;
 
@@ -38,7 +38,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Cerrar
             MontoPagar = Convert.ToDecimal(newMontoPagar, new CultureInfo("en-US"));
             Comision = Convert.ToDecimal(setComision, new CultureInfo("en-US"));
 
-            _Tasa = Convert.ToDecimal(frmMenu.GetInstance().TCambio, new CultureInfo("en-US"));
+            _Tasa = Convert.ToDecimal(Tasa, new CultureInfo("en-US"));
             MontoPagarDolares = Convert.ToDecimal(MontoPagar / _Tasa, new CultureInfo("en-US"));
 
             lbTasa.Text = _Tasa.ToString(new CultureInfo("en-US"));

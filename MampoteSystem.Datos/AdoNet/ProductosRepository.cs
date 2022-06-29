@@ -75,5 +75,22 @@ namespace MampoteSystem.Datos.AdoNet
                 throw ex;
             }
         }
+
+        public int SubirBajarStock(string codigo, int cantidad, bool disminuir)
+        {
+
+            char simbol = disminuir ? '-' : '+';
+
+            try
+            {
+
+                string querySql = $"update productos set Stock = Stock {simbol} {cantidad} where Codigo = '{codigo}'";
+                return ObjContext.ExecuteNonQuery(querySql, System.Data.CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

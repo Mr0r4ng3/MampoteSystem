@@ -311,6 +311,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
 
 
                     int response = -1;
+                    string tasa = frmMenu.GetInstance().TCambio;
 
                     foreach (DataGridViewRow row in grdCanastilla.Rows)
                     {
@@ -349,7 +350,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                               Precio_Venta = _precioVenta,
                               IVA = _iva,
                               SubTotal = _subTotal
-                          }, Comisionada);
+                          }, Comisionada, tasa);
                     }
 
                     if(grdCanastilla.Rows.Count == 0)

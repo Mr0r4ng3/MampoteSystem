@@ -5,6 +5,7 @@ using MampoteSystem.Entidad.Report;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace MampoteSystem.Datos.AdoNet
             _helper = new GetNewID(mampoteSystemContext);
         }
 
-        public int Crud(venta venta, detalleVenta detalle, bool isComision)
+        public int Crud(venta venta, detalleVenta detalle, bool isComision, string tasa)
         {
             try
             {
@@ -32,6 +33,7 @@ namespace MampoteSystem.Datos.AdoNet
                         new SqlParameter("@idCliente",venta.idCliente),
                         new SqlParameter("@Comision",venta.Comision),
                         new SqlParameter("@EstadoComision",venta.EstadoComision),
+                        new SqlParameter("@Tasa",Convert.ToDecimal(tasa, new CultureInfo("en-US"))),
                         new SqlParameter("@MontoTotal",venta.MontoTotal),
                         new SqlParameter("@Deuda",venta.Deuda),
                         new SqlParameter("@Nota",venta.Nota),

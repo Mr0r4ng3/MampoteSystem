@@ -15,5 +15,6 @@ namespace MampoteSystem.Datos.Interfaces
         IEnumerable<prodComi> GetListTwo();
         int Crud(productos entity, string option);
         int setStock(string codigo, int cantidad);
+        int SubirBajarStock(string codigo, int cantidad, bool disminuir);
     }
 }

@@ -271,7 +271,23 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                     {
                         try
                         {
-                            int response = uow.venta.DeleteVenta(idVenta);
+                            int response;
+
+                            foreach(DataGridViewRow row in grdDetalle.Rows)
+                            {
+                                string idDetalle = row.Cells[0].Value.ToString();
+                                string codigo = row.Cells[3].Value.ToString();
+                                string tipo = row.Cells[2].Value.ToString();
+                                int cantidad = Convert.ToInt32(row.Cells[5].Value);
+
+                                if(tipo == "PRODUCTO")
+                                {
+                                    uow.productos.SubirBajarStock(codigo, cantidad, false);
+                                }
+                                uow.venta.DeleteDetalle(idDetalle);
+                            }
+
+                            response = uow.venta.DeleteVenta(idVenta);
 
                             if (response > 0)
                             {
@@ -308,7 +324,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             {
                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
                 string _Nota = grdData.SelectedRows[0].Cells["Nota"].Value.ToString();
-                decimal _Tasa = Convert.ToDecimal(frmMenu.GetInstance().TCambio, new CultureInfo("en-US"));
+                decimal _Tasa = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Tasa"].Value, new CultureInfo("en-US"));
                 decimal _montoTotal = Convert.ToDecimal(grdData.SelectedRows[0].Cells["MontoTotal"].Value.ToString());
                 decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value.ToString());
                 decimal _Deuda = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Deuda"].Value.ToString());
@@ -379,13 +395,14 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
             if (grdData.SelectedRows.Count > 0)
             {
                 string _idVenta = grdData.SelectedRows[0].Cells["id"].Value.ToString();
+                decimal _Tasa = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Tasa"].Value, new CultureInfo("en-US"));
                 decimal _Total = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Deuda"].Value, new CultureInfo("en-US"));
                 decimal _Comision = Convert.ToDecimal(grdData.SelectedRows[0].Cells["Comision"].Value, new CultureInfo("en-US"));
 
                 var f = new Cerrar.frmCerrarVentaModal();
                 f.Title.Text = "Cerrar venta y agregar Pagos";
 
-                f.CargarMontos(_Total, _idVenta, _Comision);
+                f.CargarMontos(_Total, _idVenta, _Comision, _Tasa);
 
                 Autonomo.Class.Fomulary.ShowModal(f, "", false);
 
@@ -518,11 +535,22 @@ namespace MampoteSystem.Windows.Modulo.Ventas.Abrir
                 if (grdDetalle.SelectedRows.Count > 0)
                 {
                     string idDetalle = grdDetalle.SelectedRows[0].Cells[0].Value.ToString();
+                    string codigo = grdDetalle.SelectedRows[0].Cells[3].Value.ToString();
+                    string tipo = grdDetalle.SelectedRows[0].Cells[2].Value.ToString();
+                    int cantidad = Convert.ToInt32(grdDetalle.SelectedRows[0].Cells[5].Value);
+
                     using (UnitOfWork uow = new UnitOfWork())
                     {
                         try
                         {
-                            int response = uow.venta.DeleteDetalle(idDetalle);
+                            int response;
+
+                            if(tipo == "PRODUCTO")
+                            {
+                                response = uow.productos.SubirBajarStock(codigo, cantidad, false);
+                            }
+
+                            response = uow.venta.DeleteDetalle(idDetalle);
 
                             if (response > 0)
                             {

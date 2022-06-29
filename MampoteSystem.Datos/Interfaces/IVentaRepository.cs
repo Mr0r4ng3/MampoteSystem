@@ -11,7 +11,7 @@ namespace MampoteSystem.Datos.Interfaces
     public interface IVentaRepository : IRepository<venta>
     {
         IEnumerable<ventaReport> GetList(DateTime desde, DateTime hasta, bool Vendido);
-        int Crud(venta venta, detalleVenta detalle, bool isComision);
+        int Crud(venta venta, detalleVenta detalle, bool isComision, string tasa);
         string GetNewID();
         string GetNewFactura();
         int pagarComision(string idVenta, bool cancel);

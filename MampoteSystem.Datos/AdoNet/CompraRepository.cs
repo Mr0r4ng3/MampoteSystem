@@ -62,5 +62,17 @@ namespace MampoteSystem.Datos.AdoNet
         {
             return _helper.GetID("Compra");
         }
+
+        public int DeleteDetalle(string idDetalle)
+        {
+            try
+            {
+                return ObjContext.ExecuteNonQuery($"delete detalleCompra where id = '{idDetalle}'", System.Data.CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
