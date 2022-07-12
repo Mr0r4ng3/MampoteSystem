@@ -8,6 +8,7 @@ namespace MampoteSystem.Entidad.Report
 {
     public class detalleCompraReport
     {
+        public string id { get; set; }
         public string codigoProducto { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }

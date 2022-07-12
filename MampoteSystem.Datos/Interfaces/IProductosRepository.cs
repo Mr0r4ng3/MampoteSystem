@@ -16,5 +16,6 @@ namespace MampoteSystem.Datos.Interfaces
         int Crud(productos entity, string option);
         int setStock(string codigo, int cantidad);
         int SubirBajarStock(string codigo, int cantidad, bool disminuir);
+        IEnumerable<productosVendidosReport> GetProductosVendidos(DateTime fechaInicio, DateTime fechaFin);
     }
 }

@@ -42,6 +42,7 @@
             this.labelButton2 = new Autonomo.CustomControls.LabelButton();
             this.labelButton1 = new Autonomo.CustomControls.LabelButton();
             this.btnResumenPagos = new Autonomo.CustomControls.LabelButton();
+            this.lbProductosVendidos = new Autonomo.CustomControls.LabelButton();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.PanelVenta.SuspendLayout();
             this.PanelConfiguracion.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             this.PanelConfiguracion.Controls.Add(this.btnUsuarios);
             this.PanelConfiguracion.Controls.Add(this.btnActualizarTasa);
-            this.PanelConfiguracion.Location = new System.Drawing.Point(0, 1179);
+            this.PanelConfiguracion.Location = new System.Drawing.Point(0, 1217);
             this.PanelConfiguracion.Size = new System.Drawing.Size(212, 146);
             this.PanelConfiguracion.Controls.SetChildIndex(this.btnActualizarTasa, 0);
             this.PanelConfiguracion.Controls.SetChildIndex(this.btnUsuarios, 0);
@@ -99,10 +100,12 @@
             // 
             // PanelReporte
             // 
+            this.PanelReporte.Controls.Add(this.lbProductosVendidos);
             this.PanelReporte.Controls.Add(this.labelButton1);
             this.PanelReporte.Location = new System.Drawing.Point(0, 1070);
-            this.PanelReporte.Size = new System.Drawing.Size(212, 109);
+            this.PanelReporte.Size = new System.Drawing.Size(212, 147);
             this.PanelReporte.Controls.SetChildIndex(this.labelButton1, 0);
+            this.PanelReporte.Controls.SetChildIndex(this.lbProductosVendidos, 0);
             // 
             // PanelCliente
             // 
@@ -356,6 +359,23 @@
             this.btnResumenPagos.Text = "Resumen de Pagos";
             this.btnResumenPagos.ButtonClick += new System.EventHandler(this.btnResumenPagos_ButtonClick);
             // 
+            // lbProductosVendidos
+            // 
+            this.lbProductosVendidos.BackColor = System.Drawing.Color.Transparent;
+            this.lbProductosVendidos.ColorDetailText = System.Drawing.Color.Gray;
+            this.lbProductosVendidos.ColorText = System.Drawing.SystemColors.ControlText;
+            this.lbProductosVendidos.DetailText = "Listado de Vendidos";
+            this.lbProductosVendidos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbProductosVendidos.FontDetailText = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProductosVendidos.FontText = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProductosVendidos.ImageDown = ((System.Drawing.Image)(resources.GetObject("lbProductosVendidos.ImageDown")));
+            this.lbProductosVendidos.Location = new System.Drawing.Point(0, 86);
+            this.lbProductosVendidos.Name = "lbProductosVendidos";
+            this.lbProductosVendidos.Size = new System.Drawing.Size(212, 42);
+            this.lbProductosVendidos.TabIndex = 10;
+            this.lbProductosVendidos.Text = "Productos";
+            this.lbProductosVendidos.ButtonClick += new System.EventHandler(this.lbProductosVendidos_ButtonClick);
+            // 
             // frmMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -391,5 +411,6 @@
         private Autonomo.CustomControls.LabelButton btnAbrirVenta;
         private Autonomo.CustomControls.LabelButton labelButton1;
         private Autonomo.CustomControls.LabelButton btnResumenPagos;
+        private Autonomo.CustomControls.LabelButton lbProductosVendidos;
     }
 }

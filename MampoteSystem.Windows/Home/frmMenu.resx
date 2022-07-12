@@ -153,7 +153,7 @@
         0sw5nJYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnResumenPagos.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAbrirVenta.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAf1JREFUSEul
         lD1IW1EYhuMPSqUWxQ51ULoW3ByKFCRrkpvkJpDBRUe7tELBySXg0sHF2S7GXcXBxUJ/RVyFQKEKgrio
@@ -181,7 +181,7 @@
         FisJD9qeROwSfmP8klPxwFJ3EIlcAy4Z/QI7OZbgAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnAbrirVenta.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnResumenPagos.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAf1JREFUSEul
         lD1IW1EYhuMPSqUWxQ51ULoW3ByKFCRrkpvkJpDBRUe7tELBySXg0sHF2S7GXcXBxUJ/RVyFQKEKgrio
@@ -266,6 +266,20 @@
 </value>
   </data>
   <data name="btnProveedores.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAf1JREFUSEul
+        lD1IW1EYhuMPSqUWxQ51ULoW3ByKFCRrkpvkJpDBRUe7tELBySXg0sHF2S7GXcXBxUJ/RVyFQKEKgrio
+        qW1RKBESn/f6pVS9SW9uXnj5zvdz3nO/c885kbtwHGcsmUzuw2IikRixcOtAcAOW4R9YSqfTzy3VGhD7
+        Ck9TqdQ49pct4Fo6PGrCGrMVo4xP4BULTXkFYWHCZ+ZK/BmiR8Qq2BkLNw8EvvwrLLiu+5TYd1hFPG/h
+        5mDCJXP/Ih6PPyG+J3G4SKjtJhMQfNFnP2GBbekntyNx6paj0Winpf6PRsJCLpd7yFnfkjhci8Vi3ZZq
+        DBP+Ya4vJCZRE9+EPZaqD4o+wYbCgomvQ4m/VyeW8kdQYUF7TG3BxBcs7A8KPsJzc2/BTsZrtmse+w7q
+        +u/CCixYmT8ouCeM0AtZ2u1irMuiLxT1phxDLTDsFdcDBRL+aa78CViuiXMiZvGr2DdeQVAw6UNN2ETU
+        ps7tqmLYXvxzeEAHHYoFAhM8YTgH1a6usi7FFfTaxS5A5YK/ehQv2SSxmM1mB7GO+W9Vwxs9xLhMR9ve
+        pCDIZDIDTNIf1wKPFcvn8+2M9eUl6F0G7ArUXo/JDw32dkZCcJrXrg+7aP4rKwkHbtojRH7DU3hhoofa
+        FisJD9qeROwSfmP8klPxwFJ3EIlcAy4Z/QI7OZbgAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lbProductosVendidos.ImageDown" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAf1JREFUSEul
         lD1IW1EYhuMPSqUWxQ51ULoW3ByKFCRrkpvkJpDBRUe7tELBySXg0sHF2S7GXcXBxUJ/RVyFQKEKgrio

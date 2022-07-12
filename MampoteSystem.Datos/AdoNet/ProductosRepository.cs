@@ -75,7 +75,6 @@ namespace MampoteSystem.Datos.AdoNet
                 throw ex;
             }
         }
-
         public int SubirBajarStock(string codigo, int cantidad, bool disminuir)
         {
 
@@ -91,6 +90,24 @@ namespace MampoteSystem.Datos.AdoNet
             {
                 throw ex;
             }
+        }
+        public IEnumerable<productosVendidosReport> GetProductosVendidos(DateTime fechaInicio, DateTime fechaFin)
+        {
+            string command = "select	v.NumeroFactura, " +
+                                        "dv.Tipo, " +
+                                        "dv.Codigo, " +
+                                        "p.Nombre, " +
+                                        "dv.Cantidad, " +
+                                        "dv.Fecha " +
+                            "from detalleVenta dv " +
+                            "join venta v on dv.idVenta = v.id " +
+                            "join productos p on dv.Codigo = p.Codigo " +
+                            $"where dv.Tipo = 'COMIDA' or dv.Tipo = 'PRODUCTO' and dv.Fecha between '{fechaInicio}' and '{fechaFin}' " +
+                            "order by p.Nombre desc";
+
+            return ObjContext.ToList<productosVendidosReport>(
+                            ObjContext.GetData(command).Tables[0]
+                        );
         }
     }
 }

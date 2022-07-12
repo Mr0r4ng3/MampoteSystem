@@ -18,7 +18,7 @@ namespace MampoteSystem.Windows.Tools.Models
         private static bool ValidateGrid(string codigo, CustomGrid grid, bool venta)
         {
 
-                bool returnValue = false;
+            bool returnValue = false;
             if (venta)
             {
                 foreach (DataGridViewRow row in grid.Rows)
@@ -176,8 +176,22 @@ namespace MampoteSystem.Windows.Tools.Models
                     }
                     return returnValue;
                 }
-                returnValue.Estado = false;
-                returnValue.Mensaje = $"El Item {nombre}, ya se ha agregado";
+                else
+                {
+                    foreach (DataGridViewRow row in grid.Rows)
+                    {
+                        if (row.Cells[0].Value.ToString() == unico)
+                        {
+                            row.Cells[2].Value = Convert.ToInt32(row.Cells[2].Value) + productosCompra.Cantidad;
+                            row.Cells[5].Value = Convert.ToDecimal(row.Cells[5].Value) + productosCompra.Subtotal;
+
+                            returnValue.Estado = true;
+                            returnValue.Mensaje = $"Al Item {nombre}, se le agregaron {VentaItems.Cantidad} unidades.";
+                            break;
+                        }
+                    }
+                    return returnValue;
+                }
             }
             return returnValue;
         }

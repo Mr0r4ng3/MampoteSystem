@@ -12,7 +12,8 @@ namespace MampoteSystem.Datos.Interfaces
     {
         IEnumerable<compraReport> GetList(DateTime desde, DateTime hasta);
         int Crud(compra compra, detalleCompra detalle);
-
         string GetNewID();
+        int DeleteDetalle(string idDetalle);
+        int DeleteCompra(string idCompra);
     }
 }

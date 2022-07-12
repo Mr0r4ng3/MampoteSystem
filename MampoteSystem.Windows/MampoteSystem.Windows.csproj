@@ -269,6 +269,12 @@
     <Compile Include="Modulo\Reporte\frmEstadisticas.Designer.cs">
       <DependentUpon>frmEstadisticas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulo\Reporte\frmReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo\Reporte\frmReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulo\Ventas\Abrir\frmAbrirVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo\Reporte\frmEstadisticas.resx">
       <DependentUpon>frmEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo\Reporte\frmReporteProductosVendidos.resx">
+      <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo\Ventas\Abrir\frmAbrirVenta.resx">
       <DependentUpon>frmAbrirVenta.cs</DependentUpon>

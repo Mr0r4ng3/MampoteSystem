@@ -176,5 +176,11 @@ namespace MampoteSystem.Windows.Home
             var form = new Modulo.Ventas.FrmResumenPagos();
             ShowFormInPanelAndReload(form, SubContenedor);
         }
+
+        private void lbProductosVendidos_ButtonClick(object sender, EventArgs e)
+        {
+            var form = new Modulo.Reporte.frmReporteProductosVendidos();
+            ShowFormInPanelAndReload(form, SubContenedor);
+        }
     }
 }

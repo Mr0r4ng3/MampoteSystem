@@ -65,7 +65,7 @@ namespace MampoteSystem.Windows.Modulo.Compras
 
             foreach (DataGridViewRow row in grdDetalle.Rows)
             {
-                cantidad += int.Parse(row.Cells[2].Value.ToString());
+                cantidad += int.Parse(row.Cells[3].Value.ToString());
             }
 
             lbTotalCantidad.Text = $":  {cantidad} unidades";
@@ -112,6 +112,53 @@ namespace MampoteSystem.Windows.Modulo.Compras
             dtHasta.Value = DateTime.Now;
             ThemeStyle(Theme.White);
             LoadData();
+        }
+        private void DeleteCompra()
+        {
+            DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar la compra?", "¡Advertencia!", MessageBoxButtons.YesNo);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                if (grdData.SelectedRows.Count > 0)
+                {
+                    string idCompra = grdData.SelectedRows[0].Cells[0].Value.ToString();
+
+                    using (UnitOfWork uow = new UnitOfWork())
+                    {
+                        try
+                        {
+                            int response;
+
+                            foreach (DataGridViewRow row in grdDetalle.Rows)
+                            {
+                                string idDetalle = row.Cells[0].Value.ToString();
+                                string codigo = row.Cells[1].Value.ToString();
+                                int cantidad = Convert.ToInt32(row.Cells[3].Value);
+
+                                uow.productos.SubirBajarStock(codigo, cantidad, true);
+                                uow.compra.DeleteDetalle(idDetalle);
+                            }
+
+                            response = uow.compra.DeleteCompra(idCompra);
+
+                            if (response > 0)
+                            {
+                                Mensaje.MessageBox(Enumerables.Mensajeria.Succesful, "Se elimino correctamente la compra.");
+                                LoadData();
+                            }
+                            else
+                            {
+                                Mensaje.MessageBox(Enumerables.Mensajeria.Warning, "No se pudo eliminar la compra.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
+                        }
+
+                    }
+                }
+            }
         }
         private void frmCompra_Load(object sender, EventArgs e)
         {
@@ -170,6 +217,58 @@ namespace MampoteSystem.Windows.Modulo.Compras
             {
                 Mensaje.MessageBox(Enumerables.Mensajeria.Error, "No hay datos para exportar.");
             }
+        }
+
+        private void btnCommand1_Click(object sender, EventArgs e)
+        {
+            if (grdDetalle.Rows.Count == 1)
+            {
+                DeleteCompra();
+                return;
+            }
+            DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el producto?", "¡Advertencia!", MessageBoxButtons.YesNo);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                if (grdDetalle.SelectedRows.Count > 0)
+                {
+                    string idDetalle = grdDetalle.SelectedRows[0].Cells[0].Value.ToString();
+                    string codigo = grdDetalle.SelectedRows[0].Cells[1].Value.ToString();
+                    int cantidad = Convert.ToInt32(grdDetalle.SelectedRows[0].Cells[3].Value);
+
+                    using (UnitOfWork uow = new UnitOfWork())
+                    {
+                        try
+                        {
+                            int response;
+
+                            response = uow.productos.SubirBajarStock(codigo, cantidad, true);
+
+                            response = uow.compra.DeleteDetalle(idDetalle);
+
+                            if (response > 0)
+                            {
+                                Mensaje.MessageBox(Enumerables.Mensajeria.Succesful, "Se elimino correctamente el producto.");
+                                LoadData();
+                            }
+                            else
+                            {
+                                Mensaje.MessageBox(Enumerables.Mensajeria.Warning, "No se pudo eliminar el producto.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Mensaje.MessageBox(Enumerables.Mensajeria.Error, ex);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DeleteCompra();
         }
     }
 }

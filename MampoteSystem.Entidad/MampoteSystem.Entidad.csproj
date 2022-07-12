@@ -60,6 +60,7 @@
     <Compile Include="Report\detalleVentaReport.cs" />
     <Compile Include="Report\prodComi.cs" />
     <Compile Include="Report\productosReport.cs" />
+    <Compile Include="Report\productosVendidosReport.cs" />
     <Compile Include="Report\ventaReport.cs" />
     <Compile Include="usuario.cs" />
     <Compile Include="venta.cs" />
