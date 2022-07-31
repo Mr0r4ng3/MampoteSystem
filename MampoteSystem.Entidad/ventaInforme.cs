@@ -18,6 +18,7 @@ namespace MampoteSystem.Entidad
         public decimal TotalDescuento { get; set; }
         public decimal MontoTotal { get; set; }
         public decimal Deuda { get; set; }
+        public decimal DeudaDolares { get; set; }
         public decimal TotalAbonado { get; set; }
         public string Fecha { get; set; }
         public string Nota { get; set; }

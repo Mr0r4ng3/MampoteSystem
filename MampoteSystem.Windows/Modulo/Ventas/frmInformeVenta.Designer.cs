@@ -55,6 +55,7 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "venta";
             reportDataSource1.Value = this.ventaReportBindingSource;
@@ -69,17 +70,19 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(789, 539);
+            this.reportViewer1.Size = new System.Drawing.Size(718, 539);
             this.reportViewer1.TabIndex = 0;
             // 
             // frmInformeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 539);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(718, 539);
             this.Controls.Add(this.reportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmInformeVenta";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orden de Venta";
             this.Load += new System.EventHandler(this.frmInformeVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ventaReportBindingSource)).EndInit();

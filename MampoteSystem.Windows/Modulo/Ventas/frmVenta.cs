@@ -363,10 +363,10 @@ namespace MampoteSystem.Windows.Modulo.Ventas
 
                 using (UnitOfWork uow = new UnitOfWork())
                 {
-                    List<detalleVentaReport> promociones = uow.detalleVenta.GetDetalles(idVenta).Where(
+                    List<detalleVentaReport> promociones = uow.detalleVenta.GetDetallesReport(idVenta).Where(
                         o => o.Tipo == "PROMOCIONES").ToList();
 
-                    List<detalleVentaReport> items = uow.detalleVenta.GetDetalles(idVenta).Where(
+                    List<detalleVentaReport> items = uow.detalleVenta.GetDetallesReport(idVenta).Where(
                         o => o.Tipo != "PROMOCIONES").ToList();
 
                     ventaReport venta = uow.venta.GetVentaById(idVenta);
@@ -379,6 +379,7 @@ namespace MampoteSystem.Windows.Modulo.Ventas
                     ventaInforme.MontoTotal = venta.MontoTotal;
                     ventaInforme.Deuda = venta.Deuda;
                     ventaInforme.TotalAbonado = venta.MontoTotal - venta.Deuda;
+                    ventaInforme.DeudaDolares = venta.Deuda != 0 ? Decimal.Round(venta.Deuda / venta.Tasa, 2) : venta.Deuda;
 
                     frmInformeVenta frm = new frmInformeVenta();
                     frm.LoadData(ventaInforme, items, promociones);

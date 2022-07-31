@@ -66,5 +66,8 @@
     <Compile Include="venta.cs" />
     <Compile Include="ventaInforme.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\ventaInforme.datasource" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

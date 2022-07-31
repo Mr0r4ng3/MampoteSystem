@@ -11,6 +11,7 @@ namespace MampoteSystem.Datos.Interfaces
     public interface IDetalleVentaRepository : IRepository<detalleVenta>
     {
         IEnumerable<detalleVentaReport> GetDetalles(string idVenta);
+        IEnumerable<detalleVentaReport> GetDetallesReport(string idVenta);
 
     }
 }

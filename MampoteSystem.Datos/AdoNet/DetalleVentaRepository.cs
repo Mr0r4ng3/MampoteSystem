@@ -24,5 +24,24 @@ namespace MampoteSystem.Datos.AdoNet
                     }).Tables[0]
                     );
         }
+
+        public IEnumerable<detalleVentaReport> GetDetallesReport(string idVenta)
+        {
+            string command = "select d.Tipo," +
+                                "d.Codigo," +
+                                "p.Nombre," +
+                                "SUM(d.Cantidad) as Cantidad," +
+                                "d.Precio_Venta," +
+                                "d.IVA," +
+                                "SUM(d.SubTotal) as SubTotal " +
+                            "from detalleVenta d " +
+                            "join productos p on d.Codigo = p.Codigo " +
+                            $"where d.idVenta = '{idVenta}' " +
+                            "group by d.Tipo, d.Codigo, p.Nombre, d.Precio_Venta, d.IVA";
+
+            return ObjContext.ToList<detalleVentaReport>(
+                            ObjContext.GetData(command).Tables[0]
+                        );
+        }
     }
 }
